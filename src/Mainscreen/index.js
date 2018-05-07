@@ -1,14 +1,21 @@
-import React from "react";
-
-export default class extends React.Component {
+import React, { Component } from "react";
+import { Mainwrap, Mainheading } from "./Styled";
+import { ButtonRight } from "../UI/buttons";
+import { colorPr, colorAcc } from "../UI/index";
+import background from "../assets/img/background.jpg";
+export default class extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row center-xs">
-          <div className="col-xs-6">test</div>
-          <div className="col-xs-6">test</div>
+      <Mainwrap background={background}>
+        <div className="container">
+          <div className="row center-xs middle-xs">
+            <div className="col-xs-12">
+              <Mainheading>Ночной клуб Пионер</Mainheading>
+              <ButtonRight children="подробнее" color={colorPr} />
+            </div>
+          </div>
         </div>
-      </div>
+      </Mainwrap>
     );
   }
 }
