@@ -6,12 +6,18 @@ export const Mainwrap = styled.div`
   background-image: url(${props => props.background});
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
+  position: relative;
 `;
 
 export const Mainheading = styled.h1`
   font-size: 2rem;
   color: #fff;
   text-align: center;
+`;
+
+export const Content = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 `;

@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Card from "./Card";
 import birthday from "../../assets/img/birthday.jpg";
-import { colorDark } from "../../UI/";
+
 import Section from "../../UI/section";
 import { Cards, CardWrap, FirstCard, SideSection } from "./Styled";
 
 class index extends Component {
   render() {
     return (
-      <Section background={colorDark}>
+      <Section>
         <div className="container">
           <div className="row">
             <div className="col-xs-12">

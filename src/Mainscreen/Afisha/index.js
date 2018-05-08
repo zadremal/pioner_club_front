@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Section, { Heading } from "../../UI/section";
 import Card from "./Card";
 import { Afisha, AfishaItem } from "./Styled";
-import { colorDark } from "../../UI/";
 
 import thursday from "../../assets/img/thursday.jpg";
 import friday from "../../assets/img/friday.jpg";
@@ -11,11 +10,11 @@ import saturday from "../../assets/img/saturday.jpg";
 class index extends Component {
   render() {
     return (
-      <Section background={colorDark}>
+      <Section>
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <Heading contrast children="На этой неделе" />
+              <Heading children="На этой неделе" />
             </div>
             <div className="col-xs-12">
               <Afisha>

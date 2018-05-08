@@ -38,8 +38,25 @@ const Overlay = styled.div`
   bottom: 0;
   transition: opacity 0.2s ease-out;
   background-color: rgba(235, 31, 6, 0.4);
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    border: 1px solid #fff;
+    transition: all 0.175s ease-out;
+  }
   ${Card}:hover & {
     opacity: 1;
+    &:after {
+      top: 10px;
+      left: 10px;
+      bottom: 10px;
+      right: 10px;
+      opacity: 1;
+    }
   }
 `;
 
