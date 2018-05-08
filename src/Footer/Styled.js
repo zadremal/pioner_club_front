@@ -4,6 +4,8 @@ import { colorDark, colorPr, colorAcc } from "../UI/";
 export const Footer = styled.footer`
   background-color: ${colorDark};
   padding: 2rem;
+  width: 100%;
+  flex-shrink: 0;
 `;
 
 export const Nav = styled.ul`

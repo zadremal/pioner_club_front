@@ -14,7 +14,7 @@ const Section = styled.section`
 
 export const Heading = styled.h2`
   font-family: "Intro", sans-serif, arial;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
   color: ${props => (props.contrast ? "#fff" : colorDark)};
 `;
