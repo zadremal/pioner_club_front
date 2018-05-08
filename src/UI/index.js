@@ -28,3 +28,18 @@ export const HeadingHighlighted = styled.span`
   color: #d12f19;
   padding: 1rem 1rem 0.75rem;
 `;
+
+export const Mainscreen = styled.section`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: url(${props => props.background});
+  background-position: center;
+  background-size: cover;
+  backgorund-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+  padding: 0 20%;
+`;

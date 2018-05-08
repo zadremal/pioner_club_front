@@ -1,19 +1,5 @@
 import styled from "styled-components";
-import { colorDark, colorPr } from "../UI/";
-
-export const Mainscreen = styled.section`
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background: url(${props => props.background});
-  background-position: center;
-  background-size: cover;
-  backgorund-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-attachment: fixed;
-`;
+import { colorDark, colorPr, Mainscreen } from "../UI/";
 
 export const Content = styled.div`
   max-width: 60%;

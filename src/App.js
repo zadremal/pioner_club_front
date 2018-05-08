@@ -6,6 +6,7 @@ import Afisha from "./Mainscreen/Afisha";
 import Deals from "./Mainscreen/Deals";
 import Footer from "./Footer";
 import Birthday from "./Birthday";
+import Banket from "./Banket";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Main } from "./UI";
 
@@ -18,6 +19,7 @@ class App extends Component {
           <Main>
             <Route exact path="/" component={HomeRoute} />
             <Route path="/birthday" component={BirthdayRoute} />
+            <Route path="/banket" component={BanketRoute} />
           </Main>
         </Router>
         <Footer />
@@ -45,6 +47,16 @@ class BirthdayRoute extends Component {
     return (
       <Fragment>
         <Birthday />
+      </Fragment>
+    );
+  }
+}
+
+class BanketRoute extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Banket />
       </Fragment>
     );
   }

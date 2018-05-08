@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import bitrhdayBackground from "./background.jpg";
 import {
-  Mainscreen,
   Content,
   Detail,
   DealImg,
@@ -24,7 +23,7 @@ import party from "./party.jpg";
 import pioner from "./pioner.jpg";
 import prisyaga from "./prisyaga.jpg";
 
-import { MainHeading, HeadingHighlighted } from "../UI";
+import { MainHeading, HeadingHighlighted, Mainscreen } from "../UI";
 import { ButtonUpWhite } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
 import fencing from "./fencing.svg";
@@ -36,7 +35,7 @@ class index extends Component {
     return (
       <Fragment>
         <Mainscreen background={bitrhdayBackground}>
-          <Content>
+          <div className="center-xs">
             <MainHeading>
               У вас скоро день рождения? Подарим Вам <br />
               <HeadingHighlighted>
@@ -48,7 +47,7 @@ class index extends Component {
               раза меньше! (не включает стоимость обслуживания)
             </Detail>
             <ButtonUpWhite>Получить скидку</ButtonUpWhite>
-          </Content>
+          </div>
         </Mainscreen>
         <Section>
           <div className="container">
@@ -154,7 +153,7 @@ class index extends Component {
                   <Input placeholder="Ваше имя" />
                   <Input placeholder="Ваш номер телефона" />
                   <Input placeholder="День рождения" />
-                  <Submit value="отпраздновать" />
+                  <Submit defaultValue="отпраздновать" />
                 </Form>
               </div>
             </div>

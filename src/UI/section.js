@@ -4,7 +4,7 @@ import { colorDark } from "./index";
 
 const Section = styled.section`
   padding: 1rem 0;
-  background: ${props => (props.image ? `url(${props.image})` : "none")};
+  background: URL(${props => props.background});
   background-color: ${props =>
     props.background ? props.background : "transparent"};
   background-size: cover;
