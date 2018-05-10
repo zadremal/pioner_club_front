@@ -44,8 +44,7 @@ class index extends Component {
                 <Plan src={plan} />
               </div>
               <div className="col-xs-5 center-xs">
-                <PlaceHeading>Мы открыты</PlaceHeading>
-                <ScheduleHeading>Клуб</ScheduleHeading>
+                <ScheduleHeading>Мы открыты</ScheduleHeading>
                 <Schedule>
                   <ScheduleText>пятница, суббота</ScheduleText>
                   <ScheduleText>с 22:00 до 06:00</ScheduleText>

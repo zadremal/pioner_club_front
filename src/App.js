@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import Birthday from "./Birthday";
 import Banket from "./Banket";
 import Club from "./Club";
+import Karaoke from "./Karaoke";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/" component={HomeRoute} />
             <Route path="/birthday" component={BirthdayRoute} />
             <Route path="/club" component={ClubRoute} />
+            <Route path="/karaoke" component={KaraokeRoute} />
             <Route path="/banket" component={BanketRoute} />
           </Main>
         </Router>
@@ -69,6 +71,15 @@ class ClubRoute extends Component {
     return (
       <Fragment>
         <Club />
+      </Fragment>
+    );
+  }
+}
+class KaraokeRoute extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Karaoke />
       </Fragment>
     );
   }

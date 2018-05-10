@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   font-size: 1rem;
-  color: #fff;
+  color: ${props => (props.contrast ? props.color : "#fff")};
   background-color: transparent;
   text-transform uppercase;
   letter-spacing: .15rem;
@@ -16,11 +16,10 @@ export const Button = styled.button`
   overflow: hidden;
   transition: all .2s ease;
   z-index: 1;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
   &:hover{
     text-shadow: none;
+    color: #fff;
   }
-
 `;
 
 export const ButtonUp = Button.extend`
