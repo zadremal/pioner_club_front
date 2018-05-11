@@ -10,9 +10,9 @@ const Card = styled.div`
 `;
 
 const Image = styled.img`
+  display: block;
   height: 150px;
-  text-align: center;
-  margin: auto;
+  margin: 0 auto;
 `;
 
 const Beer = styled.h4`

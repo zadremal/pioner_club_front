@@ -103,7 +103,7 @@ class index extends Component {
                   <Beer>
                     <BeerCard
                       name="Apa Crazy Moose"
-                      image={crazy}
+                      image={cherry}
                       alcohol="6,5"
                       ibu="65"
                       description="Американский IPA.
@@ -114,7 +114,7 @@ class index extends Component {
                   <Beer>
                     <BeerCard
                       name="Apa Crazy Moose"
-                      image={crazy}
+                      image={california}
                       alcohol="6,5"
                       ibu="65"
                       description="Американский IPA.
@@ -125,7 +125,7 @@ class index extends Component {
                   <Beer>
                     <BeerCard
                       name="Apa Crazy Moose"
-                      image={crazy}
+                      image={over}
                       alcohol="6,5"
                       ibu="65"
                       description="Американский IPA.

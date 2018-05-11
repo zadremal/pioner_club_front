@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import bitrhdayBackground from "./background.jpg";
 import {
-  Content,
   Detail,
   DealImg,
   DealDescription,
