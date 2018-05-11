@@ -11,6 +11,7 @@ import Birthday from "./Birthday";
 import Banket from "./Banket";
 import Club from "./Club";
 import Karaoke from "./Karaoke";
+import Craft from "./Craft";
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/club" component={ClubRoute} />
             <Route path="/karaoke" component={KaraokeRoute} />
             <Route path="/banket" component={BanketRoute} />
+            <Route path="/craft" component={CraftRoute} />
           </Main>
         </Router>
         <Footer />
@@ -80,6 +82,16 @@ class KaraokeRoute extends Component {
     return (
       <Fragment>
         <Karaoke />
+      </Fragment>
+    );
+  }
+}
+
+class CraftRoute extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Craft />
       </Fragment>
     );
   }
