@@ -119,15 +119,3 @@ class index extends Component {
 }
 
 export default index;
-{
-  /* <Album
-background={background}
-key={id}
-onClick={() => this.showPhotos(album.id)}
->
-<Overlay>
-  <Title>{title}</Title>
-  <Title>{size} фото</Title>
-</Overlay>
-</Album> */
-}
