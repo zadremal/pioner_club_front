@@ -1,8 +1,24 @@
 import styled from "styled-components";
 import { colorDark } from "../UI/";
 
+import { NavLink as Link } from "react-router-dom";
+
 export const Logo = styled.img`
   height: 2rem;
+`;
+
+export const NavLink = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  &:visited {
+    color: #fff;
+  }
+  &:hover {
+    color: #e3e3e3;
+  }
+  &.router-link--active {
+    color: red;
+  }
 `;
 
 export const Header = styled.header`

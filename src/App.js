@@ -15,9 +15,9 @@ import Albums from "./Photo/Albums";
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <Header />
-        <Router>
+      <Router>
+        <Fragment>
+          <Header />
           <Main>
             <Route exact path="/" component={Home} />
             <Route path="/birthday" component={Birthday} />
@@ -27,9 +27,9 @@ class App extends Component {
             <Route path="/craft" component={Craft} />
             <Route path="/photo" component={Albums} />
           </Main>
-        </Router>
-        <Footer />
-      </Fragment>
+          <Footer />
+        </Fragment>
+      </Router>
     );
   }
 }
