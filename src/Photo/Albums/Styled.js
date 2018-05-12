@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Albums = styled.div`
   display: flex;
@@ -45,13 +46,15 @@ export const Overlay = styled.div`
   }
 `;
 
-export const Card = ({ title, size, background, onPhotoClick }) => {
+export const Card = ({ albumId, title, size, background, onPhotoClick }) => {
   return (
-    <Album background={background} onClick={onPhotoClick}>
-      <Overlay>
-        <Title>{title}</Title>
-        <Title>{size} фото</Title>
-      </Overlay>
+    <Album background={background}>
+      <Link to={`photo/${albumId}`}>
+        <Overlay>
+          <Title>{title}</Title>
+          <Title>{size} фото</Title>
+        </Overlay>
+      </Link>
     </Album>
   );
 };

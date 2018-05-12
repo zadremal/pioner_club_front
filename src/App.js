@@ -11,6 +11,7 @@ import Club from "./Club";
 import Karaoke from "./Karaoke";
 import Craft from "./Craft";
 import Albums from "./Photo/Albums";
+import Photos from "./Photo/Photos";
 import NotFound from "./NotFound";
 
 class App extends Component {
@@ -27,7 +28,8 @@ class App extends Component {
               <Route path="/karaoke" component={Karaoke} />
               <Route path="/banket" component={Banket} />
               <Route path="/craft" component={Craft} />
-              <Route path="/photo" component={Albums} />
+              <Route exact path="/photo" component={Albums} />
+              <Route path="/photo/:id" component={Photos} />
               <Route component={NotFound} />
             </Switch>
           </Main>
