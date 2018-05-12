@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Mainwrap, Mainheading, Content } from "./Styled";
-import { ButtonRight } from "../UI/buttons";
-import { colorPr } from "../UI/index";
+import { ButtonRight } from "../../UI/buttons";
+import { colorPr } from "../../UI/index";
 import Slider from "react-slick";
 
-import mainBackground from "../assets/img/background.jpg";
-import hunderBackgruond from "../assets/img/braslet.jpg";
-import karaokeBackgruond from "../assets/img/free_karaoke.jpg";
+import mainBackground from "../../assets/img/background.jpg";
+import hunderBackgruond from "../../assets/img/braslet.jpg";
+import karaokeBackgruond from "../../assets/img/free_karaoke.jpg";
 
 const sliderContent = [
   {
