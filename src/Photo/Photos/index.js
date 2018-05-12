@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Mainscreen } from "../../UI/landing";
 import { Heading } from "../../UI/section";
+import Gallery from "react-photo-gallery";
 
 class index extends Component {
   constructor() {
@@ -10,7 +11,23 @@ class index extends Component {
       photos: [],
       albumId: ""
     };
+    this.parsePhoto = this.parsePhoto.bind(this);
   }
+
+  parsePhoto = obj => {
+    const photoArray = [];
+    obj.forEach(photo => {
+      const image = {
+        src: photo.sizes[3].src,
+        width: photo.sizes[3].width,
+        height: photo.sizes[3].height
+      };
+      photoArray.push(image);
+    });
+    this.setState({
+      photos: photoArray
+    });
+  };
 
   componentDidMount = () => {
     const albumId = this.props.match.params.id;
@@ -23,17 +40,11 @@ class index extends Component {
 
     fetch(request)
       .then(response => response.json())
-      .then(data => {
-        this.setState({
-          photos: data.response.items
-        });
-        console.log(data);
-      })
+      .then(data => this.parsePhoto(data.response.items))
       .catch(err => console.log(err));
   };
 
   render() {
-    const photos = this.state.photos;
     return (
       <div>
         <Mainscreen>
@@ -42,9 +53,7 @@ class index extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              {photos.map(photo => {
-                return <img id={photo.id} src={photo.sizes[2].src} alt="" />;
-              })}
+              <Gallery photos={this.state.photos} />
             </div>
           </div>
         </div>
