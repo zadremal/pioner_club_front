@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import Section, { Heading } from "../../UI/section";
 import Card from "./Card";
 import { Afisha, AfishaItem } from "./Styled";
-
-import thursday from "../../assets/img/thursday.jpg";
-
+import { Link } from "react-router-dom";
 class index extends Component {
   constructor() {
     super();
@@ -36,16 +34,18 @@ class index extends Component {
             </div>
             <div className="col-xs-12">
               <Afisha>
-                {parties.map((party, index) => {
-                  const { date, name, description, poster } = party;
+                {parties.map(party => {
+                  const { date, name, description, poster, id } = party;
                   return (
-                    <AfishaItem key={index}>
-                      <Card
-                        background={poster}
-                        date={date}
-                        heading={name}
-                        details={description}
-                      />
+                    <AfishaItem key={id}>
+                      <Link to={`/party/${id}`}>
+                        <Card
+                          background={poster}
+                          date={date}
+                          heading={name}
+                          details={description}
+                        />
+                      </Link>
                     </AfishaItem>
                   );
                 })}

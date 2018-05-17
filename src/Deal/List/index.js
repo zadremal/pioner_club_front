@@ -13,7 +13,7 @@ class index extends Component {
   render() {
     return (
       <Mainscreen>
-        <Heading> Акции и прочая хрень</Heading>
+        <Heading> Акции и прочая хрень </Heading>
       </Mainscreen>
     );
   }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Mainscreen
   // Description,
@@ -7,14 +7,47 @@ import {
   // ScheduleText
 } from "../../UI/landing";
 
-import { Heading } from "../../UI/section";
+import Section, { Heading } from "../../UI/section";
 
 class index extends Component {
+  state = {
+    party: {}
+  };
+
+  componentDidMount = () => {
+    const partyId = this.props.match.params.id;
+    const fetchUrl = `http://127.0.0.1:8000/api/v1/parties/${partyId}`;
+    fetch(fetchUrl)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          party: data
+        });
+      });
+  };
   render() {
+    const {
+      name,
+      date,
+      description,
+      place,
+      poster,
+      poster_alt,
+      time_start,
+      time_end
+    } = this.state.party;
     return (
-      <Mainscreen>
-        <Heading>Афиша мероприятий</Heading>
-      </Mainscreen>
+      <Fragment>
+        <Mainscreen>
+          <Heading>Афиша мероприятий</Heading>
+        </Mainscreen>
+        <Section>
+          <h1> {name} </h1>
+          <h2> {date} </h2>
+          <img src={poster} alt={poster_alt} />
+          <p> {description} </p>
+        </Section>
+      </Fragment>
     );
   }
 }
