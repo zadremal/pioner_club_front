@@ -35,8 +35,9 @@ class index extends Component {
     const ownerId = -347981;
     const url = "https://api.vk.com/";
     const method = "photos.get";
-
-    const request = `${url}/method/${method}?owner_id=${ownerId}&album_id=${albumId}&photo_sizes=1&v=5.74`;
+    const access_token =
+      "eff084ceeff084ceeff084ce52ef908929eeff0eff084ceb5055580a5e6f0d26acc5076";
+    const request = `${url}/method/${method}?access_token=${access_token}&owner_id=${ownerId}&album_id=${albumId}&photo_sizes=1&v=5.74`;
 
     fetch(request)
       .then(response => response.json())

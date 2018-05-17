@@ -14,13 +14,14 @@ class index extends Component {
   }
 
   componentDidMount() {
-    const count = 8;
+    const count = 16;
     const offset = 2;
     const ownerId = -347981;
     const url = "https://api.vk.com/";
     const method = "photos.getAlbums";
-
-    const request = `${url}/method/${method}?owner_id=${ownerId}&count=${count}&offset=${offset}&need_covers=1&photo_sizes=1&v=5.74`;
+    const access_token =
+      "eff084ceeff084ceeff084ce52ef908929eeff0eff084ceb5055580a5e6f0d26acc5076";
+    const request = `${url}/method/${method}?access_token=${access_token}&owner_id=${ownerId}&count=${count}&offset=${offset}&need_covers=1&photo_sizes=1&v=5.74`;
     console.log(request);
     fetch(request)
       .then(response => response.json())
@@ -40,6 +41,7 @@ class index extends Component {
 
             <div className="col-xs-12">
               <Albums>
+                {console.log(albums)}
                 {albums.map(album => {
                   const { size, title, id } = album;
                   const background = album.sizes[4].src;

@@ -46,17 +46,14 @@ class index extends Component {
                     </NavItem>
                     <NavItem>
                       <NavLink
-                        to="/aifsha"
+                        to="/party"
                         activeClassName="router-link--active"
                       >
                         АФИША
                       </NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink
-                        to="/deals"
-                        activeClassName="router-link--active"
-                      >
+                      <NavLink to="/deal" activeClassName="router-link--active">
                         АКЦИИ
                       </NavLink>
                     </NavItem>

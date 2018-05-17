@@ -12,6 +12,11 @@ import Karaoke from "./Karaoke";
 import Craft from "./Craft";
 import Albums from "./Photo/Albums";
 import Photos from "./Photo/Photos";
+import PartyList from "./Party/List";
+import PartyDetail from "./Party/Detail";
+import DealList from "./Deal/List";
+import DealDetail from "./Deal/Detail";
+
 import NotFound from "./NotFound";
 
 class App extends Component {
@@ -30,6 +35,11 @@ class App extends Component {
               <Route path="/craft" component={Craft} />
               <Route exact path="/photo" component={Albums} />
               <Route path="/photo/:id" component={Photos} />
+              <Route exact path="/party" component={PartyList} />
+              <Route path="/party/:id" component={PartyDetail} />
+              <Route exact path="/deal" component={DealList} />
+              <Route path="/deal/:id" component={DealDetail} />
+
               <Route component={NotFound} />
             </Switch>
           </Main>
