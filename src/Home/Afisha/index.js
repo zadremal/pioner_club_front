@@ -12,7 +12,8 @@ class index extends Component {
     };
   }
   componentDidMount = () => {
-    fetch("http://127.0.0.1:8000/api/v1/parties/")
+    const fetchUrl = "http://localhost:8000/api/v1/parties/";
+    fetch(fetchUrl)
       .then(response => response.json())
       .catch(err => console.log("Looks like there was an error", err))
       .then(data => {
@@ -29,26 +30,26 @@ class index extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              {console.log(parties)}
               <Heading children="На этой неделе" />
             </div>
             <div className="col-xs-12">
               <Afisha>
-                {parties.map(party => {
-                  const { date, name, description, poster, id } = party;
-                  return (
-                    <AfishaItem key={id}>
-                      <Link to={`/party/${id}`}>
-                        <Card
-                          background={poster}
-                          date={date}
-                          heading={name}
-                          details={description}
-                        />
-                      </Link>
-                    </AfishaItem>
-                  );
-                })}
+                {parties &&
+                  parties.map(party => {
+                    const { date, name, description, poster, id } = party;
+                    return (
+                      <AfishaItem key={id}>
+                        <Link to={`/party/${id}`}>
+                          <Card
+                            background={poster}
+                            date={date}
+                            heading={name}
+                            details={description}
+                          />
+                        </Link>
+                      </AfishaItem>
+                    );
+                  })}
               </Afisha>
             </div>
           </div>

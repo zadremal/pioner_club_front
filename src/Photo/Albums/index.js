@@ -4,6 +4,8 @@ import Section, { Heading } from "../../UI/section";
 
 import { Albums, Card } from "./Styled";
 
+import jsonp from "jsonp";
+
 class index extends Component {
   constructor() {
     super();
@@ -21,12 +23,21 @@ class index extends Component {
     const method = "photos.getAlbums";
     const access_token =
       "eff084ceeff084ceeff084ce52ef908929eeff0eff084ceb5055580a5e6f0d26acc5076";
-    const request = `${url}/method/${method}?access_token=${access_token}&owner_id=${ownerId}&count=${count}&offset=${offset}&need_covers=1&photo_sizes=1&v=5.74`;
-    fetch(request)
-      .then(response => response.json())
-      .then(data => {
+    const request = `${url}/method/${method}?access_token=${access_token}&owner_id=${ownerId}&count=${count}&offset=${offset}&need_covers=1&photo_sizes=1&v=5.74&callback=null`;
+
+    jsonp(request, null, (err, data) => {
+      if (err) {
+        console.error(err.message);
+      } else {
         this.setState({ albums: data.response.items });
-      });
+      }
+    });
+
+    // fetch(request, requestParams)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.setState({ albums: data.response.items });
+    //   });
   }
   render() {
     const { albums } = this.state;

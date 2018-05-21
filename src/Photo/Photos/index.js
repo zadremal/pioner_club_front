@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Mainscreen } from "../../UI/landing";
 import { Heading } from "../../UI/section";
 import Gallery from "react-photo-gallery";
+import jsonp from "jsonp";
 
 class index extends Component {
   constructor() {
@@ -39,10 +40,13 @@ class index extends Component {
       "eff084ceeff084ceeff084ce52ef908929eeff0eff084ceb5055580a5e6f0d26acc5076";
     const request = `${url}/method/${method}?access_token=${access_token}&owner_id=${ownerId}&album_id=${albumId}&photo_sizes=1&v=5.74`;
 
-    fetch(request)
-      .then(response => response.json())
-      .then(data => this.parsePhoto(data.response.items))
-      .catch(err => console.log(err));
+    jsonp(request, null, (err, data) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        this.parsePhoto(data.response.items);
+      }
+    });
   };
 
   render() {
