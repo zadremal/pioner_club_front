@@ -15,12 +15,12 @@ export const SideSection = styled.div`
 export const CardWrap = styled.div`
   flex-basis: 50%;
   flex-shrink: auto;
-  display: flex;
+
   padding: 1rem;
+  &:first-child {
+    flex-basis: 40%;
+    padding: 1rem;
+  }
 `;
 
-export const FirstCard = styled.div`
-  flex-basis: 40%;
-  display: flex;
-  padding: 1rem;
-`;
+export const FirstCard = styled.div``;

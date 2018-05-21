@@ -1,8 +1,44 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+
+import { Mainscreen } from "../../UI/landing";
+import Section, { Heading } from "../../UI/section";
 
 class index extends Component {
+  state = {
+    deal: ""
+  };
+
+  componentDidMount = () => {
+    const dealId = this.props.match.params.id;
+    console.log(dealId);
+    const fetchUrl = `http://localhost:8000/api/v1/deals/${dealId}/`;
+    fetch(fetchUrl)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          deal: data
+        });
+      });
+  };
+
   render() {
-    return <div />;
+    const { deal } = this.state;
+    return (
+      <Fragment>
+        <Mainscreen background={deal.poster}>
+          <Heading contrast>{deal.name}</Heading>
+        </Mainscreen>
+        <Section>
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <p>{deal.description}</p>
+              </div>
+            </div>
+          </div>
+        </Section>
+      </Fragment>
+    );
   }
 }
 

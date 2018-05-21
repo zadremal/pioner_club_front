@@ -1,50 +1,54 @@
 import React, { Component } from "react";
 import Card from "./Card";
-import birthday from "../../assets/img/birthday.jpg";
+import { Link } from "react-router-dom";
 
 import Section from "../../UI/section";
-import { Cards, CardWrap, FirstCard, SideSection } from "./Styled";
+import { Cards, CardWrap } from "./Styled";
 
 class index extends Component {
+  state = {
+    deals: []
+  };
+
+  componentDidMount = () => {
+    const fetchUrl = "http://localhost:8000/api/v1/deals-main/";
+    fetch(fetchUrl)
+      .then(response => response.json())
+      .catch(err => console.log("Looks like there was an error", err))
+      .then(data => {
+        this.setState({
+          deals: data
+        });
+      });
+  };
+
   render() {
+    const { deals } = this.state;
     return (
       <Section>
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
               <Cards>
-                <FirstCard>
-                  <Card
-                    heading="Скидка 5000 рублей в день рождения"
-                    background={birthday}
-                  />
-                </FirstCard>
-                <SideSection>
-                  <CardWrap>
-                    <Card
-                      heading="Скидка 5000 рублей в день рождения"
-                      background={birthday}
-                    />
-                  </CardWrap>
-                  <CardWrap>
-                    <Card
-                      heading="Скидка 5000 рублей в день рождения"
-                      background={birthday}
-                    />
-                  </CardWrap>
-                  <CardWrap>
-                    <Card
-                      heading="Скидка 5000 рублей в день рождения"
-                      background={birthday}
-                    />
-                  </CardWrap>
-                  <CardWrap>
-                    <Card
-                      heading="Скидка 5000 рублей в день рождения"
-                      background={birthday}
-                    />
-                  </CardWrap>
-                </SideSection>
+                {deals.map(deal => {
+                  const { id, name, poster, poster_alt } = deal;
+                  return (
+                    <CardWrap key={id}>
+                      <Link to={`deal/${id}`}>
+                        <Card
+                          heading={name}
+                          background={poster}
+                          alt={poster_alt}
+                        />
+                      </Link>
+                    </CardWrap>
+                  );
+                })}
+                <CardWrap>
+                  <Link to="deal/">
+                    <Card heading="Все акции и предложения" />
+                  </Link>
+                </CardWrap>
               </Cards>
             </div>
           </div>

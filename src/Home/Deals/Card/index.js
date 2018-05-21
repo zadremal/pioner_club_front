@@ -13,6 +13,7 @@ const Card = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: ${colorPr};
 `;
 
 const CardButton = ButtonUpWhite.extend`

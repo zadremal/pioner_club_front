@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
+import "whatwg-fetch";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Main } from "./UI";
 import Header from "./Header";

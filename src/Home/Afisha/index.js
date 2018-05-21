@@ -12,7 +12,7 @@ class index extends Component {
     };
   }
   componentDidMount = () => {
-    const fetchUrl = "http://localhost:8000/api/v1/parties/";
+    const fetchUrl = "http://localhost:8000/api/v1/parties-main/";
     fetch(fetchUrl)
       .then(response => response.json())
       .catch(err => console.log("Looks like there was an error", err))
