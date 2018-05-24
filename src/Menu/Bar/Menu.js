@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-
+import React, { Component } from "react";
+import MenuList from "../MenuList";
 class Menu extends Component {
   state = {
     menu: []
@@ -19,26 +19,7 @@ class Menu extends Component {
 
   render() {
     const { menu } = this.state;
-    return (
-      <Fragment>
-        {menu.map(category => {
-          return (
-            <div key={category.id}>
-              <h1> {category.dish_category}</h1>
-              {category.dish.map(dish => {
-                return (
-                  <span key={dish.id}>
-                    <h3>{dish.name}</h3>
-                    <h6>{dish.consist}</h6>
-                    <h6>{dish.price} p</h6>
-                  </span>
-                );
-              })}
-            </div>
-          );
-        })}
-      </Fragment>
-    );
+    return <MenuList data={menu} />;
   }
 }
 

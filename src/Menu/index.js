@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 import Section, { Heading } from "../UI/section";
 
@@ -35,6 +35,12 @@ class index extends Component {
                 to={`${url}/banket`}
               >
                 банкет
+              </StyledNavLink>
+              <StyledNavLink
+                activeClassName="menu-link--active"
+                to={`${url}/beer`}
+              >
+                пиво
               </StyledNavLink>
 
               <div className="div">

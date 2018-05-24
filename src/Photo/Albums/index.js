@@ -32,12 +32,6 @@ class index extends Component {
         this.setState({ albums: data.response.items });
       }
     });
-
-    // fetch(request, requestParams)
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.setState({ albums: data.response.items });
-    //   });
   }
   render() {
     const { albums } = this.state;

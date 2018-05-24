@@ -23,6 +23,7 @@ import PartyList from "./Party/List";
 import PartyDetail from "./Party/Detail";
 import DealList from "./Deal/List";
 import DealDetail from "./Deal/Detail";
+import Contacts from "./Contacts";
 
 import NotFound from "./NotFound";
 
@@ -47,6 +48,7 @@ class App extends Component {
               <Route exact path="/deal" component={DealList} />
               <Route path="/deal/:id" component={DealDetail} />
               <Route path="/menu" component={Menu} />
+              <Route path="/contacts" component={Contacts} />
 
               <Route component={NotFound} />
             </Switch>
