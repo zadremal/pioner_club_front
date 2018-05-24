@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import { Mainscreen } from "../UI/landing";
 class index extends Component {
@@ -16,13 +17,28 @@ class index extends Component {
   };
 
   submitForm = event => {
+    event.preventDefault();
     const initinalState = {
       name: "",
       phone: "",
       email: ""
     };
-    event.preventDefault();
-    console.log(this.state);
+
+    axios({
+      method: "POST",
+      url: "http://localhost:8000/api/v1/lead/submit/",
+      data: JSON.stringify(this.state),
+      headers: {
+        Authorization: "Token f9b9ba6e60a9a40a05aa216017566dfa803c5b70",
+        "Content-Type": "application/json"
+      }
+    }).then(res => {
+      console.log(res);
+      console.log(res.data);
+      if (res.status === 201) {
+        alert("Сообщение успешно отправлено!");
+      }
+    });
     this.setState(initinalState);
   };
 
