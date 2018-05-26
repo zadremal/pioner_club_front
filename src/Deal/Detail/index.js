@@ -10,8 +10,8 @@ class index extends Component {
 
   componentDidMount = () => {
     const dealId = this.props.match.params.id;
-    console.log(dealId);
-    const fetchUrl = `http://localhost:8000/api/v1/deals/${dealId}/`;
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const fetchUrl = `${apiServer}/api/v1/deals/${dealId}/`;
     fetch(fetchUrl)
       .then(response => response.json())
       .then(data => {

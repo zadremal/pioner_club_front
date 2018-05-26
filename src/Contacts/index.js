@@ -18,6 +18,7 @@ class index extends Component {
 
   submitForm = event => {
     event.preventDefault();
+
     const initinalState = {
       name: "",
       phone: "",

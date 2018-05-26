@@ -7,7 +7,8 @@ class Menu extends Component {
   };
   componentDidMount = () => {
     const menuPart = 1;
-    const fetchUrl = `http://localhost:8000/api/v1/menu/${menuPart}/`;
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const fetchUrl = `${apiServer}}/api/v1/menu/${menuPart}/`;
 
     fetch(fetchUrl)
       .then(response => response.json())

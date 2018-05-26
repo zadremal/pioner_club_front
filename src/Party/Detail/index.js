@@ -16,7 +16,8 @@ class index extends Component {
 
   componentDidMount = () => {
     const partyId = this.props.match.params.id;
-    const fetchUrl = `http://127.0.0.1:8000/api/v1/parties/${partyId}`;
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const fetchUrl = `${apiServer}/api/v1/parties/${partyId}`;
     fetch(fetchUrl)
       .then(response => response.json())
       .then(data => {

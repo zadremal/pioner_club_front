@@ -17,7 +17,8 @@ class index extends Component {
   };
 
   componentDidMount = () => {
-    const fetchUrl = "http://127.0.0.1:8000/api/v1/parties/";
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const fetchUrl = `${apiServer}/api/v1/parties/`;
     fetch(fetchUrl)
       .then(response => response.json())
       .catch(err => console.log("Looks like there was an error", err))
