@@ -40,7 +40,7 @@ class index extends Component {
           {parties.map(party => {
             const { id, name, date, poster, poster_alt, description } = party;
             return (
-              <Link key={id} to={`/party/${id}`}>
+              <Link key={id} to={`/parties/${id}`}>
                 <Party>
                   <Heading>{name}</Heading>
                   <h3>{date}</h3>

@@ -6,8 +6,9 @@ import {
   clearAllBodyScrollLocks
 } from "body-scroll-lock";
 import logo from "./mainlogo.png";
-import Menu from "./Menu";
-
+import Navigation from "../UI/Navigation";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import { Links } from "./links";
 const body = document.querySelector("body");
 
 class index extends Component {
@@ -22,12 +23,13 @@ class index extends Component {
   toggleMenu = () => {
     const newModalState = !this.state.menuOpen;
     newModalState ? disableBodyScroll(body) : enableBodyScroll(body);
-    this.setState(prevState => {
-      return { menuOpen: newModalState };
+    this.setState({
+      menuOpen: newModalState
     });
   };
 
   render() {
+    const { menuOpen } = this.state;
     return (
       <Fragment>
         <Header>
@@ -44,7 +46,17 @@ class index extends Component {
             </div>
           </div>
         </Header>
-        {this.state.menuOpen && <Menu onLinkClick={this.toggleMenu} />}
+        <ReactCSSTransitionGroup
+          transitionName="nav"
+          transitionEnter={true}
+          transitionLeave={true}
+          transitionEnterTimeout={200}
+          transitionLeaveTimeout={200}
+        >
+          {menuOpen && (
+            <Navigation onLinkClick={this.toggleMenu} links={Links} />
+          )}
+        </ReactCSSTransitionGroup>
       </Fragment>
     );
   }
