@@ -7,9 +7,14 @@ export const colorAcc = "rgba(188, 93, 46, 1)";
 export const colorDark = "rgba(46, 46, 58, 1)";
 
 export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
+  padding-top: 60px;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const MainHeading = styled.h1`

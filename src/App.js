@@ -1,11 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
 import "whatwg-fetch";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Main } from "./UI";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -32,7 +28,7 @@ class App extends Component {
       <Router>
         <Fragment>
           <Header />
-          <Main>
+          <Main id="main">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/birthday" component={Birthday} />

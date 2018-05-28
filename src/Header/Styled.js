@@ -38,7 +38,20 @@ export const HeaderFlex = styled.div`
   align-items: center;
 `;
 
-export const Nav = styled.nav``;
+export const Nav = styled.nav`
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-out;
+`;
 
 export const NavList = styled.ul`
   margin: 0;

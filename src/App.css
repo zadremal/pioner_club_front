@@ -23,15 +23,6 @@ html {
   height: 100%;
   box-sizing: border-box;
   font-family: "Clear Sans", sans-serif;
-  overflow-y: scroll;
-}
-
-body {
-  height: 100%;
-}
-
-main {
-  padding-top: 60px;
 }
 
 *,
@@ -40,8 +31,7 @@ main {
   box-sizing: inherit;
 }
 
-#root {
+body {
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }

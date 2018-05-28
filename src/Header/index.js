@@ -1,98 +1,51 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Logo, Header, HeaderFlex, NavLink } from "./Styled";
 import {
-  Logo,
-  Header,
-  HeaderFlex,
-  Nav,
-  NavList,
-  NavItem,
-  NavLink
-} from "./Styled";
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from "body-scroll-lock";
 import logo from "./mainlogo.png";
+import Menu from "./Menu";
+
+const body = document.querySelector("body");
 
 class index extends Component {
+  state = {
+    menuOpen: false
+  };
+
+  componentWillUnmount = () => {
+    clearAllBodyScrollLocks();
+  };
+
+  toggleMenu = () => {
+    const newModalState = !this.state.menuOpen;
+    newModalState ? disableBodyScroll(body) : enableBodyScroll(body);
+    this.setState(prevState => {
+      return { menuOpen: newModalState };
+    });
+  };
+
   render() {
     return (
-      <Header>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              <HeaderFlex>
-                <NavLink exact to="/">
-                  <Logo src={logo} alt="Ночной клуб Пионер" />
-                </NavLink>
-                <Nav>
-                  <NavList>
-                    <NavItem>
-                      <NavLink to="/club" activeClassName="router-link--active">
-                        КЛУБ
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        to="/karaoke"
-                        activeClassName="router-link--active"
-                      >
-                        КАРАОКЕ
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        to="/craft"
-                        activeClassName="router-link--active"
-                      >
-                        КРАФТ-БАР
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        to="/party"
-                        activeClassName="router-link--active"
-                      >
-                        АФИША
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="/deal" activeClassName="router-link--active">
-                        АКЦИИ
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        to="/banket"
-                        activeClassName="router-link--active"
-                      >
-                        БАНКЕТЫ
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="/menu" activeClassName="router-link--active">
-                        МЕНЮ
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        to="/photo"
-                        activeClassName="router-link--active"
-                      >
-                        ФОТО
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        to="/contacts"
-                        activeClassName="router-link--active"
-                      >
-                        КОНТАКТЫ
-                      </NavLink>
-                    </NavItem>
-                  </NavList>
-                </Nav>
-              </HeaderFlex>
+      <Fragment>
+        <Header>
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <HeaderFlex>
+                  <NavLink exact to="/">
+                    <Logo src={logo} alt="Ночной клуб Пионер" />
+                  </NavLink>
+                  <button onClick={this.toggleMenu}>menu</button>
+                </HeaderFlex>
+              </div>
             </div>
           </div>
-        </div>
-      </Header>
+        </Header>
+        {this.state.menuOpen && <Menu onLinkClick={this.toggleMenu} />}
+      </Fragment>
     );
   }
 }
