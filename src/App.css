@@ -30,6 +30,10 @@ body {
   height: 100%;
 }
 
+main {
+  padding-top: 60px;
+}
+
 *,
 *::before,
 *::after {

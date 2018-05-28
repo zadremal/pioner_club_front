@@ -1,19 +1,50 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
-import Mainscreen from "./Mainscreen/";
-import Afisha from "./Afisha/";
-import Deals from "./Deals/";
+import Card from "../UI/PlaceCard";
+import { MainWrap } from "./Styled";
 
-class index extends Component {
+import mainBackground from "./club.jpg";
+import craftBackgruond from "./craft.jpg";
+import karaokeBackgruond from "./karaoke.jpg";
+
+import { Link } from "react-router-dom";
+
+export default class extends Component {
   render() {
     return (
-      <Fragment>
-        <Mainscreen />
-        <Afisha />
-        <Deals />
-      </Fragment>
+      <MainWrap>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-12 col-md-4">
+              <Link to="/club">
+                <Card
+                  heading="ночной клуб"
+                  image={mainBackground}
+                  text="Любимые хиты от Диско до 00-х, танцы до утра, непередаваемая атмосфера и развлекательная прорамма каждые выходные"
+                />
+              </Link>
+            </div>
+            <div className="col-xs-12 col-md-4">
+              <Link to="karaoke">
+                <Card
+                  heading="каркоке"
+                  image={karaokeBackgruond}
+                  text="Караке-бар с профессиональным оборудованием, библиотекой из 45000 фонограмм, и разнообразными напитками "
+                />
+              </Link>
+            </div>
+            <div className="col-xs-12 col-md-4">
+              <Link to="/craft">
+                <Card
+                  image={craftBackgruond}
+                  heading="крафт-бар"
+                  text="Бар с крафтовым пивом на любой вкус - 8 сортов разливного и более 40 сортов бутылочного пива с разных частей света"
+                />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </MainWrap>
     );
   }
 }
-
-export default index;

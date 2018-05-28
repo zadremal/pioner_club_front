@@ -1,11 +1,5 @@
 import React, { Component, Fragment } from "react";
-import {
-  Mainscreen
-  // Description,
-  // Schedule,
-  // ScheduleHeading,
-  // ScheduleText
-} from "../../UI/landing";
+import { Mainscreen } from "../../UI/landing";
 
 import Section, { Heading } from "../../UI/section";
 
@@ -31,11 +25,9 @@ class index extends Component {
       name,
       date,
       description,
-      place,
+
       poster,
-      poster_alt,
-      time_start,
-      time_end
+      poster_alt
     } = this.state.party;
     return (
       <Fragment>

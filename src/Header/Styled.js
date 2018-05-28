@@ -25,6 +25,7 @@ export const Header = styled.header`
   position: fixed;
   z-index: 50;
   width: 100%;
+  height: 60px;
   background-color: ${colorDark};
   padding: 0.5rem 0;
   width: 100%;
