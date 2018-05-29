@@ -1,18 +1,17 @@
 import styled from "styled-components";
+import { media } from "./index";
 
 export const Button = styled.button`
-  font-size: 1rem;
   color: ${props => (props.contrast ? props.color : "#fff")};
   background-color: transparent;
   text-transform uppercase;
   letter-spacing: .15rem;
-  font-size: .9rem;
-  border: none;
+  padding: .5rem .5rem;
+  font-size: .8rem;
   cursor: pointer;
   position: relative
   border: 3px solid ${props => props.color};
   font-weight: 700;
-  padding: .65rem 1.75rem;
   overflow: hidden;
   transition: all .2s ease;
   z-index: 1;
@@ -20,6 +19,12 @@ export const Button = styled.button`
     text-shadow: none;
     color: #fff;
   }
+
+  ${media.sm`
+  padding: .65rem 1.75rem;
+  font-size: .9rem;
+
+  `}
 `;
 
 export const ButtonUp = Button.extend`

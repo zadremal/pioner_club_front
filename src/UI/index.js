@@ -1,5 +1,5 @@
 //colors
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const colorPr = "rgba(235, 31, 6, 1)";
 export const colorSec = "rgba(222, 145, 81, 1)";
@@ -16,6 +16,22 @@ export const Main = styled.main`
   height: 100%;
   overflow: hidden;
 `;
+
+const sizes = {
+  xl: 1199,
+  lg: 992,
+  md: 768,
+  sm: 420
+};
+
+export const media = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${sizes[label] / 16}em) {
+      ${css(...args)};
+    }
+  `;
+  return acc;
+}, {});
 
 export const MainHeading = styled.h1`
   color: #fff;

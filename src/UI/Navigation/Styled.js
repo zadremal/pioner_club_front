@@ -52,6 +52,7 @@ export const Nav = styled.nav`
   justify-content: center;
   translate: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  padding-top: 2rem;
 
   &.nav-enter {
     opacity: 0.01;

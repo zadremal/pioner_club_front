@@ -10,14 +10,24 @@ export const Navigation = ({ onLinkClick, links }) => {
           const { link, name, exact, activeClassName } = linkItem;
           return (
             <Item key={name} delay={index * 0.075 + "s"}>
-              <Link
-                exact={exact ? true : false}
-                onClick={onLinkClick}
-                to={link}
-                activeClassName={activeClassName}
-              >
-                {name}
-              </Link>
+              {exact ? (
+                <Link
+                  exact
+                  onClick={onLinkClick}
+                  to={link}
+                  activeClassName={activeClassName}
+                >
+                  {name}
+                </Link>
+              ) : (
+                <Link
+                  onClick={onLinkClick}
+                  to={link}
+                  activeClassName={activeClassName}
+                >
+                  {name}
+                </Link>
+              )}
             </Item>
           );
         })}
