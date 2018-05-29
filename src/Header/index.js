@@ -18,18 +18,20 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks
 } from "body-scroll-lock";
+import Modal from "../UI/Modal";
 import Navigation from "../UI/Navigation";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { Links } from "./links";
 import Hamburger from "react-hamburgers";
 import logo from "./mainlogo.png";
 import "./hamburger.css";
-
+import Form from "../UI/Form";
 const body = document.querySelector("body");
 
 class index extends Component {
   state = {
-    menuOpen: false
+    menuOpen: false,
+    modalOpen: false
   };
 
   componentWillUnmount = () => {
@@ -44,11 +46,22 @@ class index extends Component {
     });
   };
 
+  toggleModal = () => {
+    this.setState(prevState => {
+      return {
+        modalOpen: !prevState.modalOpen
+      };
+    });
+  };
+
   render() {
     const { menuOpen } = this.state;
     return (
       <Fragment>
-        <Header>
+        <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
+          <Form />
+        </Modal>
+        <Header id="header">
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
@@ -58,7 +71,7 @@ class index extends Component {
                   </Link>
 
                   <MenuFlex>
-                    <ButtonRight color={colorPr}>
+                    <ButtonRight onClick={this.toggleModal} color={colorPr}>
                       забронировать столик
                     </ButtonRight>
                     <Contact href="tel:88129815335">

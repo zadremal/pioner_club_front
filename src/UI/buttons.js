@@ -15,15 +15,19 @@ export const Button = styled.button`
   overflow: hidden;
   transition: all .2s ease;
   z-index: 1;
+  outline: none;
   &:hover{
     text-shadow: none;
     color: #fff;
   }
+  &:focus{
+    box-shadow: 0 0 0 2px rgba(235, 31, 6, 0.7);
+  }
+
 
   ${media.sm`
   padding: .65rem 1.75rem;
   font-size: .9rem;
-
   `}
 `;
 

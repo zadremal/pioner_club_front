@@ -15,6 +15,8 @@ export const Main = styled.main`
   padding-top: 60px;
   height: 100%;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 `;
 
 const sizes = {

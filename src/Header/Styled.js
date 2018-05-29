@@ -13,7 +13,7 @@ export const Logo = styled.img`
 
 export const Header = styled.header`
   position: fixed;
-  z-index: 30;
+  z-index: 101;
   width: 100%;
   height: 60px;
   background-color: ${colorDark};
