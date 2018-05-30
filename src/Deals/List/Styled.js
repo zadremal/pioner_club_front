@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "../../UI";
 
 export const Cards = styled.div`
   display: flex;
@@ -12,13 +13,21 @@ export const Cards = styled.div`
 `;
 
 export const CardWrap = styled.div`
-  flex-basis: calc(100% / 3);
+  flex-basis: 100%;
   flex-shrink: auto;
-  height: 250px;
+  height: 200px;
   padding: 1%;
-  &:first-child,
-  :first-child + div {
-    flex-basis: 50%;
-    height: 400px;
-  }
+
+  ${media.md`
+   flex-basis: 50%;
+  `};
+  ${media.lg`
+    flex-basis: calc(100% / 3);
+    height: 250px;
+    &:first-child,
+    :first-child + div {
+      flex-basis: 50%;
+      height: 400px;
+    }
+  `};
 `;

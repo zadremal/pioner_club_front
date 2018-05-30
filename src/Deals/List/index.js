@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Mainscreen } from "../../UI/landing";
+import { Mainscreen, Overlay } from "../../UI";
 
 import Section, { Heading } from "../../UI/section";
 import Card from "../../UI/DealCard";
@@ -29,6 +29,7 @@ class index extends Component {
     return (
       <Fragment>
         <Mainscreen background={dealsBackground}>
+          <Overlay />
           <Heading contrast> Акции и спецпредложения </Heading>
         </Mainscreen>
         <Section>

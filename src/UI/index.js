@@ -50,15 +50,22 @@ export const Mainscreen = styled.section`
   padding: 0 20%;
 `;
 
+export const Overlay = styled.div`
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
 export const MainHeading = styled.h1`
   color: #fff;
-  font-family: Intro, sans-serif;
+  font-family: Intro, Arial, sans-serif;
   font-size: 2rem;
   text-align: center;
   margin: 1rem;
   line-height: 3.5rem;
-
-  text-transform: uppercase;
 `;
 
 export const HeadingHighlighted = styled.span`

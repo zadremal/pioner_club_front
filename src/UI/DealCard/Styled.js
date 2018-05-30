@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ButtonUpWhite } from "../buttons";
-import { colorPr } from "../index";
+import { colorPr, media } from "../index";
 
 export const Card = styled.div`
   width: 100%;
@@ -62,22 +62,27 @@ export const Overlay = styled.div`
 
 export const Heading = styled.h3`
   display: block;
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-transform: uppercase;
   font-family: Intro, sans-serif, arial;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
   color: #fff;
   transition: all 0.2s ease;
+
   ${Card}:hover & {
     transform: translateY(-20px);
   }
+
+  ${media.lg`
+    font-size: 1.25rem;
+  `};
 `;
 
 export const Text = styled.div`
   position: relative;
   z-index: 2;
   padding: 0.5rem 1rem;
-  background-color: rgba(235, 31, 6, 0.4);
+  background-color: rgba(235, 31, 6, 0.6);
   position: absolute;
   top: 50%;
   left: 50%;
