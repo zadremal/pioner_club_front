@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { Mainscreen, MainHeading, colorPr } from "../UI/";
+import { Mainscreen, MainHeading } from "../UI/";
 import background from "./banket_background.jpg";
-import { ButtonUpWhite, ButtonRight } from "../UI/buttons";
+import { ButtonUpWhite, ButtonRightPr } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
 import {
   BanketHeading,
@@ -132,7 +132,7 @@ class index extends Component {
                 </MenuWrap>
               </div>
               <div className="col-xs-12 center-xs">
-                <ButtonRight color={colorPr}>смотреть всё меню</ButtonRight>
+                <ButtonRightPr>смотреть всё меню</ButtonRightPr>
               </div>
             </div>
           </div>

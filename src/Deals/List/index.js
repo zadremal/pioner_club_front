@@ -2,9 +2,10 @@ import React, { Component, Fragment } from "react";
 import { Mainscreen } from "../../UI/landing";
 
 import Section, { Heading } from "../../UI/section";
-import Card from "../../Home/Deals/Card";
-import { Cards, CardWrap } from "../../Home/Deals/Styled";
+import Card from "../../UI/DealCard";
+import { Cards, CardWrap } from "./Styled";
 import { Link } from "react-router-dom";
+import dealsBackground from "./deals.jpg";
 class index extends Component {
   state = {
     deals: []
@@ -27,8 +28,8 @@ class index extends Component {
     const { deals } = this.state;
     return (
       <Fragment>
-        <Mainscreen>
-          <Heading> Акции и прочая хрень </Heading>
+        <Mainscreen background={dealsBackground}>
+          <Heading contrast> Акции и спецпредложения </Heading>
         </Mainscreen>
         <Section>
           <div className="container">
@@ -39,7 +40,7 @@ class index extends Component {
                     const { id, name, poster, poster_alt } = deal;
                     return (
                       <CardWrap key={id}>
-                        <Link to={`deal/${id}`}>
+                        <Link to={`deals/${id}`}>
                           <Card
                             heading={name}
                             background={poster}

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Mainscreen = styled.section`
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   position: relative;
   background: url(${props => props.background});
   background-position: center;

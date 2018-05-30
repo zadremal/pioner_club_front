@@ -8,8 +8,7 @@ import {
 } from "../UI/landing";
 import { Card, CardText, CardWrap } from "./Styled";
 import Section, { Heading } from "../UI/section";
-import { ButtonRight } from "../UI/buttons";
-import { colorPr } from "../UI/";
+import { ButtonRightPr } from "../UI/buttons";
 import backvocal from "./backvocal.jpg";
 import mics from "./mics.jpg";
 import songs from "./songs.jpg";
@@ -85,9 +84,7 @@ class index extends Component {
                 </CardWrap>
               </div>
               <div className="col-xs-12 center-xs">
-                <ButtonRight color={colorPr} contrast>
-                  Забронировать столик
-                </ButtonRight>
+                <ButtonRightPr contrast>Забронировать столик</ButtonRightPr>
               </div>
             </div>
           </div>

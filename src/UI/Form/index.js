@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 import { Form, Input, Label, Heading, Submit, Error } from "./Styled";
-import { ButtonUp } from "../buttons";
-import { colorPr } from "../index";
+import { ButtonUpPr } from "../buttons";
 import axios from "axios";
 
 class index extends Component {
@@ -116,18 +115,13 @@ class index extends Component {
           />
           <Submit>
             {phone.length === 0 || name.length === 0 ? (
-              <ButtonUp
-                disabled
-                onClick={this.onSubmit}
-                contrast
-                color={colorPr}
-              >
+              <ButtonUpPr disabled onClick={this.onSubmit} contrast>
                 Зарезервировать
-              </ButtonUp>
+              </ButtonUpPr>
             ) : (
-              <ButtonUp onClick={this.onSubmit} contrast color={colorPr}>
+              <ButtonUpPr onClick={this.onSubmit} contrast>
                 Зарезервировать
-              </ButtonUp>
+              </ButtonUpPr>
             )}
           </Submit>
         </Form>

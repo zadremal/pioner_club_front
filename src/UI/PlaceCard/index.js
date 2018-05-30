@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Card, Heading, Overlay, TextBox, Description, Text } from "./Styled";
-import { ButtonRight } from "../buttons";
-import { colorPr } from "../index";
+import { ButtonRightPr } from "../buttons";
 
 export const index = ({
   image,
@@ -18,9 +17,7 @@ export const index = ({
         <Heading>{heading}</Heading>
         <Description>
           <Text>{text}</Text>
-          <ButtonRight contrast color={colorPr}>
-            подробнее
-          </ButtonRight>
+          <ButtonRightPr contrast>подробнее</ButtonRightPr>
         </Description>
       </TextBox>
     </Card>

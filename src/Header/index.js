@@ -10,7 +10,7 @@ import {
 } from "./Styled";
 import map from "./map.svg";
 import phone from "./phone-call.svg";
-import { ButtonRight } from "../UI/buttons";
+import { ButtonUpPr } from "../UI/buttons";
 import { colorPr } from "../UI/";
 import { Link } from "react-router-dom";
 import {
@@ -71,9 +71,9 @@ class index extends Component {
                   </Link>
 
                   <MenuFlex>
-                    <ButtonRight onClick={this.toggleModal} color={colorPr}>
+                    <ButtonUpPr onClick={this.toggleModal} color={colorPr}>
                       забронировать столик
-                    </ButtonRight>
+                    </ButtonUpPr>
                     <Contact href="tel:88129815335">
                       <Text>981-53-35</Text>
                       <Icon src={phone} alt="Ночной клуб Пионер - 981-53-35" />

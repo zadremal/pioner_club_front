@@ -2,7 +2,12 @@ import React, { Component, Fragment } from "react";
 import "./App.css";
 import "whatwg-fetch";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import { Main } from "./UI";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -17,8 +22,8 @@ import Albums from "./Photo/Albums";
 import Photos from "./Photo/Photos";
 import PartyList from "./Party/List";
 import PartyDetail from "./Party/Detail";
-import DealList from "./Deal/List";
-import DealDetail from "./Deal/Detail";
+import DealsList from "./Deals/List";
+import DealsDetail from "./Deals/Detail";
 import Contacts from "./Contacts";
 
 import NotFound from "./NotFound";
@@ -41,8 +46,13 @@ class App extends Component {
               <Route path="/photo/:id" component={Photos} />
               <Route exact path="/parties" component={PartyList} />
               <Route path="/parties/:id" component={PartyDetail} />
-              <Route exact path="/deal" component={DealList} />
-              <Route path="/deal/:id" component={DealDetail} />
+              <Route
+                exact
+                path="/deals/1"
+                render={() => <Redirect to="/birthday" />}
+              />
+              <Route exact path="/deals" component={DealsList} />
+              <Route path="/deals/:id" component={DealsDetail} />
               <Route path="/menu" component={Menu} />
               <Route path="/contacts" component={Contacts} />
 

@@ -6,19 +6,6 @@ export const colorSec = "rgba(222, 145, 81, 1)";
 export const colorAcc = "rgba(188, 93, 46, 1)";
 export const colorDark = "rgba(46, 46, 58, 1)";
 
-export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-  padding-top: 60px;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-`;
-
 const sizes = {
   xl: 1199,
   lg: 992,
@@ -35,6 +22,34 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, {});
 
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  padding-top: 60px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+`;
+
+export const Mainscreen = styled.section`
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  background: url(${props => props.background});
+  background-position: center;
+  background-size: cover;
+  backgorund-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+  padding: 0 20%;
+`;
+
 export const MainHeading = styled.h1`
   color: #fff;
   font-family: Intro, sans-serif;
@@ -50,19 +65,4 @@ export const HeadingHighlighted = styled.span`
   background-color: #ffc01f;
   color: #d12f19;
   padding: 1rem 1rem 0.75rem;
-`;
-
-export const Mainscreen = styled.section`
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background: url(${props => props.background});
-  background-position: center;
-  background-size: cover;
-  backgorund-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-attachment: fixed;
-  padding: 0 20%;
 `;
