@@ -21,6 +21,7 @@ export const CardWrap = styled.div`
   ${media.md`
    flex-basis: 50%;
   `};
+
   ${media.lg`
     flex-basis: calc(100% / 3);
     height: 250px;

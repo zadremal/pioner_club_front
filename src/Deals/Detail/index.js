@@ -1,11 +1,15 @@
-import React, { Component, Fragment } from "react";
-
-import { Mainscreen } from "../../UI/landing";
+import React, { Component } from "react";
 import Section, { Heading } from "../../UI/section";
+import { Image, TextBlock, Wrap, CardWrap } from "./Styled";
+import Card from "../../UI/DealCard";
+import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import "./deals.css";
 
 class index extends Component {
   state = {
-    deal: ""
+    deal: "",
+    deals: ""
   };
 
   componentDidMount = () => {
@@ -22,22 +26,46 @@ class index extends Component {
   };
 
   render() {
-    const { deal } = this.state;
+    const { poster, name, description } = this.state.deal;
+    const deals = this.state.deals;
+    console.log(this.state);
     return (
-      <Fragment>
-        <Mainscreen background={deal.poster}>
-          <Heading contrast>{deal.name}</Heading>
-        </Mainscreen>
-        <Section>
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12">
-                <p>{deal.description}</p>
-              </div>
+      <Section>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <Wrap>
+                <Image src={poster} />
+                <TextBlock>
+                  <Heading>{name}</Heading>
+                </TextBlock>
+              </Wrap>
+              <ReactMarkdown className="markdown-deals" source={description} />
+            </div>
+            <div className="col-xs-12">
+              {deals && (
+                <div>
+                  {deals.map(deal => {
+                    const { id, name, poster, poster_alt } = deal;
+                    return (
+                      <CardWrap key={id}>
+                        <Link to={`deals/${id}`}>
+                          <Card
+                            heading={name}
+                            background={poster}
+                            alt={poster_alt}
+                            deals={deals}
+                          />
+                        </Link>
+                      </CardWrap>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
-        </Section>
-      </Fragment>
+        </div>
+      </Section>
     );
   }
 }

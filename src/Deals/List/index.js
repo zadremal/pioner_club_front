@@ -41,7 +41,12 @@ class index extends Component {
                     const { id, name, poster, poster_alt } = deal;
                     return (
                       <CardWrap key={id}>
-                        <Link to={`deals/${id}`}>
+                        <Link
+                          to={{
+                            pathname: `deals/${id}`,
+                            state: { deals: deals }
+                          }}
+                        >
                           <Card
                             heading={name}
                             background={poster}
