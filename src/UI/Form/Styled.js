@@ -15,6 +15,12 @@ export const Heading = styled.h4`
   text-align: center;
   margin-bottom: 2rem;
   color: ${colorDark};
+  transform: all 0.2s ease-out;
+`;
+
+export const Error = styled.h5`
+  text-align: center;
+  color: ${colorPr};
 `;
 
 export const Input = styled(MaskedInput)`
@@ -31,7 +37,7 @@ export const Input = styled(MaskedInput)`
   font-family: "Clear Sans", sans-serif;
   font-weight: 700;
   color: ${colorDark};
-  transition: box-shadow 0.1s linear;
+  transition: all 0.1s linear;
   &:focus {
     box-shadow: 0 4px 2px -2px rgba(235, 31, 6, 0.7);
   }

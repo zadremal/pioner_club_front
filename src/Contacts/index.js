@@ -25,21 +25,22 @@ class index extends Component {
       email: ""
     };
 
-    axios({
-      method: "POST",
-      url: "http://localhost:8000/api/v1/lead/submit/",
-      data: JSON.stringify(this.state),
-      headers: {
-        Authorization: "Token f9b9ba6e60a9a40a05aa216017566dfa803c5b70",
-        "Content-Type": "application/json"
-      }
-    }).then(res => {
-      console.log(res);
-      console.log(res.data);
-      if (res.status === 201) {
-        alert("Сообщение успешно отправлено!");
-      }
-    });
+    console.log(JSON.stringify(this.state));
+    // axios({
+    //   method: "POST",
+    //   url: "http://localhost:8000/api/v1/lead/submit/",
+    //   data: JSON.stringify(this.state),
+    //   headers: {
+    //     Authorization: "Token f9b9ba6e60a9a40a05aa216017566dfa803c5b70",
+    //     "Content-Type": "application/json"
+    //   }
+    // }).then(res => {
+    //   console.log(res);
+    //   console.log(res.data);
+    //   if (res.status === 201) {
+    //     alert("Сообщение успешно отправлено!");
+    //   }
+    // });
     this.setState(initinalState);
   };
 

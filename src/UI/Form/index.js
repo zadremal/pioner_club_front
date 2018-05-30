@@ -1,18 +1,20 @@
 import React, { Component, Fragment } from "react";
 
-import { Form, Input, Label, Heading, Submit } from "./Styled";
+import { Form, Input, Label, Heading, Submit, Error } from "./Styled";
 import { ButtonUp } from "../buttons";
 import { colorPr } from "../index";
+import axios from "axios";
 
 class index extends Component {
   state = {
     name: "",
-    phone: ""
+    phone: "",
+    success: false,
+    error: false
   };
 
   handleInput = e => {
     const name = e.target.name;
-    console.log(e.target.value);
     this.setState({
       [name]: e.target.value
     });
@@ -22,29 +24,71 @@ class index extends Component {
     e.preventDefault();
     const data = JSON.stringify({
       name: this.state.name.replace(/ /g, ""),
-      phone: this.state.phone.replace(/\W/g, "")
+      phone: this.state.phone.replace(/ /g, "")
     });
-    console.log(data);
+
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const apiServerToken = process.env.REACT_APP_API_SERVER_TOKEN;
+
+    axios({
+      method: "POST",
+      url: `${apiServer}/api/v1/lead/submit/`,
+      data: data,
+      headers: {
+        Authorization: apiServerToken,
+        "Content-Type": "application/json"
+      }
+    })
+      .catch(error => {
+        this.setState({
+          error: true
+        });
+        return new Error(error);
+      })
+      .then(res => {
+        res.status === 201
+          ? this.setState({
+              success: true
+            })
+          : this.setState({
+              error: true
+            });
+      });
+    this.setState({
+      name: "",
+      phone: ""
+    });
   };
 
   render() {
+    const { name, phone, success, error } = this.state;
     return (
       <Fragment>
         <Heading>
-          Оставьте свои контакты, и мы зарезервируем столик для Вас
+          {success
+            ? "Спасибо! Мы подтвердим Вашу бронь ближе к выходным"
+            : "Оставьте свои контакты, и мы зарезервируем столик для Вас"}
         </Heading>
+
+        {error && (
+          <Error>
+            что-то пошло не так. повторите попытку позднее, или позвоните нам
+          </Error>
+        )}
+
         <Form>
-          <Label fhtmlFor="name">Ваше имя:*</Label>
+          <Label for="name">Ваше имя:*</Label>
           <Input
-            mask="Aaaaaaaaaaaaaa"
+            mask="Aaaaaaaaaaaaaaaaaaaaa"
             placeholderChar=" "
             onChange={this.handleInput}
             type="text"
             name="name"
+            value={name}
             formatCharacters={{
               a: {
                 validate(char) {
-                  return /([а-яё]+)/.test(char);
+                  return /([a-zа-яё]+)/.test(char);
                 },
                 transform(char) {
                   return char.toLowerCase();
@@ -52,7 +96,7 @@ class index extends Component {
               },
               A: {
                 validate(char) {
-                  return /([А-яё]+)/.test(char);
+                  return /([A-Za-zА-ЯЁа-яё]+)/.test(char);
                 },
                 transform(char) {
                   return char.toUpperCase();
@@ -61,18 +105,30 @@ class index extends Component {
             }}
             autoFocus
           />
-          <Label htmlFor="phone">Номер телефона:*</Label>
+          <Label for="phone">Номер телефона:*</Label>
           <Input
             mask="\+7 111 111 11 11"
             onChange={this.handleInput}
             placeholderChar=" "
             type="text"
             name="phone"
+            value={phone}
           />
           <Submit>
-            <ButtonUp onClick={this.onSubmit} contrast color={colorPr}>
-              Зарезервировать
-            </ButtonUp>
+            {phone.length === 0 || name.length === 0 ? (
+              <ButtonUp
+                disabled
+                onClick={this.onSubmit}
+                contrast
+                color={colorPr}
+              >
+                Зарезервировать
+              </ButtonUp>
+            ) : (
+              <ButtonUp onClick={this.onSubmit} contrast color={colorPr}>
+                Зарезервировать
+              </ButtonUp>
+            )}
           </Submit>
         </Form>
       </Fragment>
