@@ -17,8 +17,8 @@ import Albums from "./Photo/Albums";
 import Photos from "./Photo/Photos";
 import PartyList from "./Party/List";
 import PartyDetail from "./Party/Detail";
-// import DealList from "./Deal/List";
-// import DealDetail from "./Deal/Detail";
+import DealList from "./Deal/List";
+import DealDetail from "./Deal/Detail";
 import Contacts from "./Contacts";
 
 import NotFound from "./NotFound";
@@ -41,8 +41,8 @@ class App extends Component {
               <Route path="/photo/:id" component={Photos} />
               <Route exact path="/parties" component={PartyList} />
               <Route path="/parties/:id" component={PartyDetail} />
-              {/* <Route exact path="/deal" component={DealList} /> */}
-              {/* <Route path="/deal/:id" component={DealDetail} /> */}
+              <Route exact path="/deal" component={DealList} />
+              <Route path="/deal/:id" component={DealDetail} />
               <Route path="/menu" component={Menu} />
               <Route path="/contacts" component={Contacts} />
 
