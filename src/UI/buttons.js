@@ -6,9 +6,9 @@ const Button = styled.button`
   border: 3px solid #fff;
   background-color: transparent;
   text-transform uppercase;
-  letter-spacing: .15rem;
-  padding: .5rem .5rem;
-  font-size: .8rem;
+  letter-spacing: .15em;
+  padding: .5em .5em;
+  font-size: .8em;
   cursor: pointer;
   position: relative
   font-weight: 700;
@@ -26,8 +26,8 @@ const Button = styled.button`
 
 
   ${media.sm`
-  padding: .65rem 1.75rem;
-  font-size: .9rem;
+  padding: .65em 1.75em;
+  font-size: .9em;
   `}
 `;
 

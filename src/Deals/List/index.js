@@ -1,31 +1,15 @@
 import React, { Component, Fragment } from "react";
 import { Mainscreen, Overlay } from "../../UI";
-
 import Section, { Heading } from "../../UI/section";
 import Card from "../../UI/DealCard";
 import { Cards, CardWrap } from "./Styled";
 import { Link } from "react-router-dom";
 import dealsBackground from "./deals.jpg";
+
 class index extends Component {
-  state = {
-    deals: []
-  };
-
-  componentDidMount = () => {
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/deals/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .catch(err => console.log("Looks like there was an error", err))
-      .then(data => {
-        this.setState({
-          deals: data
-        });
-      });
-  };
-
   render() {
-    const { deals } = this.state;
+    const { deals } = this.props;
+
     return (
       <Fragment>
         <Mainscreen background={dealsBackground}>
@@ -41,12 +25,7 @@ class index extends Component {
                     const { id, name, poster, poster_alt } = deal;
                     return (
                       <CardWrap key={id}>
-                        <Link
-                          to={{
-                            pathname: `deals/${id}`,
-                            state: { deals: deals }
-                          }}
-                        >
+                        <Link to={`deals/${id}`}>
                           <Card
                             heading={name}
                             background={poster}

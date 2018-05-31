@@ -22,8 +22,7 @@ import Albums from "./Photo/Albums";
 import Photos from "./Photo/Photos";
 import PartyList from "./Party/List";
 import PartyDetail from "./Party/Detail";
-import DealsList from "./Deals/List";
-import DealsDetail from "./Deals/Detail";
+import Deals from "./Deals";
 import Contacts from "./Contacts";
 
 import NotFound from "./NotFound";
@@ -51,8 +50,7 @@ class App extends Component {
                 path="/deals/1"
                 render={() => <Redirect to="/birthday" />}
               />
-              <Route exact path="/deals" component={DealsList} />
-              <Route path="/deals/:id" component={DealsDetail} />
+              <Route path="/deals" component={Deals} />
               <Route path="/menu" component={Menu} />
               <Route path="/contacts" component={Contacts} />
 

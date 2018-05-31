@@ -1,18 +1,29 @@
 import styled from "styled-components";
+import { media } from "../../UI";
 
 export const Image = styled.img`
-  width: 70%;
+  width: 100%;
+  margin-top: 1em;
+  ${media.lg`
+    width: 70%;
+
+  `};
 `;
 
 export const TextBlock = styled.div`
-  position: absolute;
-  padding: 3rem 2rem;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40%;
+  padding: 2em 2em;
   background: #fff;
   box-shadow: 0 0 60px 0px rgba(0, 0, 0, 0.75);
+  width: 100%;
+
+  ${media.lg`
+    padding: 3em 2em;
+    transform: translateY(-50%);
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+  `};
 `;
 
 export const Wrap = styled.div`
@@ -20,5 +31,22 @@ export const Wrap = styled.div`
 `;
 
 export const CardWrap = styled.div`
-  height: 150px;
+  height: 250px;
+  padding: 0.5em;
+`;
+
+export const Carousel = styled.div`
+  font-size: 0.9em;
+`;
+
+export const Description = styled.div`
+  margin: 1em auto;
+  padding: 1em;
+  width: 100%;
+  box-shadow: 0 0 60px 0px rgba(0, 0, 0, 0.75);
+  ${media.lg`
+      padding: 2em 3em;
+      margin: 2em auto;
+
+  `};
 `;

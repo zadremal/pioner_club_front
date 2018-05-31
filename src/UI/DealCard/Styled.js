@@ -62,7 +62,7 @@ export const Overlay = styled.div`
 
 export const Heading = styled.h3`
   display: block;
-  font-size: 1rem;
+  font-size: 1em;
   text-transform: uppercase;
   font-family: Intro, sans-serif, arial;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
@@ -74,14 +74,14 @@ export const Heading = styled.h3`
   }
 
   ${media.lg`
-    font-size: 1.25rem;
+    font-size: 1.25em;
   `};
 `;
 
 export const Text = styled.div`
   position: relative;
   z-index: 2;
-  padding: 0.5rem 1rem;
+  padding: 0.5em 1em;
   background-color: rgba(235, 31, 6, 0.6);
   position: absolute;
   top: 50%;
