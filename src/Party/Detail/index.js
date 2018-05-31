@@ -1,8 +1,23 @@
-import React, { Component, Fragment } from "react";
-import { Mainscreen } from "../../UI/landing";
+import React, { Component } from "react";
 
-import Section, { Heading } from "../../UI/section";
+import { Heading } from "../../UI/section";
+import {
+  Image,
+  TextBlock,
+  Wrap,
+  Description,
+  PartyDate,
+  PartyStart,
+  PartyPrice,
+  Enterance,
+  Button
+} from "./Styled";
 
+import MarkdownRenderer from "react-markdown-renderer";
+import { ButtonUpPr } from "../../UI/buttons";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
+import truncate from "lodash.truncate";
 class index extends Component {
   state = {
     party: {}
@@ -23,24 +38,61 @@ class index extends Component {
   render() {
     const {
       name,
-      date,
       description,
-
       poster,
-      poster_alt
+      date,
+      place,
+      poster_alt,
+      time_start
     } = this.state.party;
+
     return (
-      <Fragment>
-        <Mainscreen>
-          <Heading>Афиша мероприятий</Heading>
-        </Mainscreen>
-        <Section>
-          <h1> {name} </h1>
-          <h2> {date} </h2>
-          <img src={poster} alt={poster_alt} />
-          <p> {description} </p>
-        </Section>
-      </Fragment>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12">
+            <Wrap>
+              <PartyDate>
+                {format(date, "D.MM, dddd", { locale: ruLocale })}
+              </PartyDate>
+              <TextBlock>
+                <Heading>{name}</Heading>
+              </TextBlock>
+              <Image src={poster} alt={poster_alt} />
+            </Wrap>
+            <Description>
+              {place && (
+                <div className="container">
+                  <div className="row">
+                    <div className="col-xs-12 col-md-6">
+                      <PartyStart>Начало:</PartyStart>
+                      <PartyStart>
+                        {truncate(time_start, {
+                          length: 5,
+                          separator: " ",
+                          omission: ""
+                        })}
+                      </PartyStart>
+                      <Enterance>
+                        <PartyPrice> вход </PartyPrice>
+                        <MarkdownRenderer markdown={place.price} />
+                      </Enterance>
+                    </div>
+                    <div className="col-xs-12 col-md-6">
+                      <MarkdownRenderer markdown={description} />
+                      <Button>
+                        {" "}
+                        <ButtonUpPr contrast>
+                          забронировать столик
+                        </ButtonUpPr>{" "}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Description>
+          </div>
+        </div>
+      </div>
     );
   }
 }

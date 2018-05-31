@@ -17,7 +17,8 @@ export const Heading = styled.h2`
   z-index: 10;
   letter-spacing: 0.2rem;
   font-family: "Intro", Arial, sans-serif;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  text-shadow: ${props =>
+    props.contrast ? "0 0 4px rgba(0, 0, 0, 0.5)" : "none"};
   text-align: center;
   font-size: 1.5rem;
   color: ${props => (props.contrast ? "#fff" : colorDark)};

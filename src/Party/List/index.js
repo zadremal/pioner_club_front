@@ -1,15 +1,10 @@
 import React, { Component, Fragment } from "react";
-import {
-  Mainscreen
-  // Description,
-  // Schedule,
-  // ScheduleHeading,
-  // ScheduleText
-} from "../../UI/landing";
-
+import { Mainscreen, Overlay } from "../../UI";
 import Section, { Heading } from "../../UI/section";
-import { Party, PartyImage } from "./Styled";
 import { Link } from "react-router-dom";
+import background from "./parties-background.jpg";
+import Card from "./Card";
+import truncate from "lodash.truncate";
 
 class index extends Component {
   state = {
@@ -33,23 +28,44 @@ class index extends Component {
     const { parties } = this.state;
     return (
       <Fragment>
-        <Mainscreen>
-          <Heading>Афиша мероприятий</Heading>
+        <Mainscreen background={background}>
+          <Overlay />
+          <Heading contrast>Афиша мероприятий</Heading>
         </Mainscreen>
         <Section>
-          {parties.map(party => {
-            const { id, name, date, poster, poster_alt, description } = party;
-            return (
-              <Link key={id} to={`/parties/${id}`}>
-                <Party>
-                  <Heading>{name}</Heading>
-                  <h3>{date}</h3>
-                  <PartyImage src={poster} alt={poster_alt} />
-                  <p>{description} </p>
-                </Party>
-              </Link>
-            );
-          })}
+          <div className="container">
+            <div className="row">
+              {parties.map(party => {
+                const {
+                  id,
+                  name,
+                  date,
+                  poster,
+                  poster_alt,
+                  description
+                } = party;
+                return (
+                  <div className="col-xs-12 col-md-6 col-lg-3" key={id}>
+                    <Link
+                      style={{ textDecoration: "none", color: "inherit" }}
+                      to={`/parties/${id}`}
+                    >
+                      <Card
+                        heading={name}
+                        image={poster}
+                        imageAlt={poster_alt}
+                        date={date}
+                        description={truncate(description, {
+                          length: 150,
+                          separator: " "
+                        })}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </Section>
       </Fragment>
     );
