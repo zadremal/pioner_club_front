@@ -130,7 +130,6 @@ class index extends Component {
                   preloadNextImage={false}
                   showImageCount={false}
                   backdropClosesModal={true}
-                  customControls={""}
                 />
               </div>
             </div>
