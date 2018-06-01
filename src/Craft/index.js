@@ -5,7 +5,7 @@ import {
   Schedule,
   ScheduleHeading,
   ScheduleText
-} from "../UI/landing";
+} from "../UI";
 import Section, { Heading } from "../UI/section";
 import { Card, CardText, CardWrap, Beer } from "./Styled";
 

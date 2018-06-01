@@ -73,3 +73,26 @@ export const HeadingHighlighted = styled.span`
   color: #d12f19;
   padding: 1rem 1rem 0.75rem;
 `;
+
+export const Description = styled.p``;
+
+export const PlaceHeading = styled.h3``;
+
+export const Schedule = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;
+`;
+
+export const ScheduleHeading = styled.h3`
+  font-family: Intro, sans-serif;
+`;
+
+export const ScheduleText = styled.p`
+  flex-basis: 50%;
+  text-align: left;
+  &:nth-child(2n) {
+    text-align: right;
+  }
+`;

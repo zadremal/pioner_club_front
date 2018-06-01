@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Mainscreen } from "../UI/landing";
+import { Mainscreen } from "../UI";
 import { Heading } from "../UI/section";
 
 class index extends Component {

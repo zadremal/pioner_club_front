@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Mainscreen } from "../UI/landing";
+import { Mainscreen } from "../UI";
 class index extends Component {
   state = {
     name: "",

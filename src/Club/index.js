@@ -8,7 +8,7 @@ import {
   Schedule,
   ScheduleHeading,
   ScheduleText
-} from "../UI/landing";
+} from "../UI";
 import Youtube from "../UI/Youtube";
 import { Plan, ClubFeature } from "./Styled";
 import background from "./main_background.jpg";
