@@ -1,14 +1,10 @@
 import React, { Component, Fragment } from "react";
-import {
-  Mainscreen,
-  Description,
-  Schedule,
-  ScheduleHeading,
-  ScheduleText
-} from "../UI";
-import { Card, CardText, CardWrap } from "./Styled";
+import { Mainscreen, Overlay, Description } from "../UI";
 import Section, { Heading } from "../UI/section";
-import { ButtonRightPr } from "../UI/buttons";
+import Card from "../UI/PlaceInfo";
+import Feature from "../UI/PlaceFeature";
+import MarkdownRenderer from "react-markdown-renderer";
+
 import backvocal from "./backvocal.jpg";
 import mics from "./mics.jpg";
 import songs from "./songs.jpg";
@@ -16,26 +12,49 @@ import songs from "./songs.jpg";
 import background from "./karaoke_background.jpg";
 
 class index extends Component {
+  state = {
+    price: "",
+    openHours: ""
+  };
+
+  componentDidMount = () => {
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const fetchUrl = `${apiServer}/api/v1/places/`;
+    fetch(fetchUrl)
+      .then(response => response.json())
+      .catch(err => console.log("Looks like there was an error", err))
+      .then(data =>
+        this.setState({
+          price: data[1].price,
+          openHours: data[1].open_hours
+        })
+      );
+  };
   render() {
+    const { price, openHours } = this.state;
     return (
       <Fragment>
         <Mainscreen background={background}>
+          <Overlay />
           <Heading contrast children="Караоке" />
         </Mainscreen>
         <Section>
           <div className="container">
             <div className="row">
-              <div className="col-xs-7">
+              <div className="col-xs-12 col-lg-7 first-lg">
                 <Description>
-                  Караоке-бар «...» - одно из лучших мест для отдыха и
-                  развлечений. Авторский дизайн и всегда дружеская обстановка!
-                  Уже на входе вас встретит внимательный персонал и сопроводит в
-                  мир, наполненный яркими красками. В «...» установлено только
-                  лучшее оборудование, что позволит вам получить максимум
-                  удовольствия. Гостей также приятно удивит богатый репертуар: в
-                  списке песен как российские, так и зарубежные хиты. Кроме
-                  того, караоке-бар предлагает большой выбор крафтового пива,
-                  так и более крепких напитков и коктейлей. Наши бармены с
+                  Караоке-бар 100ПудовНеХундертвассер - одно из лучших мест для
+                  отдыха и развлечений. Авторский дизайн и всегда дружеская
+                  обстановка! Уже на входе вас встретит внимательный персонал и
+                  сопроводит в мир, наполненный яркими красками. В «...»
+                  установлено только лучшее оборудование, что позволит вам
+                  получить максимум удовольствия. Гостей также приятно удивит
+                  богатый репертуар: в списке песен как российские, так и
+                  зарубежные хиты.
+                </Description>
+                <Description>
+                  Кроме того, караоке-бар предлагает большой выбор крафтового
+                  пива, так и более крепких напитков и коктейлей. Наши бармены с
                   удовольствием расскажут Вам про любой сорт и помогут сделать
                   правильный выбор. Профессиональные повара не заставят гостей
                   томиться в ожидании, попробуйте наши сеты из авторских
@@ -46,21 +65,17 @@ class index extends Component {
                 </Description>
               </div>
 
-              <div className="col-xs-5 center-xs">
-                <ScheduleHeading>Мы открыты</ScheduleHeading>
-                <Schedule>
-                  <ScheduleText>четверг, воскресенье</ScheduleText>
-                  <ScheduleText>с 23:00 до 03:00</ScheduleText>
-                  <ScheduleText>пятница, суббота</ScheduleText>
-                  <ScheduleText>с 23:00 до 06:00</ScheduleText>
-                </Schedule>
-                <ScheduleHeading>Стоимость песни</ScheduleHeading>
-                <Schedule>
-                  <ScheduleText>пятница, суббота</ScheduleText>
-                  <ScheduleText>200 &#8381;</ScheduleText>
-                  <ScheduleText>четверг, воскресенье</ScheduleText>
-                  <ScheduleText>БЕСПЛАТНО</ScheduleText>
-                </Schedule>
+              <div className="col-xs-12 col-lg-5 center-xs first-xs">
+                {openHours && (
+                  <Card heading="мы открыты">
+                    <MarkdownRenderer markdown={openHours} />
+                  </Card>
+                )}
+                {price && (
+                  <Card heading="стоимость песни">
+                    <MarkdownRenderer markdown={price} />
+                  </Card>
+                )}
               </div>
             </div>
           </div>
@@ -68,23 +83,26 @@ class index extends Component {
         <Section>
           <div className="container">
             <div className="row">
-              <div className="col-xs-12">
-                <CardWrap>
-                  <Card background={backvocal}>
-                    <CardText>Бэк-вокал в арранжировках</CardText>
-                  </Card>
-
-                  <Card background={songs}>
-                    <CardText>Более 40000 песен</CardText>
-                  </Card>
-
-                  <Card background={mics}>
-                    <CardText>Микрофоны SurePro</CardText>
-                  </Card>
-                </CardWrap>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="Бэк-вокал в арранжировка"
+                  image={backvocal}
+                  imageAlt="Бэк-вокал в арранжировка"
+                />
               </div>
-              <div className="col-xs-12 center-xs">
-                <ButtonRightPr contrast>Забронировать столик</ButtonRightPr>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="Более 40000 песен"
+                  image={songs}
+                  imageAlt="Более 40000 песен"
+                />
+              </div>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="Микрофоны SurePro"
+                  image={mics}
+                  imageAlt="Микрофоны SurePro"
+                />
               </div>
             </div>
           </div>

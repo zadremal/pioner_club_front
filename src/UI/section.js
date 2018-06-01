@@ -20,12 +20,8 @@ export const Heading = styled.h2`
   text-shadow: ${props =>
     props.contrast ? "0 0 4px rgba(0, 0, 0, 0.5)" : "none"};
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: ${props => (props.contrast ? "#fff" : colorDark)};
-
-  ${media.md`
-    font-size: 2rem;
-  `};
 
   ${media.lg`
     font-size: 2.5rem;

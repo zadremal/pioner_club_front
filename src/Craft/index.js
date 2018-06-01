@@ -1,38 +1,52 @@
 import React, { Component, Fragment } from "react";
-import {
-  Mainscreen,
-  Description,
-  Schedule,
-  ScheduleHeading,
-  ScheduleText
-} from "../UI";
+import { Mainscreen, Overlay, Description } from "../UI";
 import Section, { Heading } from "../UI/section";
-import { Card, CardText, CardWrap, Beer } from "./Styled";
+import { Image } from "./Styled";
+import Card from "../UI/PlaceInfo";
+import Feature from "../UI/PlaceFeature";
+import MarkdownRenderer from "react-markdown-renderer";
 
 import background from "./craft_background.jpg";
 import fishburger from "./fishburger.jpg";
 import hamburger from "./hamburger.jpg";
 import cheeseburger from "./cheeseburger.jpg";
 
-import BeerCard from "./Card";
-import cherry from "./cherry.png";
-import crazy from "./crazy.png";
-import california from "./california.png";
-import over from "./over.png";
+import beer from "./beer.jpg";
 
 class index extends Component {
+  state = {
+    price: "",
+    openHours: ""
+  };
+
+  componentDidMount = () => {
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const fetchUrl = `${apiServer}/api/v1/places/`;
+    fetch(fetchUrl)
+      .then(response => response.json())
+      .catch(err => console.log("Looks like there was an error", err))
+      .then(data =>
+        this.setState({
+          price: data[2].price,
+          openHours: data[2].open_hours
+        })
+      );
+  };
+
   render() {
+    const { openHours } = this.state;
     return (
       <Fragment>
         <Mainscreen background={background}>
+          <Overlay />
           <Heading contrast>Крафт бургер бар</Heading>
         </Mainscreen>
         <Section>
           <div className="container">
             <div className="row">
-              <div className="col-xs-7">
+              <div className="col-xs-12 col-lg-7 first-lg">
                 <Description>
-                  разнообразный ассортимент розливного пива , который придется
+                  Разнообразный ассортимент розливного пива , который придется
                   по душе как любителям насыщенного эля, так и ценителям легкого
                   лагера. В ассортименте представлены производители таких стран
                   как Бельгия, Чехия , Германия, Англия , Россия .
@@ -44,12 +58,12 @@ class index extends Component {
                   необычные.
                 </Description>
               </div>
-              <div className="col-xs-5">
-                <ScheduleHeading>Мы открыты</ScheduleHeading>
-                <Schedule>
-                  <ScheduleText>ежедневно</ScheduleText>
-                  <ScheduleText>с 17:00 до 03:00</ScheduleText>
-                </Schedule>
+              <div className="col-xs-12 col-lg-5 center-xs first-xs">
+                {openHours && (
+                  <Card heading="мы открыты">
+                    <MarkdownRenderer markdown={openHours} />
+                  </Card>
+                )}
               </div>
             </div>
           </div>
@@ -65,18 +79,26 @@ class index extends Component {
                   штуку
                 </Description>
               </div>
-              <div className="col-xs-12">
-                <CardWrap>
-                  <Card background={fishburger}>
-                    <CardText>Фишбургер</CardText>
-                  </Card>
-                  <Card background={hamburger}>
-                    <CardText>Чизбургер</CardText>
-                  </Card>
-                  <Card background={cheeseburger}>
-                    <CardText>Гамбургер</CardText>
-                  </Card>
-                </CardWrap>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="Мини-фишбургер"
+                  image={fishburger}
+                  imageAlt="Мини-фишбургер"
+                />
+              </div>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="Мини-Гамбургер"
+                  image={hamburger}
+                  imageAlt="Мини-Гамбургер"
+                />
+              </div>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="Мини-Чизбургер"
+                  image={cheeseburger}
+                  imageAlt="Мини-Чизбургер"
+                />
               </div>
             </div>
           </div>
@@ -84,56 +106,19 @@ class index extends Component {
         <Section>
           <div className="container">
             <div className="row">
-              <div className="col-xs-12">
-                <Heading>Более 40 сортов пива</Heading>
+              <div className="col-xs-12 col-lg-7 first-lg">
+                <Image src={beer} alt="более 40 сортов пива" />
               </div>
-              <div className="col-xs-12">
-                <CardWrap>
-                  <Beer>
-                    <BeerCard
-                      name="Apa Crazy Moose"
-                      image={crazy}
-                      alcohol="6,5"
-                      ibu="65"
-                      description="Американский IPA.
-Темное, нефильтрованное, непастеризованное. Питкий классический светлый Американский IPA, с присущей этому стилю аромати... "
-                      price="250"
-                    />
-                  </Beer>
-                  <Beer>
-                    <BeerCard
-                      name="Apa Crazy Moose"
-                      image={cherry}
-                      alcohol="6,5"
-                      ibu="65"
-                      description="Американский IPA.
-Темное, нефильтрованное, непастеризованное. Питкий классический светлый Американский IPA, с присущей этому стилю аромати... "
-                      price="250"
-                    />
-                  </Beer>
-                  <Beer>
-                    <BeerCard
-                      name="Apa Crazy Moose"
-                      image={california}
-                      alcohol="6,5"
-                      ibu="65"
-                      description="Американский IPA.
-Темное, нефильтрованное, непастеризованное. Питкий классический светлый Американский IPA, с присущей этому стилю аромати... "
-                      price="250"
-                    />
-                  </Beer>
-                  <Beer>
-                    <BeerCard
-                      name="Apa Crazy Moose"
-                      image={over}
-                      alcohol="6,5"
-                      ibu="65"
-                      description="Американский IPA.
-Темное, нефильтрованное, непастеризованное. Питкий классический светлый Американский IPA, с присущей этому стилю аромати... "
-                      price="250"
-                    />
-                  </Beer>
-                </CardWrap>
+              <div className="col-xs-12 col-lg-5 center-xs first-xs">
+                <Card heading="Более 40 сортов пива">
+                  <Description>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Optio commodi dolore molestias dolorum dicta, neque alias
+                    saepe perferendis culpa deleniti corporis, iste aliquam
+                    delectus explicabo, inventore praesentium. Vel, officia
+                    saepe!
+                  </Description>
+                </Card>
               </div>
             </div>
           </div>
