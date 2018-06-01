@@ -1,30 +1,72 @@
 import React, { Component, Fragment } from "react";
 
 import Section, { Heading } from "../UI/section";
-import {
-  Mainscreen,
-  Description,
-  PlaceHeading,
-  Schedule,
-  ScheduleHeading,
-  ScheduleText
-} from "../UI";
+import { Mainscreen, Overlay, Description } from "../UI";
 import Youtube from "../UI/Youtube";
-import { Plan, ClubFeature } from "./Styled";
+import { Plan } from "./Styled";
+import Card from "../UI/PlaceInfo";
 import background from "./main_background.jpg";
 import plan from "./plan.jpg";
+import MarkdownRenderer from "react-markdown-renderer";
+import Feature from "../UI/PlaceFeature";
+import Lightbox from "react-images";
+
+import bar from "./bar.jpg";
+import pioner from "./pioner.jpg";
+import show from "./show.jpg";
 
 class index extends Component {
+  constructor() {
+    super();
+    this.state = {
+      price: "",
+      openHours: "",
+      currentImage: 0,
+      lightboxIsOpen: false
+    };
+
+    this.closeLightbox = this.closeLightbox.bind(this);
+    this.openLightbox = this.openLightbox.bind(this);
+  }
+
+  openLightbox = (event, obj) => {
+    this.setState({
+      currentImage: 1,
+      lightboxIsOpen: true
+    });
+  };
+  closeLightbox = () => {
+    this.setState({
+      lightboxIsOpen: false
+    });
+  };
+
+  componentDidMount = () => {
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const fetchUrl = `${apiServer}/api/v1/places/`;
+    fetch(fetchUrl)
+      .then(response => response.json())
+      .catch(err => console.log("Looks like there was an error", err))
+      .then(data =>
+        this.setState({
+          price: data[0].price,
+          openHours: data[0].open_hours
+        })
+      );
+  };
+
   render() {
+    const { price, openHours } = this.state;
     return (
       <Fragment>
         <Mainscreen background={background}>
+          <Overlay />
           <Heading contrast>Ночной клуб Пионер</Heading>
         </Mainscreen>
         <Section>
           <div className="container">
             <div className="row">
-              <div className="col-xs-7">
+              <div className="col-xs-12 col-lg-7 first-lg">
                 <Description>
                   «ПИОНЕР» - неповторимая эклектика современного дизайна и духа
                   эпохи 70-80х годов. Все необходимые детали ретро-диско-клуба -
@@ -40,48 +82,6 @@ class index extends Component {
                   из широкого ассортимента алкогольных и безалкогольных
                   напитков, коктейлей и холодных закусок.
                 </Description>
-                <PlaceHeading>План зала</PlaceHeading>
-                <Plan src={plan} />
-              </div>
-              <div className="col-xs-5 center-xs">
-                <ScheduleHeading>Мы открыты</ScheduleHeading>
-                <Schedule>
-                  <ScheduleText>пятница, суббота</ScheduleText>
-                  <ScheduleText>с 22:00 до 06:00</ScheduleText>
-                </Schedule>
-                <ScheduleHeading>Караоке</ScheduleHeading>
-                <Schedule>
-                  <ScheduleText>четверг, воскресенье</ScheduleText>
-                  <ScheduleText>с 23:00 до 03:00</ScheduleText>
-                  <ScheduleText>пятница, суббота</ScheduleText>
-                  <ScheduleText>с 23:00 до 06:00</ScheduleText>
-                </Schedule>
-                <ScheduleHeading>Бар</ScheduleHeading>
-                <Schedule>
-                  <ScheduleText>ежедневно</ScheduleText>
-                  <ScheduleText>с 18:00 до 03:00</ScheduleText>
-                </Schedule>
-              </div>
-            </div>
-          </div>
-        </Section>
-        <Section>
-          <Youtube videoId="7VC-hPemn30" />
-        </Section>
-        <Section>
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-5 center-xs">
-                <PlaceHeading>каждые выходные</PlaceHeading>
-                <ClubFeature>
-                  бесплатный розлив алкоголя от барменов
-                </ClubFeature>
-                <ClubFeature>
-                  посвящение в Пионеры и пионерская линейка
-                </ClubFeature>
-                <ClubFeature>шоу-программа и выступления персонала</ClubFeature>
-              </div>
-              <div className="col-xs-7">
                 <Description>
                   Специальными гостями вечеринок диско-зала выступают
                   вокально-инструментальные ансамбли и известные ди-джеи.
@@ -103,6 +103,68 @@ class index extends Component {
                   в музыку свободы и перемен, и получите новые эмоции от любимых
                   мотивов!
                 </Description>
+              </div>
+              <div className="col-xs-12 col-lg-5 center-xs first-xs">
+                {openHours && (
+                  <Card heading="мы открыты">
+                    <MarkdownRenderer markdown={openHours} />
+                  </Card>
+                )}
+                {price && (
+                  <Card heading="цены на вход">
+                    <MarkdownRenderer markdown={price} />
+                  </Card>
+                )}
+                <Card heading="план зала">
+                  <Plan
+                    onClick={this.openLightbox}
+                    src={plan}
+                    alt="план зала ночной клуб Пионер"
+                  />
+                </Card>
+                <Lightbox
+                  images={[{ src: `${plan}` }, { src: `${plan}` }]}
+                  onClose={this.closeLightbox}
+                  currentImage={this.state.currentImage}
+                  isOpen={this.state.lightboxIsOpen}
+                  preloadNextImage={false}
+                  showImageCount={false}
+                  backdropClosesModal={true}
+                  customControls={""}
+                />
+              </div>
+            </div>
+          </div>
+        </Section>
+        <Section>
+          <Youtube videoId="7VC-hPemn30" />
+        </Section>
+        <Section>
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <Heading>каждые выходные</Heading>
+              </div>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="бесплатный розлив алкоголя от барменов"
+                  image={bar}
+                  imageAlt="бесплатный розлив от барменов в ночном клубе Пионер"
+                />
+              </div>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="посвящение в Пионеры и пионерская линейка"
+                  image={pioner}
+                  imageAlt="посвящение в Пионеры и пионерская линейка"
+                />
+              </div>
+              <div className="col-xs-12 col-md-4">
+                <Feature
+                  heading="шоу-программа и выступления персонала"
+                  image={show}
+                  imageAlt="шоу-программа и выступления персонала"
+                />
               </div>
             </div>
           </div>

@@ -74,7 +74,11 @@ export const HeadingHighlighted = styled.span`
   padding: 1rem 1rem 0.75rem;
 `;
 
-export const Description = styled.p``;
+export const Description = styled.p`
+  font-family: "Clear Sans", Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.75em;
+`;
 
 export const PlaceHeading = styled.h3``;
 

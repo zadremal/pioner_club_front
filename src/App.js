@@ -53,7 +53,6 @@ class App extends Component {
               <Route path="/deals" component={Deals} />
               <Route path="/menu" component={Menu} />
               <Route path="/contacts" component={Contacts} />
-
               <Route component={NotFound} />
             </Switch>
           </Main>
