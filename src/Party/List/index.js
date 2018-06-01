@@ -36,14 +36,8 @@ class index extends Component {
           <div className="container">
             <div className="row">
               {parties.map(party => {
-                const {
-                  id,
-                  name,
-                  date,
-                  poster,
-                  poster_alt,
-                  description
-                } = party;
+                const { id, name, date, poster, poster_alt } = party;
+                const description = party.description.replace(/#/g, "");
                 return (
                   <div className="col-xs-12 col-md-6 col-lg-3" key={id}>
                     <Link

@@ -62,7 +62,7 @@ const index = ({ heading, image, imageAlt, date, description }) => {
       </PartyDate>
       <Image src={image} alt={imageAlt} />
       <Heading>{heading}</Heading>
-      <Description>{description}</Description>
+      <Description> {description} </Description>
       <Button>
         <ButtonRightPr contrast>Подробнее</ButtonRightPr>{" "}
       </Button>
