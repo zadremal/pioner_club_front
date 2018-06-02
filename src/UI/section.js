@@ -12,6 +12,7 @@ const Section = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: ${props => (props.fixed ? "fixed" : "inherit")};
 `;
 
 export const Heading = styled.h2`
@@ -36,7 +37,7 @@ export const Heading = styled.h2`
 class section extends Component {
   render() {
     return (
-      <Section background={this.props.background}>
+      <Section fixed={this.props.fixed} background={this.props.background}>
         {this.props.children}
       </Section>
     );

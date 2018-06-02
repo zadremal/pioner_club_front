@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colorDark, colorPr, Mainscreen } from "../UI/";
+import { colorDark, colorPr, media } from "../UI/";
 
 export const Content = styled.div`
   max-width: 60%;
@@ -13,57 +13,33 @@ export const Detail = styled.p`
 
 export const DealImg = styled.img`
   height: 90px;
+  margin-top: 1.5rem;
 `;
 
 export const DealDescription = styled.h3`
   color: ${colorDark};
   font-family: Intro, sans-serif;
+  font-size: 0.9rem;
+  padding: 0 2rem;
+
+  ${media.md`
+    font-size: 1rem;
+    padding: 0 1rem;
+    `};
+
+  ${media.lg`
+    padding: 0 2rem;
+  `};
 `;
 
 export const Highlighted = styled.span`
   color: ${colorPr};
 `;
-
-export const BoringDescription = styled.p``;
-
-export const BoringWrap = styled.div`
+export const CardWrap = styled.div`
   display: flex;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
-`;
-
-export const BoringCard = styled.div`
-  position: relative;
-  padding-bottom: 250px;
-  background-image: url(${props => props.background});
-  background-position: center;
-  background-size: cover;
-  flex-grow: 1;
-  flex-basis: auto;
-`;
-
-export const BoringHeading = styled.h3`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 20%;
-  text-align: center;
-  max-width: 80%;
-`;
-
-export const Pioner = Mainscreen.extend`
-  height: auto;
-  padding: 10rem 0;
-`;
-
-export const PionerText = styled.p`
-  color: #fff;
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
-export const BirthdayText = PionerText.extend`
-  color: #000;
+  margin-bottom: 2em;
 `;
 
 export const Form = styled.form`
@@ -84,4 +60,9 @@ export const Submit = Input.extend`
   text-transform: uppercase;
   color: #fff;
   text-align: center;
+`;
+
+export const Special = styled.div`
+  padding: 10%;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
 `;

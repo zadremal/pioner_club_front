@@ -4,7 +4,6 @@ import {
   LandingMainHeading,
   Overlay,
   MainscreenWrap,
-  Mainscreen,
   Description
 } from "../UI/";
 import background from "./banket_background.jpg";

@@ -47,7 +47,14 @@ export const Mainscreen = styled.section`
   align-items: center;
   justify-content: center;
   background-attachment: fixed;
-  padding: 0 20%;
+  padding: 0 5%;
+
+  ${media.lg`
+    padding: 0 10%;
+  `};
+  ${media.xl`
+    padding: 0 20%;
+  `};
 `;
 
 export const LandingMainscreen = Mainscreen.extend`
@@ -94,6 +101,15 @@ export const HeadingHighlighted = styled.span`
   background-color: #ffc01f;
   color: #d12f19;
   padding: 1rem 1rem 0.75rem;
+  font-size: 1rem;
+
+  ${media.md`
+  font-size: 1.5rem;
+  `};
+
+  ${media.md`
+  font-size: 2rem;
+  `};
 `;
 
 export const Description = styled.p`
