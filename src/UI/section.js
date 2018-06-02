@@ -4,6 +4,8 @@ import { colorDark, media } from "./index";
 
 const Section = styled.section`
   padding: 1rem 0;
+  position: relative;
+  z-index: 1;
   background: URL(${props => props.background});
   background-color: ${props =>
     props.background ? props.background : "transparent"};
@@ -20,10 +22,13 @@ export const Heading = styled.h2`
   text-shadow: ${props =>
     props.contrast ? "0 0 4px rgba(0, 0, 0, 0.5)" : "none"};
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: ${props => (props.contrast ? "#fff" : colorDark)};
 
-  ${media.lg`
+  ${media.md`
+  font-size: 2rem;
+
+  `} ${media.lg`
     font-size: 2.5rem;
   `};
 `;

@@ -50,8 +50,13 @@ export const Mainscreen = styled.section`
   padding: 0 20%;
 `;
 
+export const LandingMainscreen = Mainscreen.extend`
+  height: 90vh;
+`;
+
 export const Overlay = styled.div`
   position: absolute;
+  z-index: 2;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
@@ -59,13 +64,30 @@ export const Overlay = styled.div`
   bottom: 0;
 `;
 
+export const MainscreenWrap = styled.div`
+  position: relative;
+  z-index: 3
+  text-align: center;
+  padding: 2rem 0;
+`;
+
 export const MainHeading = styled.h1`
   color: #fff;
   font-family: Intro, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 2em;
   text-align: center;
   margin: 1rem;
-  line-height: 3.5rem;
+  line-height: 3.5em;
+`;
+
+export const LandingMainHeading = MainHeading.extend`
+  line-height: 1.5em;
+  margin: 0;
+  font-size: 2em;
+  ${media.lg`
+font-size: 3em;
+
+`};
 `;
 
 export const HeadingHighlighted = styled.span`
@@ -76,27 +98,14 @@ export const HeadingHighlighted = styled.span`
 
 export const Description = styled.p`
   font-family: "Clear Sans", Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  color: ${props => (props.contrast ? "#fff" : "#000")};
+  ${media.md`
+  
   font-size: 1.2em;
   line-height: 1.75em;
+  `};
 `;
 
 export const PlaceHeading = styled.h3``;
-
-export const Schedule = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  text-align: left;
-`;
-
-export const ScheduleHeading = styled.h3`
-  font-family: Intro, sans-serif;
-`;
-
-export const ScheduleText = styled.p`
-  flex-basis: 50%;
-  text-align: left;
-  &:nth-child(2n) {
-    text-align: right;
-  }
-`;

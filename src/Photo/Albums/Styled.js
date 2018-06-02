@@ -25,13 +25,18 @@ export const Album = styled.div`
   z-index: 10;
 `;
 
-export const Title = styled.h3`
+export const Photos = styled.h3`
   color: #fff;
   text-align: center;
-  margin-top: 20px;
-  }
-
+  flex-basis: 100%;
+  margin: 0;
 `;
+
+export const Title = Photos.extend`
+  font-family: Intro, Arial, sans-serif;
+  font-size: 2rem;
+`;
+
 export const Overlay = styled.div`
   position: absolute;
   top: 0;
@@ -41,6 +46,10 @@ export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: all 0.2s ease-out;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
   ${Album}:hover & {
     opacity: 1;
   }
@@ -52,7 +61,7 @@ export const Card = ({ albumId, title, size, background, onPhotoClick }) => {
       <Link to={`photo/${albumId}`}>
         <Overlay>
           <Title>{title}</Title>
-          <Title>{size} фото</Title>
+          <Photos>{size} фото</Photos>
         </Overlay>
       </Link>
     </Album>

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-
 import Section, { Heading } from "../../UI/section";
-
 import { Albums, Card } from "./Styled";
-
 import jsonp from "jsonp";
 
 class index extends Component {
