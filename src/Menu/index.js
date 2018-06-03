@@ -47,7 +47,7 @@ class index extends Component {
                 <Route
                   exact
                   path={path}
-                  render={() => <Redirect to="/menu/bar" />}
+                  render={() => <Redirect to={`${path}/bar`} />}
                 />
                 <Route path={`${path}/kitchen`} component={Kitchen} />
                 <Route path={`${path}/bar`} component={Bar} />

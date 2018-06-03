@@ -48,6 +48,12 @@ export const Links = [
     activeClassName: "router-link--active"
   },
   {
+    link: "/menu",
+    name: "МЕНЮ",
+    exact: false,
+    activeClassName: "router-link--active"
+  },
+  {
     link: "/contacts",
     name: "КОНТАКТЫ",
     exact: false,

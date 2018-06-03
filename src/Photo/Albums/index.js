@@ -1,67 +1,41 @@
-import React, { Component } from "react";
-import Section, { Heading } from "../../UI/section";
-import { Albums, Card } from "./Styled";
-import jsonp from "jsonp";
+import React from "react";
+import { Heading } from "../../UI/section";
+import { Link } from "react-router-dom";
+import Card from "./Card";
 
-class index extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      albums: []
-    };
-  }
-
-  componentDidMount() {
-    const count = 16;
-    const offset = 2;
-    const ownerId = -347981;
-    const url = "https://api.vk.com/";
-    const method = "photos.getAlbums";
-    const access_token = process.env.REACT_APP_VK_ACCESS_TOKEN;
-    const request = `${url}/method/${method}?access_token=${access_token}&owner_id=${ownerId}&count=${count}&offset=${offset}&need_covers=1&photo_sizes=1&v=5.74&callback=null`;
-
-    jsonp(request, null, (err, data) => {
-      if (err) {
-        console.error(err.message);
-      } else {
-        this.setState({ albums: data.response.items });
-      }
-    });
-  }
-  render() {
-    const { albums } = this.state;
-    return (
-      <Section>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              <Heading>Последние фотоотчеты</Heading>
-            </div>
-
-            <div className="col-xs-12">
-              <Albums>
-                {console.log(albums)}
-                {albums.map(album => {
-                  const { size, title, id } = album;
-                  const background = album.sizes[4].src;
-                  return (
-                    <Card
-                      key={id}
-                      albumId={id}
-                      background={background}
-                      title={title}
-                      size={size}
-                    />
-                  );
-                })}
-              </Albums>
-            </div>
-          </div>
+const index = ({ albums }) => {
+  return (
+    <div className="container">
+      {console.log(albums)}
+      <div className="row">
+        <div className="col-xs-12">
+          <Heading>Последние фотоотчеты</Heading>
         </div>
-      </Section>
-    );
-  }
-}
+
+        {albums.map(album => {
+          const { size, title, id } = album;
+          const background = album.sizes[4].src;
+          return (
+            <div key={id} className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <Link
+                to={{
+                  pathname: `/photo/${id}`,
+                  albumName: title
+                }}
+              >
+                <Card
+                  albumId={id}
+                  background={background}
+                  title={title}
+                  size={size}
+                />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 export default index;

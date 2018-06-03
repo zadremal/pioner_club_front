@@ -1,17 +1,9 @@
 import styled from "styled-components";
-import React from "react";
-import { Link } from "react-router-dom";
-
-export const Albums = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
 
 export const Album = styled.div`
   position: relative;
   height: 250px;
-  flex-basis: 23%;
+  width: 100%;
   flex-grow: 0;
   flex-shrink: 0;
   transition: all 0.2s ease-out;
@@ -54,16 +46,3 @@ export const Overlay = styled.div`
     opacity: 1;
   }
 `;
-
-export const Card = ({ albumId, title, size, background, onPhotoClick }) => {
-  return (
-    <Album background={background}>
-      <Link to={`photo/${albumId}`}>
-        <Overlay>
-          <Title>{title}</Title>
-          <Photos>{size} фото</Photos>
-        </Overlay>
-      </Link>
-    </Album>
-  );
-};

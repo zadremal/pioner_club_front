@@ -18,8 +18,7 @@ import Club from "./Club";
 import Karaoke from "./Karaoke";
 import Menu from "./Menu";
 import Craft from "./Craft";
-import Albums from "./Photo/Albums";
-import Photos from "./Photo/Photos";
+import Photo from "./Photo/";
 import PartyList from "./Party/List";
 import PartyDetail from "./Party/Detail";
 import Deals from "./Deals";
@@ -41,8 +40,8 @@ class App extends Component {
               <Route path="/karaoke" component={Karaoke} />
               <Route path="/banket" component={Banket} />
               <Route path="/craft" component={Craft} />
-              <Route exact path="/photo" component={Albums} />
-              <Route path="/photo/:id" component={Photos} />
+              <Route path="/photo" component={Photo} />
+
               <Route exact path="/parties" component={PartyList} />
               <Route path="/parties/:id" component={PartyDetail} />
               <Route
