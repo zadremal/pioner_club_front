@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import MenuList from "../MenuList";
+import { Image } from "../Styled";
+
+import kitchen1 from "./kitch1.jpg";
+import kitchen2 from "./kitch2.jpg";
 
 class Menu extends Component {
   state = {
@@ -8,7 +11,7 @@ class Menu extends Component {
   componentDidMount = () => {
     const menuPart = 1;
     const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}}/api/v1/menu/${menuPart}/`;
+    const fetchUrl = `${apiServer}/api/v1/menu/${menuPart}/`;
 
     fetch(fetchUrl)
       .then(response => response.json())
@@ -20,8 +23,12 @@ class Menu extends Component {
   };
 
   render() {
-    const { menu } = this.state;
-    return <MenuList data={menu} />;
+    return (
+      <div>
+        <Image src={kitchen1} />
+        <Image src={kitchen2} />
+      </div>
+    );
   }
 }
 

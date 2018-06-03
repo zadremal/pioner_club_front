@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import MenuList from "../MenuList";
+import { Image } from "../Styled";
+import banket1 from "./banket1.jpg";
+import banket2 from "./banket2.jpg";
+import banket3 from "./banket3.jpg";
+import banket4 from "./banket4.jpg";
+import banket5 from "./banket5.jpg";
+
 class Menu extends Component {
   state = {
     menu: []
@@ -19,8 +25,15 @@ class Menu extends Component {
   };
 
   render() {
-    const { menu } = this.state;
-    return <MenuList data={menu} />;
+    return (
+      <div>
+        <Image src={banket1} />
+        <Image src={banket2} />
+        <Image src={banket3} />
+        <Image src={banket4} />
+        <Image src={banket5} />
+      </div>
+    );
   }
 }
 
