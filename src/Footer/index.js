@@ -9,7 +9,8 @@ import {
   ContactsSvg,
   Basement,
   BasementText,
-  StyledLink
+  StyledLink,
+  Social
 } from "./Styled";
 import Vk from "./Vk";
 import Insta from "./Insta";
@@ -74,16 +75,18 @@ class index extends Component {
             </div>
 
             <div className="col-xs-6 col-md-3">
-              <a href="https://vk.com/pioner_club">
-                <SocialSvg viewBox="0 0 512 512">
-                  <Vk />
-                </SocialSvg>
-              </a>
-              <a href="https://www.instagram.com/clubpioner/">
-                <SocialSvg viewBox="0 0 169.063 169.063">
-                  <Insta />
-                </SocialSvg>
-              </a>
+              <Social>
+                <a href="https://vk.com/pioner_club">
+                  <SocialSvg viewBox="0 0 512 512">
+                    <Vk />
+                  </SocialSvg>
+                </a>
+                <a href="https://www.instagram.com/clubpioner/">
+                  <SocialSvg viewBox="0 0 169.063 169.063">
+                    <Insta />
+                  </SocialSvg>
+                </a>
+              </Social>
               <Contacts>
                 <ContactsLink href="mailto: retro@pioner-club.com ">
                   <ContactsSvg viewBox="0 0 512 512">

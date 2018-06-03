@@ -33,9 +33,12 @@ export const NavItem = styled.li`
   }
 `;
 
+export const Social = styled.div`
+  margin-top: 1em;
+`;
+
 export const SocialSvg = styled.svg`
   display: none;
-
   height: 30px;
   fill: #fff;
   margin-right: 1rem;
