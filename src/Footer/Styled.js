@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { colorDark, colorPr, colorAcc } from "../UI/";
+import { colorDark, colorPr, colorAcc, media } from "../UI/";
+import { Link } from "react-router-dom";
 
 export const Footer = styled.footer`
   background-color: ${colorDark};
@@ -11,6 +12,14 @@ export const Footer = styled.footer`
 export const Nav = styled.ul`
   margin: 0;
   padding: 0;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #8d8d93;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const NavItem = styled.li`
@@ -25,17 +34,21 @@ export const NavItem = styled.li`
 `;
 
 export const SocialSvg = styled.svg`
-  display: inline;
+  display: none;
+
   height: 30px;
   fill: #fff;
   margin-right: 1rem;
-  transition: all 0.2s ease-in;
+  transition: all 0.1s ease-in;
   &:hover {
     fill: ${colorPr};
   }
   &:active {
     fill: ${colorAcc};
   }
+  ${media.md`
+    display: inline
+  `};
 `;
 
 export const ContactsSvg = SocialSvg.extend`
@@ -53,8 +66,11 @@ export const ContactsLink = styled.a`
 `;
 
 export const BasementText = styled.p`
-  display: inline;
+  display: block;
   margin-right: 0.5rem;
+  ${media.md`
+    display: inline
+  `};
 `;
 
 export const Basement = styled.div`

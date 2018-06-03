@@ -8,11 +8,11 @@ import {
   ContactsLink,
   ContactsSvg,
   Basement,
-  BasementText
+  BasementText,
+  StyledLink
 } from "./Styled";
 import Vk from "./Vk";
 import Insta from "./Insta";
-import Facebook from "./Facebook";
 import Map from "./Map";
 import Mail from "./Mail";
 
@@ -22,43 +22,68 @@ class index extends Component {
       <Footer>
         <div className="container">
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-xs-6 col-md-3">
               <Nav>
-                <NavItem children="главная" />
-                <NavItem children="клуб" />
-                <NavItem children="караоке" />
-                <NavItem children="карфт-бар" />
-                <NavItem children="банкеты" />
+                <NavItem>
+                  <StyledLink to="/club">клуб</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/karaoke">караоке</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/craft">карфт-бар</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/banket">банкеты</StyledLink>
+                </NavItem>
               </Nav>
             </div>
-            <div className="col-md-3">
+            <div className="col-xs-6 col-md-3">
               <Nav>
-                <NavItem children="акции" />
-                <NavItem children="афиша" />
-                <NavItem children="фото" />
-                <NavItem children="fc/dc" />
-                <NavItem children="план зала" />
+                <NavItem>
+                  <StyledLink to="/deals">акции</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/parties">афиша</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/photo">фото</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/facecontrol">fc/dc</StyledLink>
+                </NavItem>
               </Nav>
             </div>
-            <div className="col-md-3">
+            <div className="col-xs-6 col-md-3">
               <Nav>
-                <NavItem children="меню кухни" />
-                <NavItem children="напитки" />
-                <NavItem children="банкетное меню" />
-                <NavItem children="пивная карта" />
+                <Nav>
+                  <NavItem>
+                    <StyledLink to="/menu/kitchen">меню кухни</StyledLink>
+                  </NavItem>
+                  <NavItem>
+                    <StyledLink to="/menu/bar">напитки</StyledLink>
+                  </NavItem>
+                  <NavItem>
+                    <StyledLink to="/menu/banket">банкетное меню</StyledLink>
+                  </NavItem>
+                  <NavItem>
+                    <StyledLink to="/menu/beer">пивная карта</StyledLink>
+                  </NavItem>
+                </Nav>
               </Nav>
             </div>
 
-            <div className="col-md-3">
-              <SocialSvg viewBox="0 0 512 512">
-                <Vk />
-              </SocialSvg>
-              <SocialSvg viewBox="0 0 169.063 169.063">
-                <Insta />
-              </SocialSvg>
-              <SocialSvg viewBox="0 0 512 512">
-                <Facebook />
-              </SocialSvg>
+            <div className="col-xs-6 col-md-3">
+              <a href="https://vk.com/pioner_club">
+                <SocialSvg viewBox="0 0 512 512">
+                  <Vk />
+                </SocialSvg>
+              </a>
+              <a href="https://www.instagram.com/clubpioner/">
+                <SocialSvg viewBox="0 0 169.063 169.063">
+                  <Insta />
+                </SocialSvg>
+              </a>
               <Contacts>
                 <ContactsLink href="mailto: retro@pioner-club.com ">
                   <ContactsSvg viewBox="0 0 512 512">
@@ -87,7 +112,10 @@ class index extends Component {
             <div className="col-xs-12 center-xs">
               <Basement>
                 <BasementText>2007-2018г. Санкт-Петербург.</BasementText>
-                <ContactsLink children="Политика конфиденциальности" />
+                <StyledLink
+                  to="/policy"
+                  children="Политика конфиденциальности"
+                />
               </Basement>
             </div>
           </div>
