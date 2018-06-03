@@ -126,7 +126,6 @@ class index extends Component {
                 }
               }
             }}
-            autoFocus
           />
           <Label for="phone">Номер телефона:*</Label>
           <Input

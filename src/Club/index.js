@@ -42,6 +42,7 @@ class index extends Component {
   };
 
   componentDidMount = () => {
+    window.scrollTo(0, 0);
     const apiServer = process.env.REACT_APP_API_SERVER;
     const fetchUrl = `${apiServer}/api/v1/places/`;
     fetch(fetchUrl)

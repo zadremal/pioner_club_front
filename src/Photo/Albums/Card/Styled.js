@@ -4,10 +4,7 @@ export const Album = styled.div`
   position: relative;
   height: 250px;
   width: 100%;
-  flex-grow: 0;
-  flex-shrink: 0;
   transition: all 0.2s ease-out;
-  overflow: hidden;
   background-image: url(${props => props.background});
   background-position: center;
   background-size: cover;

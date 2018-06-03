@@ -3,6 +3,7 @@ import { colorPr } from "../UI/";
 
 export const Plan = styled.img`
   height: 200px;
+  cursor: pointer;
 `;
 
 export const ClubFeature = styled.h3`

@@ -31,6 +31,10 @@ import percentage from "./percentage.svg";
 import Form from "../UI/Form";
 
 class index extends Component {
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     return (
       <Fragment>

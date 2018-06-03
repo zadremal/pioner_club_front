@@ -53,6 +53,7 @@ class index extends Component {
   };
 
   componentDidMount = () => {
+    window.scrollTo(0, 0);
     const dealId = this.props.match.params.id;
     this.retrieveCurrentDeal(dealId);
     this.props.deals.length > 0
@@ -65,6 +66,7 @@ class index extends Component {
   componentDidUpdate = () => {
     const newDealId = this.props.match.params.id;
     this.state.dealId !== newDealId && this.retrieveCurrentDeal(newDealId);
+    window.scrollTo(0, 0);
   };
 
   render() {
@@ -75,7 +77,6 @@ class index extends Component {
     };
     return (
       <Section>
-        {console.log(this.state.deal)}
         <div className="container">
           <div className="row">
             <div className="col-xs-12">

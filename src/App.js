@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
 import "whatwg-fetch";
-
 import {
   BrowserRouter as Router,
   Route,
@@ -41,7 +40,6 @@ class App extends Component {
               <Route path="/banket" component={Banket} />
               <Route path="/craft" component={Craft} />
               <Route path="/photo" component={Photo} />
-
               <Route exact path="/parties" component={PartyList} />
               <Route path="/parties/:id" component={PartyDetail} />
               <Route

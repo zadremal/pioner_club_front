@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import { Route } from "react-router-dom";
 import DealsList from "./List";
 import DealsDetail from "./Detail";
-
 class index extends Component {
   state = {
     deals: []
@@ -35,7 +34,11 @@ class index extends Component {
         <Route
           path="/deals/:id"
           render={props => {
-            return <DealsDetail deals={this.state.deals} {...props} />;
+            return (
+              <Fragment>
+                <DealsDetail deals={this.state.deals} {...props} />
+              </Fragment>
+            );
           }}
         />
       </Fragment>
