@@ -30,7 +30,7 @@ export default class extends Component {
             <div className="col-xs-12 col-md-4">
               <Link to="karaoke">
                 <Card
-                  heading="каркоке"
+                  heading="караоке"
                   image={karaokeBackgruond}
                   text="Караке-бар с профессиональным оборудованием, библиотекой из 45000 фонограмм, и разнообразными напитками "
                 />
