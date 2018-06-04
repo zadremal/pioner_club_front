@@ -1,28 +1,43 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { colorDark } from "./index";
+import { colorDark, media } from "./index";
 
 const Section = styled.section`
   padding: 1rem 0;
-  background: ${props => (props.image ? `url(${props.image})` : "none")};
+  position: relative;
+  z-index: 1;
+  background: URL(${props => props.background});
   background-color: ${props =>
     props.background ? props.background : "transparent"};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: ${props => (props.fixed ? "fixed" : "inherit")};
 `;
 
 export const Heading = styled.h2`
-  font-family: "Intro", sans-serif, arial;
-  font-size: 3rem;
+  position: relative;
+  z-index: 10;
+  letter-spacing: 0.2rem;
+  font-family: "Intro", Arial, sans-serif;
+  text-shadow: ${props =>
+    props.contrast ? "0 0 4px rgba(0, 0, 0, 0.5)" : "none"};
   text-align: center;
+  font-size: 1.5rem;
   color: ${props => (props.contrast ? "#fff" : colorDark)};
+
+  ${media.md`
+  font-size: 2rem;
+
+  `} ${media.lg`
+    font-size: 2.5rem;
+  `};
 `;
 
 class section extends Component {
   render() {
     return (
-      <Section background={this.props.background}>
+      <Section fixed={this.props.fixed} background={this.props.background}>
         {this.props.children}
       </Section>
     );
