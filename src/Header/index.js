@@ -19,9 +19,7 @@ import {
   clearAllBodyScrollLocks
 } from "body-scroll-lock";
 import Modal from "../UI/Modal";
-import Navigation from "../UI/Navigation";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { Links } from "./links";
+
 import Hamburger from "react-hamburgers";
 import logo from "./mainlogo.png";
 import "./hamburger.css";
@@ -55,13 +53,13 @@ class index extends Component {
   };
 
   render() {
-    const { menuOpen } = this.state;
+    const { menuIsOpen, onMenuToggle } = this.props;
     return (
       <Fragment>
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
           <Form />
         </Modal>
-        <Header id="header">
+        <Header menuIsOpen={menuIsOpen} id="header">
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
@@ -88,10 +86,11 @@ class index extends Component {
                         alt="Ночной клуб Пионер на Испыталей 26/2"
                       />
                     </Contact>
+
                     <Hamburger
                       type="slider"
-                      active={this.state.menuOpen}
-                      onClick={this.toggleMenu}
+                      active={menuIsOpen}
+                      onClick={onMenuToggle}
                     />
                   </MenuFlex>
                 </HeaderFlex>
@@ -99,17 +98,6 @@ class index extends Component {
             </div>
           </div>
         </Header>
-        <ReactCSSTransitionGroup
-          transitionName="nav"
-          transitionEnter={true}
-          transitionLeave={true}
-          transitionEnterTimeout={200}
-          transitionLeaveTimeout={200}
-        >
-          {menuOpen && (
-            <Navigation onLinkClick={this.toggleMenu} links={Links} />
-          )}
-        </ReactCSSTransitionGroup>
       </Fragment>
     );
   }

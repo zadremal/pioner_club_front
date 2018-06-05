@@ -22,38 +22,62 @@ import PartyList from "./Party/List";
 import PartyDetail from "./Party/Detail";
 import Deals from "./Deals";
 import Contacts from "./Contacts";
-
+import Navigation from "./Navigation";
 import NotFound from "./NotFound";
 
+import { Content } from "./UI";
+
 class App extends Component {
+  state = {
+    menuOpen: false
+  };
+
+  toggleMenu = () => {
+    console.log(this.state);
+    this.setState(prevState => {
+      return {
+        menuOpen: !prevState.menuOpen
+      };
+    });
+  };
+
   render() {
     return (
       <Router>
         <Fragment>
-          <Header />
-          <Main id="main">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/birthday" component={Birthday} />
-              <Route path="/club" component={Club} />
-              <Route path="/karaoke" component={Karaoke} />
-              <Route path="/banket" component={Banket} />
-              <Route path="/craft" component={Craft} />
-              <Route path="/photo" component={Photo} />
-              <Route exact path="/parties" component={PartyList} />
-              <Route path="/parties/:id" component={PartyDetail} />
-              <Route
-                exact
-                path="/deals/1"
-                render={() => <Redirect to="/birthday" />}
-              />
-              <Route path="/deals" component={Deals} />
-              <Route path="/menu" component={Menu} />
-              <Route path="/contacts" component={Contacts} />
-              <Route component={NotFound} />
-            </Switch>
-          </Main>
-          <Footer />
+          <Navigation
+            onMenuToggle={this.toggleMenu}
+            menuIsOpen={this.state.menuOpen}
+          />
+          <Header
+            menuIsOpen={this.state.menuOpen}
+            onMenuToggle={this.toggleMenu}
+          />
+          <Content menuIsOpen={this.state.menuOpen}>
+            <Main id="main">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/birthday" component={Birthday} />
+                <Route path="/club" component={Club} />
+                <Route path="/karaoke" component={Karaoke} />
+                <Route path="/banket" component={Banket} />
+                <Route path="/craft" component={Craft} />
+                <Route path="/photo" component={Photo} />
+                <Route exact path="/parties" component={PartyList} />
+                <Route path="/parties/:id" component={PartyDetail} />
+                <Route
+                  exact
+                  path="/deals/1"
+                  render={() => <Redirect to="/birthday" />}
+                />
+                <Route path="/deals" component={Deals} />
+                <Route path="/menu" component={Menu} />
+                <Route path="/contacts" component={Contacts} />
+                <Route component={NotFound} />
+              </Switch>
+            </Main>
+            <Footer />
+          </Content>
         </Fragment>
       </Router>
     );

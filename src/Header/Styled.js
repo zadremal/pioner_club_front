@@ -17,9 +17,11 @@ export const Header = styled.header`
   width: 100%;
   height: 60px;
   background-color: ${colorDark};
-
   padding: 0;
   width: 100%;
+  transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
+  transform: ${props =>
+    props.menuIsOpen ? "translateX(-300px)" : "translateX(0)"};
 `;
 
 export const HeaderFlex = styled.div`
