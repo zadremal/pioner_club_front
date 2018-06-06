@@ -20,6 +20,9 @@ import {
   PhoneLink
 } from "./Styled";
 
+import Form from "../UI/Form/Banket";
+import Modal from "../UI/Modal";
+
 import Dish from "./Dish";
 import Slider from "../UI/Carousel";
 
@@ -40,14 +43,32 @@ import banketAbout from "./banket_about.jpg";
 import banketContact from "./banket_contact.jpg";
 
 class index extends Component {
+  state = {
+    modalOpen: false
+  };
+
+  toggleModal = () => {
+    this.setState(prevState => {
+      return {
+        modalOpen: !prevState.modalOpen
+      };
+    });
+  };
+
   render() {
     return (
       <Fragment>
+        <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
+          <Form />
+        </Modal>
         <LandingMainscreen background={background}>
           <MainscreenWrap>
             <LandingMainHeading>Корпоратив или банкет? </LandingMainHeading>
             <BanketHeading children="поможем провести любое мероприятие в одном из самых атмосферных ночных клубов Санкт-Петербурга от 1000 рублей на человека" />
-            <ButtonUpWhite children="забронировать мероприятие" />
+            <ButtonUpWhite
+              onClick={this.toggleModal}
+              children="забронировать мероприятие"
+            />
           </MainscreenWrap>
           <Overlay />
         </LandingMainscreen>
@@ -235,7 +256,9 @@ class index extends Component {
             <ContactLink href="https://www.google.ru/maps/place/%D0%9F%D0%B8%D0%BE%D0%BD%D0%B5%D1%80/@60.0064527,30.2659941,17z/data=!3m1!4b1!4m5!3m4!1s0x4696343be8afe5d7:0x8c0a80070d563725!8m2!3d60.0064527!4d30.2681828">
               г. Санкт-Петербург, пр-тк Испытателей 26/2
             </ContactLink>
-            <ButtonUpWhite>забронировать мероприятие</ButtonUpWhite>
+            <ButtonUpWhite onClick={this.toggleModal}>
+              забронировать мероприятие
+            </ButtonUpWhite>
           </MainscreenWrap>
         </Section>
       </Fragment>

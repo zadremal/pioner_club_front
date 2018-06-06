@@ -47,6 +47,8 @@ export const Input = styled(InputMask)`
   }
 `;
 
+export const StandartInput = Input.withComponent("input");
+
 export const Label = styled.label`
   font-size: 1rem;
   font-weight: 700;
