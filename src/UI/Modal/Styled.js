@@ -8,11 +8,11 @@ export const Button = styled.button`
 
   padding: 0;
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 20px;
+  right: 20px;
 `;
 
-export const Image = styled.img`
+export const Icon = styled.img`
   height: 40px;
   width: 40px;
   cursor: pointer;

@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from "react";
 
-import { Form, Input, Label, Heading, Submit, Error } from "./Styled";
+import { Form, Input, Label, Heading, Submit, Error, Response } from "./Styled";
+import { colorPr } from "../index";
 import { ButtonUpPr } from "../buttons";
 import axios from "axios";
-
+import ReactLoading from "react-loading";
 class index extends Component {
   state = {
     name: "",
     phone: "",
+    submitted: false,
     success: false,
     error: false,
-    errorMessage: ""
+    message: ""
   };
 
   handleInput = e => {
@@ -18,21 +20,20 @@ class index extends Component {
     this.setState({
       [name]: e.target.value,
       error: false,
-      errorMessage: ""
+      message: ""
     });
   };
 
   checkFormFilled = () => {
     if (
       this.state.name.length !== 0 &&
-      this.state.phone.replace(/ /g, "").length === 12
+      this.state.phone.replace(/_/g, "").length === 16
     ) {
-      console.log("here");
       return true;
     } else {
       this.setState({
         error: true,
-        errorMessage: "пожалуйста, заполните поля формы перед отправкой"
+        message: "пожалуйста, заполните поля формы перед отправкой"
       });
       return false;
     }
@@ -44,6 +45,9 @@ class index extends Component {
   };
 
   submitForm = () => {
+    this.setState({
+      submitted: true
+    });
     const data = JSON.stringify({
       name: this.state.name.replace(/ /g, ""),
       phone: this.state.phone.replace(/ /g, "")
@@ -64,7 +68,7 @@ class index extends Component {
       .catch(error => {
         this.setState({
           error: true,
-          errorMessage:
+          message:
             "что-то пошло не так. повторите попытку позднее, или позвоните нам"
         });
         return new Error(error);
@@ -72,14 +76,17 @@ class index extends Component {
       .then(res => {
         res.status === 201
           ? this.setState({
-              success: true
+              success: true,
+              message:
+                "Спасибо! Мы получили Вашу заявку и подтвердим бронь ближе к выходным"
             })
           : this.setState({
               error: true,
-              errorMessage:
+              message:
                 "что-то пошло не так. повторите попытку позднее, или позвоните нам"
             });
       });
+
     this.setState({
       name: "",
       phone: ""
@@ -87,62 +94,50 @@ class index extends Component {
   };
 
   render() {
-    const { name, phone, success, error, errorMessage } = this.state;
+    const { name, phone, error, message, submitted } = this.state;
     return (
       <Fragment>
         <Heading>
-          {success
-            ? "Спасибо! Мы подтвердим Вашу бронь ближе к выходным"
-            : "Оставьте свои контакты, и мы зарезервируем столик для Вас"}
+          Оставьте свои контакты, и мы зарезервируем столик для Вас
         </Heading>
-
-        {error && <Error>{errorMessage}</Error>}
-
-        <Form>
-          <Label for="name">Ваше имя:*</Label>
-          <Input
-            required
-            mask="Aaaaaaaaaaaaaaaaaaaaa"
-            placeholderChar=" "
-            onChange={this.handleInput}
-            type="text"
-            name="name"
-            value={name}
-            formatCharacters={{
-              a: {
-                validate(char) {
-                  return /([a-zа-яё]+)/.test(char);
-                },
-                transform(char) {
-                  return char.toLowerCase();
-                }
-              },
-              A: {
-                validate(char) {
-                  return /([A-Za-zА-ЯЁа-яё]+)/.test(char);
-                },
-                transform(char) {
-                  return char.toUpperCase();
-                }
-              }
-            }}
-          />
-          <Label for="phone">Номер телефона:*</Label>
-          <Input
-            required
-            mask="\+7 111 111 11 11"
-            onChange={this.handleInput}
-            placeholderChar=" "
-            type="text"
-            name="phone"
-            value={phone}
-          />
-          <Submit>
-            <ButtonUpPr onClick={this.onSubmit} contrast>
-              Зарезервировать
-            </ButtonUpPr>
-          </Submit>
-        </Form>
+        {submitted ? (
+          <Response>
+            {message || <ReactLoading type={"spin"} color={colorPr} />}
+          </Response>
+        ) : (
+          <Form>
+            {error && <Error>{message}</Error>}
+            <Label for="name">Ваше имя:*</Label>
+            <Input
+              required
+              transform="capitalize"
+              mask="******************"
+              maskChar=""
+              alwaysShowMask={false}
+              onChange={this.handleInput}
+              type="text"
+              formatChars={{
+                "*": "[A-Za-zА-ЯА-яЁё]"
+              }}
+              name="name"
+              value={name}
+            />
+            <Label for="phone">Номер телефона:*</Label>
+            <Input
+              required
+              mask="\+7 999 999 99 99"
+              onChange={this.handleInput}
+              type="text"
+              name="phone"
+              value={phone}
+            />
+            <Submit>
+              <ButtonUpPr onClick={this.onSubmit} contrast>
+                Забронировать
+              </ButtonUpPr>
+            </Submit>
+          </Form>
+        )}
       </Fragment>
     );
   }

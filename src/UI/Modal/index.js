@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import "./modal.css";
 import close from "./close.svg";
-import { Image, Button } from "./Styled";
+import { Icon, Button } from "./Styled";
 
 Modal.setAppElement("#root");
 
@@ -17,7 +17,7 @@ const ModalWindow = props => {
       overlayClassName="react-modal__overlay"
     >
       <Button onClick={props.closeModal}>
-        <Image src={close} alt="" />
+        <Icon src={close} alt="" />
       </Button>
       {props.children}
     </Modal>

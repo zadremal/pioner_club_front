@@ -10,8 +10,13 @@
 .react-modal__body {
   padding: 1rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   outline: none;
+  box-shadow: 0 0 60px red;
+  background-color: #fff;
+  position: relative;
+  padding: 4em 1em;
+  margin: 1em;
 }
 
 .react-modal__overlay {
@@ -19,7 +24,7 @@
   width: 100%;
   height: 100%;
   z-index: 2000;
-  background: rgba(255, 255, 255, .9);
+  background: rgba(0, 0, 0, .7);
   display: flex;
   align-items: center;
   justify-content: center;
