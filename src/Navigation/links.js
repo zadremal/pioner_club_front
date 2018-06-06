@@ -1,4 +1,4 @@
-export const Links = [
+const Links = [
   {
     link: "/",
     name: "ГЛАВНАЯ",
@@ -60,3 +60,5 @@ export const Links = [
     activeClassName: "router-link--active"
   }
 ];
+
+export default Links;

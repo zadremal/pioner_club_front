@@ -33,13 +33,13 @@ export const Overlay = styled.div`
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
+  opacity: 1;
   transition: all 0.2s ease-out;
   display: flex;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
   ${Album}:hover & {
-    opacity: 1;
+    opacity: 0;
   }
 `;

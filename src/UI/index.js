@@ -33,6 +33,8 @@ export const Main = styled.main`
   overflow: hidden;
   position: relative;
   z-index: 1;
+  transform: ${props =>
+    props.menuIsOpen ? "translateX(-300px)" : "translateX(0)"};
 `;
 
 export const Mainscreen = styled.section`
@@ -71,6 +73,12 @@ export const Overlay = styled.div`
   bottom: 0;
 `;
 
+export const Content = styled.div`
+  transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
+  transform: ${props =>
+    props.menuIsOpen ? "translateX(-300px)" : "translateX(0)"};
+`;
+
 export const MainscreenWrap = styled.div`
   position: relative;
   z-index: 3
@@ -91,10 +99,10 @@ export const LandingMainHeading = MainHeading.extend`
   line-height: 1.5em;
   margin: 0;
   font-size: 2em;
-  ${media.lg`
-font-size: 3em;
 
-`};
+  ${media.lg`
+    font-size: 3em;
+  `};
 `;
 
 export const HeadingHighlighted = styled.span`

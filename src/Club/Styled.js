@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colorPr } from "../UI/";
 
 export const Plan = styled.img`
-  height: 200px;
+  width: 100%;
   cursor: pointer;
 `;
 
