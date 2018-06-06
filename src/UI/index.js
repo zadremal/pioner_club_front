@@ -109,10 +109,10 @@ export const HeadingHighlighted = styled.span`
   background-color: #ffc01f;
   color: #d12f19;
   padding: 1rem 1rem 0.75rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
 
-  ${media.md`
-  font-size: 1.5rem;
+  ${media.sm`
+  font-size: 1rem;
   `};
 
   ${media.md`

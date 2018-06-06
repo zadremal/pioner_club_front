@@ -1,18 +1,35 @@
 import React, { Component, Fragment } from "react";
 
-import { Form, Input, Label, Heading, Submit, Error, Response } from "./Styled";
+import {
+  Form,
+  Input,
+  Label,
+  Heading,
+  Submit,
+  Error,
+  Response,
+  DateInput
+} from "./Styled";
 import { colorPr } from "../index";
 import { ButtonUpPr } from "../buttons";
 import axios from "axios";
 import ReactLoading from "react-loading";
+
 class index extends Component {
   state = {
     name: "",
     phone: "",
+    date: new Date(),
     submitted: false,
     success: false,
     error: false,
     message: ""
+  };
+
+  onDateInput = date => {
+    this.setState({
+      date
+    });
   };
 
   handleInput = e => {
@@ -39,6 +56,10 @@ class index extends Component {
     }
   };
 
+  onDatePickerClick = e => {
+    console.log(e);
+  };
+
   onSubmit = e => {
     e.preventDefault();
     this.checkFormFilled() && this.submitForm();
@@ -50,15 +71,15 @@ class index extends Component {
     });
     const data = JSON.stringify({
       name: this.state.name.replace(/ /g, ""),
-      phone: this.state.phone.replace(/ /g, "")
+      phone: this.state.phone.replace(/ /g, ""),
+      birthday_date: this.state.date
     });
 
     const apiServer = process.env.REACT_APP_API_SERVER;
     const apiServerToken = process.env.REACT_APP_API_SERVER_TOKEN;
-
     axios({
       method: "POST",
-      url: `${apiServer}/api/v1/lead/submit/`,
+      url: `${apiServer}/api/v1/submit/birthday/`,
       data: data,
       headers: {
         Authorization: apiServerToken,
@@ -77,8 +98,7 @@ class index extends Component {
         res.status === 201
           ? this.setState({
               success: true,
-              message:
-                "Спасибо! Мы получили Вашу заявку и подтвердим бронь ближе к выходным"
+              message: "Спасибо! Наш менеджер свяжестя с Вами в ближайшее время"
             })
           : this.setState({
               error: true,
@@ -119,6 +139,13 @@ class index extends Component {
               }}
               name="name"
               value={name}
+            />
+            <Label for="phone">Когда у Вас день рождения?</Label>
+            <DateInput
+              onClick={() => this.onDatePickerClick}
+              className="date-picker"
+              onChange={this.onDateInput}
+              value={this.state.date}
             />
             <Label for="phone">Номер телефона:*</Label>
             <Input

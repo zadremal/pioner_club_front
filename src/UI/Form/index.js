@@ -58,7 +58,7 @@ class index extends Component {
 
     axios({
       method: "POST",
-      url: `${apiServer}/api/v1/lead/submit/`,
+      url: `${apiServer}/api/v1/submit/lead/`,
       data: data,
       headers: {
         Authorization: apiServerToken,
