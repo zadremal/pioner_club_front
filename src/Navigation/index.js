@@ -12,7 +12,7 @@ class index extends Component {
           onClick={this.props.onMenuToggle}
           menuIsOpen={this.props.menuIsOpen}
         />
-        <Menu menuIsOpen={this.props.menuIsOpen} width="300px" right>
+        <Menu menuIsOpen={this.props.menuIsOpen}>
           <Nav>
             <List>
               {Links.map(linkItem => {

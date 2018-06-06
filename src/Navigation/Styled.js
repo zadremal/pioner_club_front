@@ -8,7 +8,7 @@ export const Logo = styled.img`
 
 export const Menu = styled.div`
   position: fixed;
-  width: 300px;
+  width: 250px;
   top: 0;
   bottom: 0;
   right: 0;
@@ -16,7 +16,7 @@ export const Menu = styled.div`
   z-index: 500;
   transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
   transform: ${props =>
-    props.menuIsOpen ? "translateX(0)" : "translateX(300px)"};
+    props.menuIsOpen ? "translateX(0)" : "translateX(250px)"};
 `;
 
 export const Link = styled(NavLink)`
