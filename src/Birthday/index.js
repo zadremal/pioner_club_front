@@ -28,9 +28,22 @@ import Section, { Heading } from "../UI/section";
 import fencing from "./fencing.svg";
 import cake from "./cake.svg";
 import percentage from "./percentage.svg";
-import Form from "../UI/Form";
+import Form from "../UI/Form/Birthday";
+import Modal from "../UI/Modal";
 
 class index extends Component {
+  state = {
+    modalIsOpen: false
+  };
+
+  toggleModal = () => {
+    this.setState(prevState => {
+      return {
+        modalOpen: !prevState.modalOpen
+      };
+    });
+  };
+
   componentDidMount = () => {
     window.scrollTo(0, 0);
   };
@@ -38,6 +51,9 @@ class index extends Component {
   render() {
     return (
       <Fragment>
+        <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
+          <Form />
+        </Modal>
         <LandingMainscreen background={bitrhdayBackground}>
           <MainscreenWrap>
             <LandingMainHeading>
@@ -50,7 +66,9 @@ class index extends Component {
               *выбирайте любой столик, приходите до 00-00, и платите за него в 2
               раза меньше! (не включает стоимость обслуживания)
             </Detail>
-            <ButtonUpWhite>Получить скидку</ButtonUpWhite>
+            <ButtonUpWhite onClick={this.toggleModal}>
+              Получить скидку
+            </ButtonUpWhite>
           </MainscreenWrap>
           <Overlay />
         </LandingMainscreen>

@@ -1,6 +1,15 @@
 import React, { Component, Fragment } from "react";
 
-import { Form, Input, Label, Heading, Submit, Error, Response } from "./Styled";
+import {
+  Form,
+  Input,
+  StandartInput,
+  Label,
+  Heading,
+  Submit,
+  Error,
+  Response
+} from "./Styled";
 import { colorPr } from "../index";
 import { ButtonUpPr } from "../buttons";
 import axios from "axios";
@@ -9,6 +18,7 @@ class index extends Component {
   state = {
     name: "",
     phone: "",
+    email: "",
     submitted: false,
     success: false,
     error: false,
@@ -27,7 +37,8 @@ class index extends Component {
   checkFormFilled = () => {
     if (
       this.state.name.length !== 0 &&
-      this.state.phone.replace(/_/g, "").length === 16
+      this.state.phone.replace(/_/g, "").length === 16 &&
+      this.state.email.length > 6
     ) {
       return true;
     } else {
@@ -50,7 +61,8 @@ class index extends Component {
     });
     const data = JSON.stringify({
       name: this.state.name.replace(/ /g, ""),
-      phone: this.state.phone.replace(/ /g, "")
+      phone: this.state.phone.replace(/ /g, ""),
+      email: this.state.email
     });
 
     const apiServer = process.env.REACT_APP_API_SERVER;
@@ -58,7 +70,7 @@ class index extends Component {
 
     axios({
       method: "POST",
-      url: `${apiServer}/api/v1/submit/lead/`,
+      url: `${apiServer}/api/v1/submit/banket/`,
       data: data,
       headers: {
         Authorization: apiServerToken,
@@ -78,7 +90,7 @@ class index extends Component {
           ? this.setState({
               success: true,
               message:
-                "Спасибо! Мы получили Вашу заявку и подтвердим бронь ближе к выходным"
+                "Спасибо! Мы получили Вашу заявку и свяжемся с Вами в ближайшее время"
             })
           : this.setState({
               error: true,
@@ -89,16 +101,17 @@ class index extends Component {
 
     this.setState({
       name: "",
-      phone: ""
+      phone: "",
+      email: ""
     });
   };
 
   render() {
-    const { name, phone, error, message, submitted } = this.state;
+    const { name, phone, email, error, message, submitted } = this.state;
     return (
       <Fragment>
         <Heading>
-          Оставьте свои контакты, и мы зарезервируем столик для Вас
+          Оставьте свои контакты, и мы поможем организовать Ваше мероприятие
         </Heading>
         {submitted ? (
           <Response>
@@ -130,6 +143,14 @@ class index extends Component {
               type="text"
               name="phone"
               value={phone}
+            />
+            <Label for="phone">Email:*</Label>
+            <StandartInput
+              required
+              onChange={this.handleInput}
+              type="email"
+              name="email"
+              value={email}
             />
             <Submit>
               <ButtonUpPr onClick={this.onSubmit} contrast>
