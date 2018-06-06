@@ -28,7 +28,7 @@ import Section, { Heading } from "../UI/section";
 import fencing from "./fencing.svg";
 import cake from "./cake.svg";
 import percentage from "./percentage.svg";
-import Form from "../UI/Form";
+import Form from "../UI/Form/Birthday";
 
 class index extends Component {
   componentDidMount = () => {
