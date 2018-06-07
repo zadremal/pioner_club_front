@@ -33,7 +33,6 @@ class App extends Component {
   };
 
   toggleMenu = () => {
-    console.log(this.state);
     this.setState(prevState => {
       return {
         menuOpen: !prevState.menuOpen

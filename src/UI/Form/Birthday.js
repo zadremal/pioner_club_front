@@ -56,10 +56,6 @@ class index extends Component {
     }
   };
 
-  onDatePickerClick = e => {
-    console.log(e);
-  };
-
   onSubmit = e => {
     e.preventDefault();
     this.checkFormFilled() && this.submitForm();
@@ -142,7 +138,6 @@ class index extends Component {
             />
             <Label for="phone">Когда у Вас день рождения?</Label>
             <DateInput
-              onClick={() => this.onDatePickerClick}
               className="date-picker"
               onChange={this.onDateInput}
               value={this.state.date}

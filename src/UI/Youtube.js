@@ -67,7 +67,6 @@ export default class extends React.Component {
   }
 
   onButtonClick = () => {
-    console.log("onVideoClick");
     this.setState({
       showButton: false,
       showVideo: true

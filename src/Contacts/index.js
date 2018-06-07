@@ -27,7 +27,6 @@ class index extends Component {
       email: ""
     };
 
-    console.log(JSON.stringify(this.state));
     axios({
       method: "POST",
       url: "http://localhost:8000/api/v1/lead/submit/",
@@ -37,8 +36,6 @@ class index extends Component {
         "Content-Type": "application/json"
       }
     }).then(res => {
-      console.log(res);
-      console.log(res.data);
       if (res.status === 201) {
         alert("Сообщение успешно отправлено!");
       }

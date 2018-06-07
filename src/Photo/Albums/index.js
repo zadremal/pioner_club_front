@@ -6,7 +6,6 @@ import Card from "./Card";
 const index = ({ albums }) => {
   return (
     <div className="container">
-      {console.log(albums)}
       <div className="row">
         <div className="col-xs-12">
           <Heading>Последние фотоотчеты</Heading>
