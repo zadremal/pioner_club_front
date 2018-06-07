@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 
-import { Nav, List, Item, Link, Menu, Overlay } from "./Styled";
+import { Nav, List, Item, Link, Menu, Overlay, CloseButton } from "./Styled";
 
 import Links from "./links";
+import closeIcon from "./close-button.svg";
 
 class index extends Component {
   render() {
@@ -12,7 +13,13 @@ class index extends Component {
           onClick={this.props.onMenuToggle}
           menuIsOpen={this.props.menuIsOpen}
         />
+
         <Menu menuIsOpen={this.props.menuIsOpen}>
+          <CloseButton
+            src={closeIcon}
+            alt="закрыть"
+            onClick={this.props.onMenuToggle}
+          />
           <Nav>
             <List>
               {Links.map(linkItem => {

@@ -22,6 +22,10 @@ export const Header = styled.header`
   transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
   transform: ${props =>
     props.menuIsOpen ? "translateX(-250px)" : "translateX(0)"};
+  ${media.md`
+    transform: ${props =>
+      props.menuIsOpen ? "translateX(-350px)" : "translateX(0)"};
+  `};
 `;
 
 export const HeaderFlex = styled.div`

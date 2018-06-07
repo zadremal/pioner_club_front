@@ -88,7 +88,7 @@ class index extends Component {
                     </Contact>
 
                     <Hamburger
-                      type="slider"
+                      type="arrow"
                       active={menuIsOpen}
                       onClick={onMenuToggle}
                     />
