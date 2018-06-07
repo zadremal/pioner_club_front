@@ -14,12 +14,34 @@ import ReactMarkdown from "react-markdown";
 import "./deals.css";
 
 import Slider from "../../UI/Carousel";
+import Loader from "../../UI/Loader";
 
 class index extends Component {
   state = {
     deal: "",
     deals: "",
     dealId: ""
+  };
+
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+    const dealId = this.props.match.params.id;
+    this.retrieveCurrentDeal(dealId);
+    this.props.deals.length > 0
+      ? this.setState({
+          deals: this.props.deals
+        })
+      : this.retrieveAllDeals();
+  };
+
+  componentDidUpdate = () => {
+    const newDealId = this.props.match.params.id;
+    this.state.dealId !== newDealId && this.retrieveCurrentDeal(newDealId);
+    window.scrollTo(0, 0);
+  };
+
+  filterDeals = (dealsArray, dealId) => {
+    return dealsArray.filter(deal => deal.id !== Number(dealId));
   };
 
   retrieveAllDeals = () => {
@@ -52,90 +74,76 @@ class index extends Component {
       });
   };
 
-  componentDidMount = () => {
-    window.scrollTo(0, 0);
-    const dealId = this.props.match.params.id;
-    this.retrieveCurrentDeal(dealId);
-    this.props.deals.length > 0
-      ? this.setState({
-          deals: this.props.deals
-        })
-      : this.retrieveAllDeals();
-  };
-
-  componentDidUpdate = () => {
-    const newDealId = this.props.match.params.id;
-    this.state.dealId !== newDealId && this.retrieveCurrentDeal(newDealId);
-    window.scrollTo(0, 0);
-  };
-
   render() {
     const { poster, poster_alt, name, description } = this.state.deal;
-    const { deals, dealId } = this.state;
-    const filterDeals = (dealsArray, dealId) => {
-      return dealsArray.filter(deal => deal.id !== Number(dealId));
-    };
+    const { deal, deals, dealId } = this.state;
+
     return (
       <Section>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              <Wrap>
-                <TextBlock>
-                  <Heading>{name}</Heading>
-                </TextBlock>
-                <Image src={poster} alt={poster_alt} />
-              </Wrap>
-              <Description>
-                <ReactMarkdown
-                  className="markdown-deals"
-                  source={description}
-                />
-              </Description>
-            </div>
-            <div className="col-xs-12">
-              {deals && (
-                <Carousel>
-                  <Slider
-                    settings={{
-                      responsive: [
-                        {
-                          breakpoint: 992,
-                          settings: {
-                            slidesToShow: 2
+        {deal && deals ? (
+          <div className="container">
+            {console.log("deal: ", deal)}
+            <div className="row">
+              <div className="col-xs-12">
+                <Wrap>
+                  <TextBlock>
+                    <Heading>{name}</Heading>
+                  </TextBlock>
+                  <Image src={poster} alt={poster_alt} />
+                </Wrap>
+                <Description>
+                  <ReactMarkdown
+                    className="markdown-deals"
+                    source={description}
+                  />
+                </Description>
+              </div>
+              <div className="col-xs-12">
+                {deals && (
+                  <Carousel>
+                    <Slider
+                      settings={{
+                        responsive: [
+                          {
+                            breakpoint: 992,
+                            settings: {
+                              slidesToShow: 2
+                            }
+                          },
+                          {
+                            breakpoint: 576,
+                            settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                            }
                           }
-                        },
-                        {
-                          breakpoint: 576,
-                          settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                          }
-                        }
-                      ]
-                    }}
-                  >
-                    {filterDeals(deals, dealId).map(deal => {
-                      const { id, name, poster, poster_alt } = deal;
-                      return (
-                        <CardWrap key={id}>
-                          <Link to={`/deals/${id}`}>
-                            <Card
-                              heading={name}
-                              background={poster}
-                              alt={poster_alt}
-                              deals={deals}
-                            />
-                          </Link>
-                        </CardWrap>
-                      );
-                    })}
-                  </Slider>
-                </Carousel>
-              )}
+                        ]
+                      }}
+                    >
+                      {this.filterDeals(deals, dealId).map(deal => {
+                        const { id, name, poster, poster_alt } = deal;
+                        return (
+                          <CardWrap key={id}>
+                            <Link to={`/deals/${id}`}>
+                              <Card
+                                heading={name}
+                                background={poster}
+                                alt={poster_alt}
+                                deals={deals}
+                              />
+                            </Link>
+                          </CardWrap>
+                        );
+                      })}
+                    </Slider>
+                  </Carousel>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <Loader />
+        )}
       </Section>
     );
   }
