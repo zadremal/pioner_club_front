@@ -35,9 +35,9 @@ class index extends Component {
   };
 
   componentDidUpdate = () => {
+    window.scrollTo(0, 0);
     const newDealId = this.props.match.params.id;
     this.state.dealId !== newDealId && this.retrieveCurrentDeal(newDealId);
-    window.scrollTo(0, 0);
   };
 
   filterDeals = (dealsArray, dealId) => {
@@ -49,7 +49,6 @@ class index extends Component {
     const fetchUrl = `${apiServer}/api/v1/deals/`;
     fetch(fetchUrl)
       .then(response => response.json())
-      .catch(err => console.log("Looks like there was an error", err))
       .then(data => {
         this.state.deals !== data &&
           this.setState(prevState => {
@@ -82,7 +81,6 @@ class index extends Component {
       <Section>
         {deal && deals ? (
           <div className="container">
-            {console.log("deal: ", deal)}
             <div className="row">
               <div className="col-xs-12">
                 <Wrap>
