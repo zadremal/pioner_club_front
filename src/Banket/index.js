@@ -187,8 +187,8 @@ class index extends Component {
                 </Description>
               </div>
               <div className="col-xs-4 center-xs">
+                <Number>350</Number>
                 <Advantage>
-                  <Number>500</Number>
                   человек - полная вместимость клуба, с возможностью накрытия
                   столов
                 </Advantage>

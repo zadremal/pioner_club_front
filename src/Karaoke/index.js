@@ -86,23 +86,23 @@ class index extends Component {
             <div className="row">
               <div className="col-xs-12 col-md-4">
                 <Feature
-                  heading="Бэк-вокал в арранжировка"
+                  heading="Регулярное обновление фонотеки"
                   image={backvocal}
-                  imageAlt="Бэк-вокал в арранжировка"
+                  imageAlt="Регулярное обновление фонотеки"
                 />
               </div>
               <div className="col-xs-12 col-md-4">
                 <Feature
-                  heading="Более 40000 песен"
+                  heading="Более 45 000 фонограм"
                   image={songs}
-                  imageAlt="Более 40000 песен"
+                  imageAlt="Более 45 000 фонограм"
                 />
               </div>
               <div className="col-xs-12 col-md-4">
                 <Feature
-                  heading="Микрофоны SurePro"
+                  heading="Профессиональные микрофоны Shure"
                   image={mics}
-                  imageAlt="Микрофоны SurePro"
+                  imageAlt="Профессиональные микрофоны Shure"
                 />
               </div>
             </div>

@@ -94,7 +94,7 @@ class index extends Component {
         res.status === 201
           ? this.setState({
               success: true,
-              message: "Спасибо! Наш менеджер свяжестя с Вами в ближайшее время"
+              message: "Спасибо! Наш менеджер свяжется с Вами в ближайшее время"
             })
           : this.setState({
               error: true,

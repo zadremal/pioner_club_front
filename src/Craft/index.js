@@ -81,25 +81,13 @@ class index extends Component {
                 </Description>
               </div>
               <div className="col-xs-12 col-md-4">
-                <Feature
-                  heading="Мини-фишбургер"
-                  image={fishburger}
-                  imageAlt="Мини-фишбургер"
-                />
+                <Feature image={fishburger} imageAlt="Мини-фишбургер" />
               </div>
               <div className="col-xs-12 col-md-4">
-                <Feature
-                  heading="Мини-Гамбургер"
-                  image={hamburger}
-                  imageAlt="Мини-Гамбургер"
-                />
+                <Feature image={hamburger} imageAlt="Мини-Гамбургер" />
               </div>
               <div className="col-xs-12 col-md-4">
-                <Feature
-                  heading="Мини-Чизбургер"
-                  image={cheeseburger}
-                  imageAlt="Мини-Чизбургер"
-                />
+                <Feature image={cheeseburger} imageAlt="Мини-Чизбургер" />
               </div>
             </div>
           </div>

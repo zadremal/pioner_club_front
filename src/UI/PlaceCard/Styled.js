@@ -54,7 +54,7 @@ export const TextBox = styled.div`
 
 export const Heading = styled.h1`
   color: #fff;
-  text-shadow: 0 0 2px #000;
+  text-shadow: 0 0 16px #000;
   font-size: 2rem;
   margin-bottom: 0;
   transition: all 0.8s ease-out;
