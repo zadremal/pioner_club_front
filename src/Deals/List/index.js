@@ -5,6 +5,7 @@ import Card from "../../UI/DealCard";
 import { Cards, CardWrap } from "./Styled";
 import { Link } from "react-router-dom";
 import dealsBackground from "./deals.jpg";
+import Loader from "../../UI/Loader";
 
 class index extends Component {
   render() {
@@ -21,20 +22,24 @@ class index extends Component {
             <div className="row">
               <div className="col-xs-12">
                 <Cards>
-                  {deals.map(deal => {
-                    const { id, name, poster, poster_alt } = deal;
-                    return (
-                      <CardWrap key={id}>
-                        <Link to={`deals/${id}`}>
-                          <Card
-                            heading={name}
-                            background={poster}
-                            alt={poster_alt}
-                          />
-                        </Link>
-                      </CardWrap>
-                    );
-                  })}
+                  {deals ? (
+                    deals.map(deal => {
+                      const { id, name, poster, poster_alt } = deal;
+                      return (
+                        <CardWrap key={id}>
+                          <Link to={`deals/${id}`}>
+                            <Card
+                              heading={name}
+                              background={poster}
+                              alt={poster_alt}
+                            />
+                          </Link>
+                        </CardWrap>
+                      );
+                    })
+                  ) : (
+                    <Loader />
+                  )}
                 </Cards>
               </div>
             </div>
