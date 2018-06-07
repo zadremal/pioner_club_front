@@ -22,10 +22,8 @@ import {
 
 import Form from "../UI/Form/Banket";
 import Modal from "../UI/Modal";
-
 import Dish from "./Dish";
 import Slider from "../UI/Carousel";
-
 import comp585 from "./org/585.jpg";
 import adidas from "./org/adidas.jpg";
 import bm from "./org/bm.jpg";
@@ -35,10 +33,10 @@ import lsssmu from "./org/lsssmu.jpg";
 import sber from "./org/sber.jpg";
 import sport from "./org/sport.jpg";
 
-import dorada from "./dorada.jpg";
-import greech from "./greech.jpg";
-import venig from "./venig.jpg";
-import pangassius from "./pangassius.jpg";
+import dorada from "./dorada2x.jpg";
+import greech from "./greech2x.jpg";
+import venig from "./venig2x.jpg";
+import pangassius from "./pangassius2x.jpg";
 import banketAbout from "./banket_about.jpg";
 import banketContact from "./banket_contact.jpg";
 
@@ -141,27 +139,27 @@ class index extends Component {
                 >
                   <Dish
                     image={dorada}
-                    imageAlt="дорада запеченая"
-                    heading="Дорада запечёная с апельсином"
+                    imageAlt="дорада запеченная"
+                    heading="Дорада, запеченная с апельсином"
                     consist="дорада, апельсин, масло чесночное, лимон"
                   />
                   <Dish
                     image={pangassius}
-                    imageAlt="дорада запеченая"
-                    heading="Дорада запечёная с апельсином"
-                    consist="дорада, апельсин, масло чесночное, лимон"
+                    imageAlt="Пангасиус, запеченный в конверте"
+                    heading="Пангасиус, запеченный в конверте"
+                    consist="пангасиус, кабачки, сливки, лук порей, томаты черри, сыр Гауда"
                   />
                   <Dish
                     image={venig}
-                    imageAlt="дорада запеченая"
-                    heading="Дорада запечёная с апельсином"
-                    consist="дорада, апельсин, масло чесночное, лимон"
+                    imageAlt="винегрет"
+                    heading="Винегрет"
+                    consist="картофель, свекла, морковь, капуста квашеная, лук красный, горошек консервированный"
                   />
                   <Dish
                     image={greech}
-                    imageAlt="дорада запеченая"
-                    heading="Дорада запечёная с апельсином"
-                    consist="дорада, апельсин, масло чесночное, лимон"
+                    imageAlt="греческий салат"
+                    heading="Греческий салат"
+                    consist="свежие овощи, маслины, сыр Фета, пряные травы, мятная заправка"
                   />
                 </Slider>
               </div>
