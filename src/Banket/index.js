@@ -17,8 +17,11 @@ import {
   Advantage,
   Company,
   ContactLink,
-  PhoneLink
+  PhoneLink,
+  Button
 } from "./Styled";
+
+import BanketMenu from "../Menu/Banket/Menu";
 
 import Form from "../UI/Form/Banket";
 import Modal from "../UI/Modal";
@@ -42,7 +45,8 @@ import banketContact from "./banket_contact.jpg";
 
 class index extends Component {
   state = {
-    modalOpen: false
+    modalOpen: false,
+    menuModalOpen: false
   };
 
   toggleModal = () => {
@@ -53,9 +57,24 @@ class index extends Component {
     });
   };
 
+  toggleMenuModal = () => {
+    console.log("works");
+    this.setState(prevState => {
+      return {
+        menuModalOpen: !prevState.menuModalOpen
+      };
+    });
+  };
+
   render() {
     return (
       <Fragment>
+        <Modal
+          modalIsOpen={this.state.menuModalOpen}
+          closeModal={this.toggleMenuModal}
+        >
+          <BanketMenu />
+        </Modal>
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
           <Form />
         </Modal>
@@ -164,7 +183,11 @@ class index extends Component {
                 </Slider>
               </div>
               <div className="col-xs-12 center-xs">
-                <ButtonRightPr contrast>смотреть всё меню</ButtonRightPr>
+                <Button>
+                  <ButtonRightPr onClick={this.toggleMenuModal} contrast>
+                    смотреть всё меню
+                  </ButtonRightPr>
+                </Button>
               </div>
             </div>
           </div>
@@ -215,38 +238,36 @@ class index extends Component {
                 <Heading>с нами отмечают</Heading>
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={ikea} />
+                <Company src={ikea} alt="ikea" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={lsssmu} />
+                <Company src={lsssmu} alt="ЛенСпецСму" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={sber} />
+                <Company src={sber} alt="Сбербанк" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={sport} />
+                <Company src={sport} alt="Спортмастер" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={comp585} />
+                <Company src={comp585} alt="585" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={adidas} />
+                <Company src={adidas} alt="Адидас" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={bm} />
+                <Company src={bm} alt="Банк Москвы" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={hyndai} />
+                <Company src={hyndai} alt="Hyundai" />
               </div>
             </div>
           </div>
         </Section>
         <Section background={banketContact}>
           <Overlay />
-
           <MainscreenWrap>
             <Heading contrast> по вопросам бронирования </Heading>
-
             <PhoneLink href="tel:+79111811375">+7 (911) 181 13 75</PhoneLink>
             <ContactLink href="mailto:retro@pioner-club.com">
               retro@pioner-club.com
@@ -254,9 +275,11 @@ class index extends Component {
             <ContactLink href="https://www.google.ru/maps/place/%D0%9F%D0%B8%D0%BE%D0%BD%D0%B5%D1%80/@60.0064527,30.2659941,17z/data=!3m1!4b1!4m5!3m4!1s0x4696343be8afe5d7:0x8c0a80070d563725!8m2!3d60.0064527!4d30.2681828">
               г. Санкт-Петербург, пр-тк Испытателей 26/2
             </ContactLink>
-            <ButtonUpWhite onClick={this.toggleModal}>
-              забронировать мероприятие
-            </ButtonUpWhite>
+            <Button>
+              <ButtonUpWhite onClick={this.toggleModal}>
+                забронировать мероприятие
+              </ButtonUpWhite>
+            </Button>
           </MainscreenWrap>
         </Section>
       </Fragment>

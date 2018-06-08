@@ -62,8 +62,9 @@ export const Advantage = styled.h5`
 `;
 
 export const Company = styled.img`
-  height: 70px;
   margin: 2rem 0;
+  width: 100%;
+  max-width: 200px;
 `;
 
 export const ContactLink = styled.a`
@@ -95,4 +96,8 @@ export const PhoneLink = ContactLink.extend`
   ${media.lg`
   font-size: 2rem;
   `};
+`;
+
+export const Button = styled.div`
+  margin: 1em;
 `;
