@@ -68,6 +68,25 @@ export const Response = styled.div`
   justify-content: center;
 `;
 
+export const TextArea = styled.textarea`
+  display: block;
+  margin-top: 1rem;
+  width: 100%;
+
+  border: 3px solid ${colorDark};
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  font-family: "Clear Sans", sans-serif;
+  color: #000;
+  transition: all 0.1s linear;
+  text-transform: ${props => props.transform};
+  &:focus {
+    box-shadow: 0 0px 2px 2px rgba(235, 31, 6, 0.8);
+    border: 3px solid rgba(235, 31, 6, 1);
+  }
+`;
+
 export const DateInput = styled(DatePicker)`
   display: block;
   width: 100%;

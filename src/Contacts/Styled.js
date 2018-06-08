@@ -10,6 +10,19 @@ export const Map = styled.div`
   `};
 `;
 
+export const Feedback = styled.div`
+  margin: 1em auto;
+  padding: 1em;
+  width: 100%;
+  transition: all 0.5s ease-out;
+  box-shadow: 0 0 60px 0px rgba(0, 0, 0, 0.75);
+  ${media.lg`
+      padding: 2em 3em;
+      margin: 2em auto;
+
+  `};
+`;
+
 export const TextBlock = styled.div`
   padding: 2em 2em;
   background: #fff;
@@ -34,4 +47,8 @@ export const Wrap = styled.div`
 
 export const Contact = styled.h4`
   margin: 1em;
+`;
+
+export const FormBox = styled.div`
+  padding-top: 2rem;
 `;
