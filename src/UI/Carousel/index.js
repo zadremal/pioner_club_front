@@ -1,29 +1,33 @@
 import React from "react";
 import Slider from "react-slick";
 import { ArrowLeft, ArrowRight } from "./Styled";
-import arrow from "./arrow.svg";
+import Arrow from "./arrow";
 
 const index = props => {
   const LeftButton = props => {
     const { style, onClick } = props;
     return (
       <ArrowLeft
-        src={arrow}
+        viewBox="0 0 306 306"
         className="slick-arrow"
         style={{ ...style }}
         onClick={onClick}
-      />
+      >
+        <Arrow />
+      </ArrowLeft>
     );
   };
   const RightButton = props => {
     const { style, onClick } = props;
     return (
       <ArrowRight
-        src={arrow}
+        viewBox="0 0 306 306"
         className="slick-arrow"
         style={{ ...style }}
         onClick={onClick}
-      />
+      >
+        <Arrow />
+      </ArrowRight>
     );
   };
 

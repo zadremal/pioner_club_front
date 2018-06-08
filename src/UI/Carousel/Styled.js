@@ -1,33 +1,33 @@
 import styled from "styled-components";
-import { colorAcc, colorDark } from "../index";
+import { colorAcc, colorDark, colorPr } from "../index";
 
-export const ArrowLeft = styled.img`
-  height: 30px;
-  width: 30px;
+export const ArrowLeft = styled.svg`
+  height: 40px;
+  width: 40px;
   padding: 0;
   position: absolute;
   top: 50%;
-  left: -10px;
+  left: 2px;
   z-index: 20;
-  border-radius: 50%;
-  transform: translateY(-50%) rotate(180deg);
-  transition: all 0.1s ease-out;
-  background-color: #fff;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-out;
+  background: none;
   cursor: pointer;
+  fill: ${colorPr};
   :hover {
-    box-shadow: 0 0 10px #000;
+    fill: ${colorAcc};
   }
   :active {
-    box-shadow: 0 0 20px ${colorDark};
+    fill: ${colorDark};
   }
   :focus {
-    box-shadow: 0 0 20px ${colorAcc};
+    fill: ${colorAcc};
   }
 `;
 
 export const ArrowRight = ArrowLeft.extend`
-  right: -10px;
+  right: 2px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(180deg);
   left: auto;
 `;

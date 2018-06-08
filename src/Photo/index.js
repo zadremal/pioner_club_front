@@ -16,7 +16,7 @@ class index extends Component {
 
   componentDidMount() {
     const count = 16;
-    const offset = 2;
+    const offset = 1;
     const ownerId = -347981;
     const url = "https://api.vk.com/";
     const method = "photos.getAlbums";
