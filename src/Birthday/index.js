@@ -26,7 +26,7 @@ import {
 import { ButtonUpWhite } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
 import fencing from "./fencing.svg";
-import cake from "./cake.svg";
+import trumpet from "./trumpet.svg";
 import percentage from "./percentage.svg";
 import Form from "../UI/Form/Birthday";
 import Modal from "../UI/Modal";
@@ -93,10 +93,10 @@ class index extends Component {
                 </DealDescription>
               </div>
               <div className="col-xs-12 col-md-4  center-xs">
-                <DealImg src={cake} />
+                <DealImg src={trumpet} />
                 <DealDescription>
-                  <Highlighted>Сладкий подарок </Highlighted>при заказе банкета
-                  от 10-и человек
+                  <Highlighted>Торжественное посвящение </Highlighted>в ряды
+                  Пионеров!
                 </DealDescription>
               </div>
             </div>
