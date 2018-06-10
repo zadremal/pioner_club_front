@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import updates from "./updates.jpg";
 import mic from "./mic.jpg";
 import songs from "./songs.jpg";
-
+import Loader from "../UI/Loader";
 import background from "./karaoke_background.jpg";
 
 class index extends Component {
@@ -23,14 +23,15 @@ class index extends Component {
     const fetchUrl = `${apiServer}/api/v1/places/`;
     fetch(fetchUrl)
       .then(response => response.json())
-      .catch(err => console.log("Looks like there was an error", err))
       .then(data =>
         this.setState({
           price: data[1].price,
           openHours: data[1].open_hours
         })
-      );
+      )
+      .catch(err => console.log("Looks like there was an error", err));
   };
+
   render() {
     const { price, openHours } = this.state;
     return (
@@ -67,15 +68,18 @@ class index extends Component {
               </div>
 
               <div className="col-xs-12 col-lg-5 center-xs first-xs">
-                {openHours && (
-                  <Card heading="мы открыты">
-                    <MarkdownRenderer markdown={openHours} />
-                  </Card>
-                )}
-                {price && (
-                  <Card heading="стоимость песни">
-                    <MarkdownRenderer markdown={price} />
-                  </Card>
+                {openHours && price ? (
+                  <div>
+                    <Card heading="мы открыты">
+                      <MarkdownRenderer markdown={openHours} />
+                    </Card>
+
+                    <Card heading="стоимость песни">
+                      <MarkdownRenderer markdown={price} />
+                    </Card>
+                  </div>
+                ) : (
+                  <Loader />
                 )}
               </div>
             </div>

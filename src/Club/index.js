@@ -10,6 +10,7 @@ import plan from "./plan.jpg";
 import MarkdownRenderer from "react-markdown-renderer";
 import Feature from "../UI/PlaceFeature";
 import Lightbox from "react-images";
+import Loader from "../UI/Loader";
 
 import bar from "./bar.jpg";
 import pioner from "./pioner.jpg";
@@ -47,13 +48,15 @@ class index extends Component {
     const fetchUrl = `${apiServer}/api/v1/places/`;
     fetch(fetchUrl)
       .then(response => response.json())
-      .catch(err => console.log("Looks like there was an error", err))
       .then(data =>
         this.setState({
           price: data[0].price,
           openHours: data[0].open_hours
         })
-      );
+      )
+      .catch(err => {
+        console.log("При запросе данных возникла ошибка:", err);
+      });
   };
 
   render() {
@@ -105,34 +108,38 @@ class index extends Component {
                   мотивов!
                 </Description>
               </div>
+
               <div className="col-xs-12 col-lg-5 center-xs first-xs">
-                {openHours && (
-                  <Card heading="мы открыты">
-                    <MarkdownRenderer markdown={openHours} />
-                  </Card>
+                {openHours && price ? (
+                  <div>
+                    <Card heading="мы открыты">
+                      <MarkdownRenderer markdown={openHours} />
+                    </Card>
+
+                    <Card heading="цены на вход">
+                      <MarkdownRenderer markdown={price} />
+                    </Card>
+                    <Card heading="план зала">
+                      <Plan
+                        onClick={this.openLightbox}
+                        src={plan}
+                        alt="план зала ночной клуб Пионер"
+                      />
+                    </Card>
+                  </div>
+                ) : (
+                  <Loader />
                 )}
-                {price && (
-                  <Card heading="цены на вход">
-                    <MarkdownRenderer markdown={price} />
-                  </Card>
-                )}
-                <Card heading="план зала">
-                  <Plan
-                    onClick={this.openLightbox}
-                    src={plan}
-                    alt="план зала ночной клуб Пионер"
-                  />
-                </Card>
-                <Lightbox
-                  images={[{ src: `${plan}` }, { src: `${plan}` }]}
-                  onClose={this.closeLightbox}
-                  currentImage={this.state.currentImage}
-                  isOpen={this.state.lightboxIsOpen}
-                  preloadNextImage={false}
-                  showImageCount={false}
-                  backdropClosesModal={true}
-                />
               </div>
+              <Lightbox
+                images={[{ src: `${plan}` }, { src: `${plan}` }]}
+                onClose={this.closeLightbox}
+                currentImage={this.state.currentImage}
+                isOpen={this.state.lightboxIsOpen}
+                preloadNextImage={false}
+                showImageCount={false}
+                backdropClosesModal={true}
+              />
             </div>
           </div>
         </Section>

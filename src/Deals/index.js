@@ -18,7 +18,8 @@ class index extends Component {
         this.setState({
           deals: data
         });
-      });
+      })
+      .catch(err => console.log("Looks like there was an error", err));
   };
 
   render() {

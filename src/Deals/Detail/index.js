@@ -56,7 +56,8 @@ class index extends Component {
               deals: data
             };
           });
-      });
+      })
+      .catch(err => console.log("Looks like there was an error", err));
   };
 
   retrieveCurrentDeal = dealId => {
