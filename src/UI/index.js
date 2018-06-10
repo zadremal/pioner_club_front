@@ -23,13 +23,8 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 }, {});
 
 export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
+  flex: 1 1 auto;
   padding-top: 60px;
-  height: 100%;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -74,6 +69,9 @@ export const Overlay = styled.div`
 `;
 
 export const Content = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
   transform: ${props =>
     props.menuIsOpen ? "translateX(-250px)" : "translateX(0)"};

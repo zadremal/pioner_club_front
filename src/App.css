@@ -25,6 +25,10 @@ html {
   font-family: "Clear Sans", sans-serif;
 }
 
+#root {
+  height: 100%;
+}
+
 *,
 *::before,
 *::after {
