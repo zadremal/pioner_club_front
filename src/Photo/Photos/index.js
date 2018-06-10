@@ -5,7 +5,7 @@ import jsonp from "jsonp";
 import backArrow from "./back.svg";
 import Measure from "react-measure";
 import Lightbox from "react-images";
-
+import Loader from "../../UI/Loader";
 class index extends Component {
   constructor() {
     super();
@@ -103,44 +103,49 @@ class index extends Component {
             <Breadcrump>{this.props.location.albumName}</Breadcrump>
           </div>
           <div className="col-xs-12">
-            <Measure
-              bounds
-              onResize={contentRect =>
-                this.setState({ width: contentRect.bounds.width })
-              }
-            >
-              {({ measureRef }) => {
-                if (width < 1) {
-                  return <div ref={measureRef} />;
+            {photos.length !== 0 ? (
+              <Measure
+                bounds
+                onResize={contentRect =>
+                  this.setState({ width: contentRect.bounds.width })
                 }
-                let columns = 2;
+              >
+                {({ measureRef }) => {
+                  if (width < 1) {
+                    return <div ref={measureRef} />;
+                  }
+                  let columns = 2;
 
-                if (width >= 576) {
-                  columns = 3;
-                }
-                if (width >= 992) {
-                  columns = 4;
-                }
-                return (
-                  <div ref={measureRef}>
-                    <Gallery
-                      photos={photos}
-                      onClick={this.openLightbox}
-                      columns={columns}
-                    />
-                    <Lightbox
-                      images={photos}
-                      backdropClosesModal={true}
-                      onClose={this.closeLightbox}
-                      onClickPrev={this.gotoPrevious}
-                      onClickNext={this.gotoNext}
-                      currentImage={this.state.currentImage}
-                      isOpen={this.state.lightboxIsOpen}
-                    />
-                  </div>
-                );
-              }}
-            </Measure>
+                  if (width >= 576) {
+                    columns = 3;
+                  }
+                  if (width >= 992) {
+                    columns = 4;
+                  }
+                  return (
+                    <div ref={measureRef}>
+                      <Gallery
+                        photos={photos}
+                        onClick={this.openLightbox}
+                        columns={columns}
+                      />
+
+                      <Lightbox
+                        images={photos}
+                        backdropClosesModal={true}
+                        onClose={this.closeLightbox}
+                        onClickPrev={this.gotoPrevious}
+                        onClickNext={this.gotoNext}
+                        currentImage={this.state.currentImage}
+                        isOpen={this.state.lightboxIsOpen}
+                      />
+                    </div>
+                  );
+                }}
+              </Measure>
+            ) : (
+              <Loader />
+            )}
           </div>
         </div>
       </div>
