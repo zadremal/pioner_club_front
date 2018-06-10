@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Mainscreen, Overlay } from "../UI";
+import { LandingMainscreen, Overlay } from "../UI";
 import { Heading } from "../UI/section";
-
+import { Link } from "react-router-dom";
 import background from "./back.jpg";
 
 class index extends Component {
@@ -11,14 +11,15 @@ class index extends Component {
 
   render() {
     return (
-      <Mainscreen background={background}>
+      <LandingMainscreen background={background}>
         <div className="container">
           <Overlay />
+          <Heading contrast>Похоже что такой страницы не существует</Heading>
           <Heading contrast>
-            Похоже что такой страницы не существоует. Заходитие позднее
+            посмотрите лучше наши <Link to="/deals">Акции</Link>
           </Heading>
         </div>
-      </Mainscreen>
+      </LandingMainscreen>
     );
   }
 }
