@@ -5,6 +5,7 @@ import { Image } from "./Styled";
 import Card from "../UI/PlaceInfo";
 import Feature from "../UI/PlaceFeature";
 import MarkdownRenderer from "react-markdown-renderer";
+import Loader from "../UI/Loader";
 
 import background from "./craft_background.jpg";
 import fishburger from "./fishburger.jpg";
@@ -24,13 +25,13 @@ class index extends Component {
     const fetchUrl = `${apiServer}/api/v1/places/`;
     fetch(fetchUrl)
       .then(response => response.json())
-      .catch(err => console.log("Looks like there was an error", err))
       .then(data =>
         this.setState({
           price: data[2].price,
           openHours: data[2].open_hours
         })
-      );
+      )
+      .catch(err => console.log("Looks like there was an error", err));
   };
 
   render() {
@@ -64,10 +65,12 @@ class index extends Component {
                 </Description>
               </div>
               <div className="col-xs-12 col-lg-5 center-xs first-xs">
-                {openHours && (
+                {openHours ? (
                   <Card heading="мы открыты">
                     <MarkdownRenderer markdown={openHours} />
                   </Card>
+                ) : (
+                  <Loader />
                 )}
               </div>
             </div>

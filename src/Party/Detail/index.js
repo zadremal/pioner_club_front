@@ -26,11 +26,12 @@ import { ButtonUpPr } from "../../UI/buttons";
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
 import truncate from "lodash.truncate";
+import Loader from "../../UI/Loader";
 const body = document.querySelector("body");
 
 class index extends Component {
   state = {
-    party: {},
+    party: "",
     modalOpen: false
   };
 
@@ -65,7 +66,8 @@ class index extends Component {
         this.setState({
           party: data
         });
-      });
+      })
+      .catch(err => console.log("Looks like there was an error", err));
   };
   render() {
     const {
@@ -83,52 +85,56 @@ class index extends Component {
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
           <Form />
         </Modal>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              <Wrap>
-                <PartyDate>
-                  {format(date, "D.MM, dddd", { locale: ruLocale })}
-                </PartyDate>
-                <TextBlock>
-                  <Heading>{name}</Heading>
-                </TextBlock>
-                <Image src={poster} alt={poster_alt} />
-              </Wrap>
-              <Description>
-                {place && (
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-xs-12 col-md-6">
-                        <PartyStart>Начало:</PartyStart>
-                        <PartyStart>
-                          {truncate(time_start, {
-                            length: 5,
-                            separator: " ",
-                            omission: ""
-                          })}
-                        </PartyStart>
-                        <Enterance>
-                          <PartyPrice> вход </PartyPrice>
-                          <MarkdownRenderer markdown={place.price} />
-                        </Enterance>
-                      </div>
-                      <div className="col-xs-12 col-md-6">
-                        <MarkdownRenderer markdown={description} />
-                        <Button>
-                          {" "}
-                          <ButtonUpPr onClick={this.toggleModal} contrast>
-                            забронировать столик
-                          </ButtonUpPr>
-                        </Button>
+        {this.state.party ? (
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <Wrap>
+                  <PartyDate>
+                    {format(date, "D.MM, dddd", { locale: ruLocale })}
+                  </PartyDate>
+                  <TextBlock>
+                    <Heading>{name}</Heading>
+                  </TextBlock>
+                  <Image src={poster} alt={poster_alt} />
+                </Wrap>
+                <Description>
+                  {place && (
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-xs-12 col-md-6">
+                          <PartyStart>Начало:</PartyStart>
+                          <PartyStart>
+                            {truncate(time_start, {
+                              length: 5,
+                              separator: " ",
+                              omission: ""
+                            })}
+                          </PartyStart>
+                          <Enterance>
+                            <PartyPrice> вход </PartyPrice>
+                            <MarkdownRenderer markdown={place.price} />
+                          </Enterance>
+                        </div>
+                        <div className="col-xs-12 col-md-6">
+                          <MarkdownRenderer markdown={description} />
+                          <Button>
+                            {" "}
+                            <ButtonUpPr onClick={this.toggleModal} contrast>
+                              забронировать столик
+                            </ButtonUpPr>
+                          </Button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </Description>
+                  )}
+                </Description>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <Loader />
+        )}
       </Fragment>
     );
   }
