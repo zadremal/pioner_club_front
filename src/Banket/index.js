@@ -49,6 +49,10 @@ class index extends Component {
     menuModalOpen: false
   };
 
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   toggleModal = () => {
     this.setState(prevState => {
       return {

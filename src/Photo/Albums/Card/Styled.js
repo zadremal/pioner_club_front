@@ -23,7 +23,8 @@ export const Photos = styled.h3`
 
 export const Title = Photos.extend`
   font-family: Intro, Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 1.25rem;
+  margin: 0.5rem 1.5rem;
 `;
 
 export const Overlay = styled.div`
