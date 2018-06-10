@@ -15,6 +15,7 @@ class index extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     const count = 16;
     const offset = 1;
     const ownerId = -347981;
