@@ -1,13 +1,20 @@
 import React, { Component } from "react";
-import { Mainscreen } from "../UI";
+import { Mainscreen, Overlay } from "../UI";
 import { Heading } from "../UI/section";
 
+import background from "./back.jpg";
+
 class index extends Component {
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     return (
-      <Mainscreen>
+      <Mainscreen background={background}>
         <div className="container">
-          <Heading>
+          <Overlay />
+          <Heading contrast>
             Похоже что такой страницы не существоует. Заходитие позднее
           </Heading>
         </div>

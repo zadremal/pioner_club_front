@@ -34,7 +34,7 @@ export const Main = styled.main`
 
 export const Mainscreen = styled.section`
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   position: relative;
   background: url(${props => props.background});
   background-position: center;

@@ -25,17 +25,13 @@ html {
   font-family: "Clear Sans", sans-serif;
 }
 
-#root {
+body {
   height: 100%;
+  width: 100%;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-body {
-  height: 100%;
-  width: 100%;
 }
