@@ -10,6 +10,10 @@ import { Route, Redirect } from "react-router-dom";
 import { StyledNavLink, Menu } from "./Styled";
 
 class index extends Component {
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     const { url, path } = this.props.match;
     return (

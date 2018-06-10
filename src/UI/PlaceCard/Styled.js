@@ -4,7 +4,7 @@ export const Card = styled.div`
   position: relative;
   padding-left: 40px;
   overflow: hidden;
-  transition: all 2s ease-out;
+  transition: all 0.2s ease-out;
   height: 70vh;
   cursor: pointer;
   z-index: 1;
