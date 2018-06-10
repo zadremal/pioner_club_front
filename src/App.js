@@ -22,6 +22,8 @@ import PartyList from "./Party/List";
 import PartyDetail from "./Party/Detail";
 import Deals from "./Deals";
 import Contacts from "./Contacts";
+import Facecontrol from "./FC";
+import PrivatePolicy from "./Policy";
 import Navigation from "./Navigation";
 import NotFound from "./NotFound";
 
@@ -72,6 +74,8 @@ class App extends Component {
                 <Route path="/deals" component={Deals} />
                 <Route path="/menu" component={Menu} />
                 <Route path="/contacts" component={Contacts} />
+                <Route path="/facecontrol" component={Facecontrol} />
+                <Route path="/policy" component={PrivatePolicy} />
                 <Route component={NotFound} />
               </Switch>
             </Main>
