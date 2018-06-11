@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Helmet } from "react-helmet";
 import {
   LandingMainscreen,
   LandingMainHeading,
@@ -73,6 +74,18 @@ class index extends Component {
   render() {
     return (
       <Fragment>
+        <Helmet>
+          <title>Банкеты в ночном клубе Пионер</title>
+          <link rel="canonical" href="https://pioner-club.com/banket" />
+          <meta
+            name="description"
+            content="Банкеты от 1000р на человека. Частичное или полное накрытие. Любые мероприятия. Банкеты со своим алкоголем."
+          />
+          <meta
+            name="keywords"
+            content="банкеты, банкет, корпоратив, аренда зала, аренда, свадебный банкет, банкет на свадьбу, проведение банкетов, банкет фуршет, организация банкетов, банкетный зал СПб, банкетный зал Санкт-Петербург, банкет в ночном клубе, банкет в ресторане, банкет недорого, заказ банкета, провести банкет"
+          />
+        </Helmet>
         <Modal
           modalIsOpen={this.state.menuModalOpen}
           closeModal={this.toggleMenuModal}

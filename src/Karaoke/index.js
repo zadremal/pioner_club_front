@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Helmet } from "react-helmet";
 import { Mainscreen, Overlay, Description } from "../UI";
 import Section, { Heading } from "../UI/section";
 import Card from "../UI/PlaceInfo";
@@ -36,6 +37,18 @@ class index extends Component {
     const { price, openHours } = this.state;
     return (
       <Fragment>
+        <Helmet>
+          <title>Пионер - караоке бар</title>
+          <link rel="canonical" href="https://pioner-club.com/karaoke" />
+          <meta
+            name="description"
+            content="Караоке бар с профессиональным оборудованием. Бесплатно в четверг и воскресенье! Более 45 000 песен. Профессиональные микрофоны, бэк-вокал. "
+          />
+          <meta
+            name="keywords"
+            content="караоке, поем караоке, караоке бесплатно, караоке бар, караоке бар СПб, караоке бар Санкт-Петербург, караоке клуб, караоке со словами, караоке ночь"
+          />
+        </Helmet>
         <Mainscreen background={background}>
           <Overlay />
           <Heading contrast children="Караоке" />

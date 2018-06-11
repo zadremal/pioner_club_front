@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Helmet } from "react-helmet";
 import { Mainscreen, Overlay } from "../../UI";
 import Section, { Heading } from "../../UI/section";
 import { Link } from "react-router-dom";
@@ -30,6 +31,10 @@ class index extends Component {
     const { parties } = this.state;
     return (
       <Fragment>
+        <Helmet>
+          <title>Пионер - афиша мероприятий</title>
+          <link rel="canonical" href="https://pioner-club.com/menu/parties" />
+        </Helmet>
         <Mainscreen background={background}>
           <Overlay />
           <Heading contrast>Афиша мероприятий</Heading>

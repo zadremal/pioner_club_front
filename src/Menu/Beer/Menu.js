@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MenuList from "../MenuList";
-
+import { Helmet } from "react-helmet";
 class Menu extends Component {
   state = {
     menu: []
@@ -21,7 +21,14 @@ class Menu extends Component {
 
   render() {
     const { menu } = this.state;
-    return <MenuList data={menu} />;
+    return (
+      <MenuList data={menu}>
+        <Helmet>
+          <title>Пионер - меню пивного бара</title>
+          <link rel="canonical" href="https://pioner-club.com/menu/beer" />
+        </Helmet>
+      </MenuList>
+    );
   }
 }
 
