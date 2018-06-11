@@ -6,11 +6,12 @@ import Youtube from "../UI/Youtube";
 import { Plan } from "./Styled";
 import Card from "../UI/PlaceInfo";
 import background from "./main_background.jpg";
-import plan from "./plan.jpg";
 import MarkdownRenderer from "react-markdown-renderer";
 import Feature from "../UI/PlaceFeature";
 import Lightbox from "react-images";
 import Loader from "../UI/Loader";
+import plan from "./plan.jpg";
+import planBig from "./plan_big.jpg";
 
 import bar from "./bar.jpg";
 import pioner from "./pioner.jpg";
@@ -28,11 +29,13 @@ class index extends Component {
 
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
+    this.gotoNext = this.gotoNext.bind(this);
+    this.gotoPrevious = this.gotoPrevious.bind(this);
   }
 
   openLightbox = (event, obj) => {
     this.setState({
-      currentImage: 1,
+      currentImage: 0,
       lightboxIsOpen: true
     });
   };
@@ -41,6 +44,17 @@ class index extends Component {
       lightboxIsOpen: false
     });
   };
+
+  gotoPrevious() {
+    this.setState({
+      currentImage: this.state.currentImage - 1
+    });
+  }
+  gotoNext() {
+    this.setState({
+      currentImage: this.state.currentImage + 1
+    });
+  }
 
   componentDidMount = () => {
     window.scrollTo(0, 0);
@@ -144,10 +158,12 @@ class index extends Component {
                 )}
               </div>
               <Lightbox
-                images={[{ src: `${plan}` }, { src: `${plan}` }]}
+                images={[{ src: `${planBig}` }, { src: `${plan}` }]}
                 onClose={this.closeLightbox}
                 currentImage={this.state.currentImage}
                 isOpen={this.state.lightboxIsOpen}
+                onClickPrev={this.gotoPrevious}
+                onClickNext={this.gotoNext}
                 preloadNextImage={false}
                 showImageCount={false}
                 backdropClosesModal={true}
