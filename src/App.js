@@ -71,11 +71,23 @@ class App extends Component {
                   path="/deals/1"
                   render={() => <Redirect to="/birthday" />}
                 />
+                <Route
+                  exact
+                  path="/birthday/birthday.html"
+                  render={() => <Redirect to="/birthday" />}
+                />
+                <Route
+                  exact
+                  path="/event/event.html"
+                  render={() => <Redirect to="/banket" />}
+                />
+
                 <Route path="/deals" component={Deals} />
                 <Route path="/menu" component={Menu} />
                 <Route path="/contacts" component={Contacts} />
                 <Route path="/facecontrol" component={Facecontrol} />
                 <Route path="/policy" component={PrivatePolicy} />
+
                 <Route component={NotFound} />
               </Switch>
             </Main>
