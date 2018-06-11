@@ -57,20 +57,18 @@ class index extends Component {
             </div>
             <div className="col-xs-6 col-md-3">
               <Nav>
-                <Nav>
-                  <NavItem>
-                    <StyledLink to="/menu/kitchen">меню кухни</StyledLink>
-                  </NavItem>
-                  <NavItem>
-                    <StyledLink to="/menu/bar">напитки</StyledLink>
-                  </NavItem>
-                  <NavItem>
-                    <StyledLink to="/menu/banket">банкетное меню</StyledLink>
-                  </NavItem>
-                  <NavItem>
-                    <StyledLink to="/menu/beer">пивная карта</StyledLink>
-                  </NavItem>
-                </Nav>
+                <NavItem>
+                  <StyledLink to="/menu/kitchen">меню кухни</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/menu/bar">напитки</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/menu/banket">банкетное меню</StyledLink>
+                </NavItem>
+                <NavItem>
+                  <StyledLink to="/menu/beer">пивная карта</StyledLink>
+                </NavItem>
               </Nav>
             </div>
 
