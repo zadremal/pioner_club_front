@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import { Helmet } from "react-helmet";
 import Section, { Heading } from "../UI/section";
 import { Map, TextBlock, Wrap, Contact, Feedback, FormBox } from "./Styled";
 import Form from "../UI/Form/Contacts";
@@ -51,6 +51,18 @@ class index extends Component {
   render() {
     return (
       <Section>
+        <Helmet>
+          <title>Пионер - кнотактная информация</title>
+          <link rel="canonical" href="https://pioner-club.com/club" />
+          <meta
+            name="description"
+            content="Дискотека для взрослых с десятилетней историей. Ноповторимый интерьер, обширное меню, скидки и акции каждую неделю."
+          />
+          <meta
+            name="keywords"
+            content="дискотека для взрослых, дискотека испытателей, пионер испытателей, крафт, крафтовое пиво, пионер, пионеры, ночной клуб пионер, вынос знамени, посвящение в пионеры ночной клуб, ночные клубы, ретро клуб, ретро клубы, ретро дискотека, вечеринка, караоке, караоке бар, караоке кафе, клуб пионер, ретро вечеринка, банкет, праздник, отпраздновать, танцевать, музыка, день рождения, Dj, клубная музыка, танцы, ночь, новый год, ресторан, банкетный зал, проведение банкетов, юбилей, девишник, мальчишник, знакомства, познакомиться, бесплатный вход, караоке, кафе, бар, коктейль, ужин, скидки, недорого"
+          />
+        </Helmet>
         <div className="container">
           <div className="row">
             <div className="col-xs-12">

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Helmet } from "react-helmet";
 import { Mainscreen, Overlay, Description } from "../UI";
 import Section, { Heading } from "../UI/section";
 import { Image } from "./Styled";
@@ -38,6 +39,18 @@ class index extends Component {
     const { openHours } = this.state;
     return (
       <Fragment>
+        <Helmet>
+          <title>Пионер - бар с обширным ассортиментом пива</title>
+          <link rel="canonical" href="https://pioner-club.com/craft" />
+          <meta
+            name="description"
+            content="Разнообразные сорта пива от крафтовых пивоварен России и зарубежа. Более 40 видов бутылочного пива. Мини-бургеры по 100 рублей"
+          />
+          <meta
+            name="keywords"
+            content="крафт, крафтовое пиво, бар с крафтовым пивом, крафтовое пиво СПб, крафтовое пиво Санкт-Петербург, крафтовое пиво Петербург, купить крафтовое пиво, паб крафтового пива, бар крафтового пива, бургеры, бургеры СПб, бургеры Санкт-Петербург"
+          />
+        </Helmet>
         <Mainscreen background={background}>
           <Overlay />
           <Heading contrast>Крафт бургер бар</Heading>

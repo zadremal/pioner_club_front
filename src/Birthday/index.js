@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import Helmet from "react-helmet";
 import {
   Detail,
   DealImg,
@@ -51,6 +52,18 @@ class index extends Component {
   render() {
     return (
       <Fragment>
+        <Helmet>
+          <title>День рождения в ночном клубе Пионер</title>
+          <link rel="canonical" href="https://pioner-club.com/birthday" />
+          <meta
+            name="description"
+            content="День рождения в ночном клубе Пионер - скидки именинникам 50%! Возможность принести свой алкоголь. Бксплатный вход на компанию."
+          />
+          <meta
+            name="keywords"
+            content="день рождения, день рождения в клубе, отметить день рождения, отметить день рождения спб, отпраздновать день рождения спб, день рождения Санкт-Петербург, скидки на День Рождения, скидки день рождения Санкт-Петербург, день рождения со своим алкоголем, отмечаем день рождения"
+          />
+        </Helmet>
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
           <Form />
         </Modal>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Image } from "../Styled";
-
+import { Helmet } from "react-helmet";
 import kitchen1 from "./kitch1.jpg";
 import kitchen2 from "./kitch2.jpg";
 
@@ -25,6 +25,10 @@ class Menu extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Пионер - меню кухни</title>
+          <link rel="canonical" href="https://pioner-club.com/menu/kitchen" />
+        </Helmet>
         <Image src={kitchen1} />
         <Image src={kitchen2} />
       </div>

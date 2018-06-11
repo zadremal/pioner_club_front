@@ -4,6 +4,7 @@ import Photos from "./Photos";
 import Albums from "./Albums";
 import { Route } from "react-router-dom";
 import jsonp from "jsonp";
+import { Helmet } from "react-helmet";
 
 class index extends Component {
   constructor() {
@@ -37,6 +38,10 @@ class index extends Component {
     const path = this.props.match.path;
     return (
       <Section>
+        <Helmet>
+          <title>Пионер - последние фотоотчеты</title>
+          <link rel="canonical" href="https://pioner-club.com/menu/photo" />
+        </Helmet>
         <Route path={`${path}/:id`} component={Photos} />
         <Route
           exact

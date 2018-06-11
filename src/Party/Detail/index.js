@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-
+import { Helmet } from "react-helmet";
 import { Heading } from "../../UI/section";
 import {
   Image,
@@ -82,6 +82,10 @@ class index extends Component {
 
     return (
       <Fragment>
+        <Helmet>
+          <title>Пионер - афиша мероприятий</title>
+          <link rel="canonical" href="https://pioner-club.com/menu/parties" />
+        </Helmet>
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
           <Form />
         </Modal>
