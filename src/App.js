@@ -7,27 +7,28 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import asyncComponent from "./UTILS/AsyncComponent";
 import { Main } from "./UI";
 import Header from "./Header";
 import Footer from "./Footer";
-import Home from "./Home";
-import Birthday from "./Birthday";
-import Banket from "./Banket";
-import Club from "./Club";
-import Karaoke from "./Karaoke";
-import Menu from "./Menu";
-import Craft from "./Craft";
-import Photo from "./Photo/";
-import PartyList from "./Party/List";
-import PartyDetail from "./Party/Detail";
-import Deals from "./Deals";
-import Contacts from "./Contacts";
-import Facecontrol from "./FC";
-import PrivatePolicy from "./Policy";
 import Navigation from "./Navigation";
-import NotFound from "./NotFound";
-
 import { Content } from "./UI";
+
+const AsyncHome = asyncComponent(() => import("./Home"));
+const AsyncBirthday = asyncComponent(() => import("./Birthday"));
+const AsyncBanket = asyncComponent(() => import("./Banket"));
+const AsyncClub = asyncComponent(() => import("./Club"));
+const AsyncKaraoke = asyncComponent(() => import("./Karaoke"));
+const AsyncMenu = asyncComponent(() => import("./Menu"));
+const AsyncCraft = asyncComponent(() => import("./Craft"));
+const AsyncPhoto = asyncComponent(() => import("./Photo/"));
+const AsyncPartyList = asyncComponent(() => import("./Party/List"));
+const AsyncPartyDetail = asyncComponent(() => import("./Party/Detail"));
+const AsyncDeals = asyncComponent(() => import("./Deals"));
+const AsyncContacts = asyncComponent(() => import("./Contacts"));
+const AsyncFacecontrol = asyncComponent(() => import("./FC"));
+const AsyncPrivatePolicy = asyncComponent(() => import("./Policy"));
+const AsyncNotFound = asyncComponent(() => import("./NotFound"));
 
 class App extends Component {
   state = {
@@ -57,15 +58,6 @@ class App extends Component {
           <Content menuIsOpen={this.state.menuOpen}>
             <Main id="main">
               <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/birthday" component={Birthday} />
-                <Route path="/club" component={Club} />
-                <Route path="/karaoke" component={Karaoke} />
-                <Route path="/banket" component={Banket} />
-                <Route path="/craft" component={Craft} />
-                <Route path="/photo" component={Photo} />
-                <Route exact path="/parties" component={PartyList} />
-                <Route path="/parties/:id" component={PartyDetail} />
                 <Route
                   exact
                   path="/deals/1"
@@ -82,13 +74,22 @@ class App extends Component {
                   render={() => <Redirect to="/banket" />}
                 />
 
-                <Route path="/deals" component={Deals} />
-                <Route path="/menu" component={Menu} />
-                <Route path="/contacts" component={Contacts} />
-                <Route path="/facecontrol" component={Facecontrol} />
-                <Route path="/policy" component={PrivatePolicy} />
+                <Route exact path="/" component={AsyncHome} />
+                <Route path="/birthday" component={AsyncBirthday} />
+                <Route path="/club" component={AsyncClub} />
+                <Route path="/karaoke" component={AsyncKaraoke} />
+                <Route path="/banket" component={AsyncBanket} />
+                <Route path="/craft" component={AsyncCraft} />
+                <Route path="/photo" component={AsyncPhoto} />
+                <Route exact path="/parties" component={AsyncPartyList} />
+                <Route path="/parties/:id" component={AsyncPartyDetail} />
+                <Route path="/deals" component={AsyncDeals} />
+                <Route path="/menu" component={AsyncMenu} />
+                <Route path="/contacts" component={AsyncContacts} />
+                <Route path="/facecontrol" component={AsyncFacecontrol} />
+                <Route path="/policy" component={AsyncPrivatePolicy} />
 
-                <Route component={NotFound} />
+                <Route component={AsyncNotFound} />
               </Switch>
             </Main>
             <Footer />
