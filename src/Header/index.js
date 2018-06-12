@@ -13,35 +13,17 @@ import phone from "./phone-call.svg";
 import { ButtonUpPr } from "../UI/buttons";
 import { colorPr } from "../UI/";
 import { Link } from "react-router-dom";
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks
-} from "body-scroll-lock";
+
 import Modal from "../UI/Modal";
 
 import Hamburger from "react-hamburgers";
 import logo from "./mainlogo.png";
 import "./hamburger.css";
 import Form from "../UI/Form";
-const body = document.querySelector("body");
 
 class index extends Component {
   state = {
-    menuOpen: false,
     modalOpen: false
-  };
-
-  componentWillUnmount = () => {
-    clearAllBodyScrollLocks();
-  };
-
-  toggleMenu = () => {
-    const newModalState = !this.state.menuOpen;
-    newModalState ? disableBodyScroll(body) : enableBodyScroll(body);
-    this.setState({
-      menuOpen: newModalState
-    });
   };
 
   toggleModal = () => {

@@ -7,13 +7,13 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+
 import asyncComponent from "./UTILS/AsyncComponent";
 import { Main } from "./UI";
 import Header from "./Header";
 import Footer from "./Footer";
 import Navigation from "./Navigation";
 import { Content } from "./UI";
-
 const AsyncHome = asyncComponent(() => import("./Home"));
 const AsyncBirthday = asyncComponent(() => import("./Birthday"));
 const AsyncBanket = asyncComponent(() => import("./Banket"));

@@ -73,6 +73,7 @@ const linkAnimation = keyframes`
 `;
 
 export const Nav = styled.nav`
+  overflow: auto;
   position: relative;
   z-index: 200;
   height: 100%;
