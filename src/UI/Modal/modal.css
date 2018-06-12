@@ -1,7 +1,4 @@
 .react-modal__body {
-  padding: 1rem;
-  max-height: 95vh;
-  overflow: auto;
   width: 100%;
   max-width: 700px;
   outline: none;
@@ -10,6 +7,19 @@
   position: relative;
   padding: 4em 1em;
   margin: 1em;
+}
+
+.react-modal__body--overflow {
+  max-height: 90vh;
+  width: 100%;
+  max-width: 800px;
+  outline: none;
+  box-shadow: 0 0 60px red;
+  background-color: #fff;
+  position: relative;
+  padding: 4em 1em 1em;
+  margin: 1em;
+  overflow: auto;
 }
 
 .react-modal__overlay {

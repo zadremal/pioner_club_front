@@ -6,20 +6,23 @@ import { Icon, Button } from "./Styled";
 
 Modal.setAppElement("#root");
 
-const ModalWindow = props => {
+const ModalWindow = ({ modalIsOpen, closeModal, overflow, children }) => {
+  const modalBody = overflow
+    ? "react-modal__body--overflow"
+    : "react-modal__body";
   return (
     <Modal
-      isOpen={props.modalIsOpen}
-      onRequestClose={props.closeModal}
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
       contentLabel="Example Modal"
       closeTimeoutMS={150}
-      className="react-modal__body"
+      className={modalBody}
       overlayClassName="react-modal__overlay"
     >
-      <Button onClick={props.closeModal}>
+      <Button onClick={closeModal}>
         <Icon src={close} alt="" />
       </Button>
-      {props.children}
+      {children}
     </Modal>
   );
 };
