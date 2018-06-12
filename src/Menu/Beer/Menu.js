@@ -1,33 +1,63 @@
-import React, { Component } from "react";
-import MenuList from "../MenuList";
+import React, { Component, Fragment } from "react";
+import { BottleList, BeerList } from "./BeerList";
 import { Helmet } from "react-helmet";
-class Menu extends Component {
-  state = {
-    menu: []
-  };
-  componentDidMount = () => {
-    const menuPart = 4;
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/menu/${menuPart}/`;
+import Loader from "../../UI/Loader";
 
-    fetch(fetchUrl)
+import { Heading } from "../../UI/section";
+
+class Menu extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      beer: [],
+      bottleBeer: []
+    };
+
+    this.fetchMenu = this.fetchMenu.bind(this);
+  }
+
+  fetchMenu = (url, stateName) => {
+    fetch(url)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         this.setState({
-          menu: data
+          [stateName]: data
         });
-      });
+      })
+      .catch(err => console.log(err));
+  };
+
+  componentDidMount = () => {
+    const apiServer = process.env.REACT_APP_API_SERVER;
+    const bottleUrl = `${apiServer}/api/v1/menu/beer/bottle`;
+    const beerUrl = `${apiServer}/api/v1/menu/beer`;
+
+    this.fetchMenu(bottleUrl, "bottleBeer");
+    this.fetchMenu(beerUrl, "beer");
   };
 
   render() {
-    const { menu } = this.state;
+    const { bottleBeer, beer } = this.state;
     return (
-      <MenuList data={menu}>
+      <Fragment>
         <Helmet>
+          {console.log(this.state.bottleBeer)}
           <title>Пионер - меню пивного бара</title>
           <link rel="canonical" href="https://pioner-club.com/menu/beer" />
         </Helmet>
-      </MenuList>
+        {bottleBeer.length > 0 ? (
+          <BottleList array={bottleBeer} title="Бутылочное пиво" />
+        ) : (
+          <Loader />
+        )}
+        {beer.length > 0 ? (
+          <BeerList array={beer} title="Разливное пиво" />
+        ) : (
+          <Loader />
+        )}
+      </Fragment>
     );
   }
 }
