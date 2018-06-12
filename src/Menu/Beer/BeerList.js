@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { media } from "../../UI/";
 
 export const List = styled.div`
   display: flex;
@@ -11,11 +12,18 @@ export const Title = styled.h3`
   flex-basis: 100%;
   margin: 1em 2%;
   font-size: 2em;
+  text-align: center;
+  ${media.md`
+    text-align: left;
+  `};
 `;
 
 export const Card = styled.div`
-  flex-basis: ${props => (props.wide ? "100%" : "50%")};
+  flex-basis: 100%
   padding: 2%;
+  ${media.md`
+  flex-basis: ${props => (props.wide ? "100%" : "50%")}; 
+  `}
 `;
 export const Category = styled.h3`
   text-transform: uppercase;
