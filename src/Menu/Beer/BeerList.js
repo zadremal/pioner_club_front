@@ -80,7 +80,7 @@ export const BeerList = props => {
         </Element>
         {props.array.map(beer => {
           return (
-            <Element>
+            <Element key={beer.id}>
               <Name>{beer.name}</Name>
               <Info>
                 <InfoItem>{beer.alcohol}%</InfoItem>
@@ -105,12 +105,12 @@ export const BottleList = props => {
         .filter(country => country.bottle_beer.length > 0)
         .map(country => {
           return (
-            <Card>
+            <Card key={country.id}>
               <Category>{country.name}</Category>
 
               {country.bottle_beer.map(beer => {
                 return (
-                  <Element>
+                  <Element key={beer.id}>
                     <Name>{beer.name}</Name>
                     <Info>
                       <InfoItem>{beer.alcohol}%</InfoItem>

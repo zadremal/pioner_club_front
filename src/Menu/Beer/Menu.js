@@ -3,8 +3,6 @@ import { BottleList, BeerList } from "./BeerList";
 import { Helmet } from "react-helmet";
 import Loader from "../../UI/Loader";
 
-import { Heading } from "../../UI/section";
-
 class Menu extends Component {
   constructor() {
     super();
@@ -21,7 +19,6 @@ class Menu extends Component {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({
           [stateName]: data
         });
@@ -43,7 +40,6 @@ class Menu extends Component {
     return (
       <Fragment>
         <Helmet>
-          {console.log(this.state.bottleBeer)}
           <title>Пионер - меню пивного бара</title>
           <link rel="canonical" href="https://pioner-club.com/menu/beer" />
         </Helmet>
