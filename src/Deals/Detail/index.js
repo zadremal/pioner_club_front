@@ -35,7 +35,6 @@ class index extends Component {
   };
 
   componentDidUpdate = () => {
-    window.scrollTo(0, 0);
     const newDealId = this.props.match.params.id;
     this.state.dealId !== newDealId && this.retrieveCurrentDeal(newDealId);
   };
@@ -61,6 +60,7 @@ class index extends Component {
   };
 
   retrieveCurrentDeal = dealId => {
+    document.querySelector("#main").scrollTo(0, 0);
     const apiServer = process.env.REACT_APP_API_SERVER;
     const fetchUrl = `${apiServer}/api/v1/deals/${dealId}/`;
     fetch(fetchUrl)

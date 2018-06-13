@@ -1,0 +1,11 @@
+User-agent: Yandex
+Allow: /
+Sitemap: https://pioner-club.com/sitemap.xml
+
+
+User-agent: *
+Allow: /
+Sitemap: https://pioner-club.com/sitemap.xml
+
+
+
