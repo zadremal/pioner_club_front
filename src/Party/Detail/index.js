@@ -15,36 +15,17 @@ import {
 import Modal from "../../UI/Modal";
 import Form from "../../UI/Form";
 
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks
-} from "body-scroll-lock";
-
 import MarkdownRenderer from "react-markdown-renderer";
 import { ButtonUpPr } from "../../UI/buttons";
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
 import truncate from "lodash.truncate";
 import Loader from "../../UI/Loader";
-const body = document.querySelector("body");
 
 class index extends Component {
   state = {
     party: "",
     modalOpen: false
-  };
-
-  componentWillUnmount = () => {
-    clearAllBodyScrollLocks();
-  };
-
-  toggleMenu = () => {
-    const newModalState = !this.state.menuOpen;
-    newModalState ? disableBodyScroll(body) : enableBodyScroll(body);
-    this.setState({
-      menuOpen: newModalState
-    });
   };
 
   toggleModal = () => {
