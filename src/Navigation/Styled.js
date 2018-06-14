@@ -8,67 +8,58 @@ export const Logo = styled.img`
 
 export const Menu = styled.div`
   position: fixed;
-  width: 250px;
   top: 0;
   bottom: 0;
   right: 0;
-  background: transtarent;
   z-index: 500;
+  width: 250px;
+  background: transparent;
   transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
   transform: ${props =>
     props.menuIsOpen ? "translateX(0)" : "translateX(250px)"};
+
   ${media.md`
   width: 350px;
   transform: ${props =>
     props.menuIsOpen ? "translateX(0)" : "translateX(350px)"};
-  
   `};
 `;
 
 export const CloseButton = styled.img`
   position: absolute;
-  cursor: pointer;
-  z-index: 540;
-  height: 20px;
   top: 20px;
   left: 20px;
+  z-index: 540;
+  height: 20px;
+  cursor: pointer;
 `;
 
 export const Link = styled(NavLink)`
   text-decoration: none;
-  color: ${colorDark};
-  font-size: 1.25rem;
   font-family: Intro, sans-serif;
+  font-size: 1.25rem;
   font-weight: 300;
-  transition: all 0.1s ease-in;
   border-bottom: 1px solid ${colorDark};
+  transition: all 0.1s ease-in;
+  color: ${colorDark};
+
   &:visited {
     color: ${colorDark};
   }
+
   &:hover {
     color: ${colorPr};
     border-bottom: 1px solid ${colorPr};
   }
+
   &:active {
     color: ${colorAcc};
     border-bottom: 1px solid ${colorAcc};
   }
+
   &.router-link--active {
     color: ${colorAcc};
     border-bottom: 1px solid ${colorAcc};
-  }
-`;
-
-const linkAnimation = keyframes`
-  0%{
-    opacity: 0;
-    transform: translateY(-200%);
-  }
-
-  100%{
-    opacity: 1;
-    transform: translateY(0%);
-
   }
 `;
 
@@ -109,24 +100,18 @@ export const Nav = styled.nav`
 `;
 
 export const List = styled.ul`
+  display: inline-block;
   margin: 0;
   padding: 0;
-  display: inline-block;
 `;
 
 export const Item = styled.li`
-  width: 100%;
-
   display: block;
   margin: 0 auto;
-  opacity: 0;
   padding: 0.8rem;
+  width: 100%;
   color: #fff;
   cursor: pointer;
-  animation-name: ${linkAnimation};
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  animation-delay: ${props => props.delay};
 `;
 
 export const Overlay = styled.div`
@@ -136,9 +121,8 @@ export const Overlay = styled.div`
   bottom: 0;
   right: 0;
   z-index: 190;
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: all .4s ease-in;
   opacity: ${props => (props.menuIsOpen ? 1 : 0)}
   visibility: ${props => (props.menuIsOpen ? "visible" : "hidden")};
-
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all .4s ease-in;
 `;
