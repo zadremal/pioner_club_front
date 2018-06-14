@@ -1,5 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import fetchData from "../../UTILS/Fetch";
 import Section, { Heading } from "../../UI/section";
+import Card from "../../UI/DealCard";
+import Slider from "../../UI/Carousel";
+import Loader from "../../UI/Loader";
 import {
   Image,
   TextBlock,
@@ -8,18 +14,12 @@ import {
   Carousel,
   Description
 } from "./Styled";
-import Card from "../../UI/DealCard";
-import { Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
 import "./deals.css";
-
-import Slider from "../../UI/Carousel";
-import Loader from "../../UI/Loader";
 
 class index extends Component {
   state = {
     deal: "",
-    deals: "",
+    dealList: "",
     dealId: ""
   };
 
@@ -27,60 +27,52 @@ class index extends Component {
     window.scrollTo(0, 0);
     const dealId = this.props.match.params.id;
     this.retrieveCurrentDeal(dealId);
-    this.props.deals.length > 0
-      ? this.setState({
-          deals: this.props.deals
-        })
-      : this.retrieveAllDeals();
+    this.retrieveAllDeals();
   };
 
   componentDidUpdate = () => {
+    window.scrollTo(0, 0);
     const newDealId = this.props.match.params.id;
     this.state.dealId !== newDealId && this.retrieveCurrentDeal(newDealId);
+  };
+
+  retrieveAllDeals = () => {
+    fetchData("/api/v1/deals", this.updateDealList);
+  };
+
+  retrieveCurrentDeal = dealId => {
+    fetchData(`/api/v1/deals/${dealId}/`, this.updateDeal);
+    this.setState({
+      dealId: dealId
+    });
+  };
+
+  updateDealList = data => {
+    this.state.deals !== data &&
+      this.setState(prevState => {
+        return {
+          dealList: data
+        };
+      });
+  };
+
+  updateDeal = data => {
+    this.setState({
+      deal: data
+    });
   };
 
   filterDeals = (dealsArray, dealId) => {
     return dealsArray.filter(deal => deal.id !== Number(dealId));
   };
 
-  retrieveAllDeals = () => {
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/deals/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .then(data => {
-        this.state.deals !== data &&
-          this.setState(prevState => {
-            return {
-              deals: data
-            };
-          });
-      })
-      .catch(err => console.log("Looks like there was an error", err));
-  };
-
-  retrieveCurrentDeal = dealId => {
-    document.querySelector("#main").scrollTo(0, 0);
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/deals/${dealId}/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .then(data => {
-        this.state.deal !== data &&
-          this.setState({
-            deal: data,
-            dealId: dealId
-          });
-      });
-  };
-
   render() {
     const { poster, poster_alt, name, description } = this.state.deal;
-    const { deal, deals, dealId } = this.state;
+    const { deal, dealList, dealId } = this.state;
 
     return (
       <Section>
-        {deal && deals ? (
+        {deal && dealList ? (
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
@@ -98,45 +90,43 @@ class index extends Component {
                 </Description>
               </div>
               <div className="col-xs-12">
-                {deals && (
-                  <Carousel>
-                    <Slider
-                      settings={{
-                        responsive: [
-                          {
-                            breakpoint: 992,
-                            settings: {
-                              slidesToShow: 2
-                            }
-                          },
-                          {
-                            breakpoint: 576,
-                            settings: {
-                              slidesToShow: 1,
-                              slidesToScroll: 1
-                            }
+                <Carousel>
+                  <Slider
+                    settings={{
+                      responsive: [
+                        {
+                          breakpoint: 992,
+                          settings: {
+                            slidesToShow: 2
                           }
-                        ]
-                      }}
-                    >
-                      {this.filterDeals(deals, dealId).map(deal => {
-                        const { id, name, poster, poster_alt } = deal;
-                        return (
-                          <CardWrap key={id}>
-                            <Link to={`/deals/${id}`}>
-                              <Card
-                                heading={name}
-                                background={poster}
-                                alt={poster_alt}
-                                deals={deals}
-                              />
-                            </Link>
-                          </CardWrap>
-                        );
-                      })}
-                    </Slider>
-                  </Carousel>
-                )}
+                        },
+                        {
+                          breakpoint: 576,
+                          settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                          }
+                        }
+                      ]
+                    }}
+                  >
+                    {this.filterDeals(dealList, dealId).map(deal => {
+                      const { id, name, poster, poster_alt } = deal;
+                      return (
+                        <CardWrap key={id}>
+                          <Link to={`/deals/${id}`}>
+                            <Card
+                              heading={name}
+                              background={poster}
+                              alt={poster_alt}
+                              deals={dealList}
+                            />
+                          </Link>
+                        </CardWrap>
+                      );
+                    })}
+                  </Slider>
+                </Carousel>
               </div>
             </div>
           </div>

@@ -1,53 +1,50 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { Mainscreen, Overlay } from "../../UI";
 import Section, { Heading } from "../../UI/section";
 import Card from "../../UI/DealCard";
-import { Cards, CardWrap } from "./Styled";
-import { Link } from "react-router-dom";
-import dealsBackground from "./deals.jpg";
 import Loader from "../../UI/Loader";
+import { Cards, CardWrap } from "./Styled";
 
-class index extends Component {
-  render() {
-    const { deals } = this.props;
+import background from "./background.jpg";
 
-    return (
-      <Fragment>
-        <Mainscreen background={dealsBackground}>
-          <Overlay />
-          <Heading contrast> Акции и спецпредложения </Heading>
-        </Mainscreen>
-        <Section>
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12">
-                <Cards>
-                  {deals ? (
-                    deals.map(deal => {
-                      const { id, name, poster, poster_alt } = deal;
-                      return (
-                        <CardWrap key={id}>
-                          <Link to={`deals/${id}`}>
-                            <Card
-                              heading={name}
-                              background={poster}
-                              alt={poster_alt}
-                            />
-                          </Link>
-                        </CardWrap>
-                      );
-                    })
-                  ) : (
-                    <Loader />
-                  )}
-                </Cards>
-              </div>
+const index = ({ deals }) => {
+  return (
+    <Fragment>
+      <Mainscreen background={background}>
+        <Overlay />
+        <Heading contrast> Акции и спецпредложения </Heading>
+      </Mainscreen>
+      <Section>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <Cards>
+                {deals.length > 0 ? (
+                  deals.map(deal => {
+                    const { id, name, poster, poster_alt } = deal;
+                    return (
+                      <CardWrap key={id}>
+                        <Link to={`deals/${id}`}>
+                          <Card
+                            heading={name}
+                            background={poster}
+                            alt={poster_alt}
+                          />
+                        </Link>
+                      </CardWrap>
+                    );
+                  })
+                ) : (
+                  <Loader />
+                )}
+              </Cards>
             </div>
           </div>
-        </Section>
-      </Fragment>
-    );
-  }
-}
+        </div>
+      </Section>
+    </Fragment>
+  );
+};
 
 export default index;

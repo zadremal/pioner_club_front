@@ -2,14 +2,13 @@ import styled from "styled-components";
 import { media } from "../../UI";
 
 export const Cards = styled.div`
+  position: relative;
+  z-index: 20;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
   padding: 0;
   background-color: #fff;
-  position: relative;
-  z-index: 20;
 `;
 
 export const CardWrap = styled.div`
@@ -25,6 +24,7 @@ export const CardWrap = styled.div`
   ${media.lg`
     flex-basis: calc(100% / 3);
     height: 250px;
+    
     &:first-child,
     :first-child + div {
       flex-basis: 50%;
