@@ -69,6 +69,9 @@ export const Content = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
   transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
   overflow: ${props => (props.menuIsOpen ? "hidden" : "auto")};
   transform: ${props =>
