@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { colorPr, colorDark, colorAcc, media } from "../UI";
 
