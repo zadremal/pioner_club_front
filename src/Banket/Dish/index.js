@@ -1,10 +1,17 @@
 import React from "react";
 import { Dish, Image, Heading, Consist } from "./Styled";
 
-const index = ({ image, imageAlt, heading, consist }) => {
+const index = ({ image, image2x, imageAlt, heading, consist }) => {
   return (
     <Dish>
-      <Image src={image} alt={imageAlt} />
+      <Image src={image}>
+        <source title={imageAlt} srcset={`${image}, ${image2x} 2x`} />
+        <img
+          title={imageAlt}
+          srcset={`${image}, ${image2x} 2x`}
+          alt={imageAlt}
+        />
+      </Image>
       <Heading>{heading}</Heading>
       <Consist>{consist}</Consist>
     </Dish>

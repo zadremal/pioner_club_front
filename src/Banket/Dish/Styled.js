@@ -4,8 +4,10 @@ export const Dish = styled.div`
   margin: 1rem;
 `;
 
-export const Image = styled.img`
-  width: 100%;
+export const Image = styled.picture`
+  & img {
+    width: 100%;
+  }
 `;
 
 export const Heading = styled.h4``;
