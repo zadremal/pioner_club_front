@@ -1,30 +1,29 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import truncate from "lodash.truncate";
+import fetchData from "../../UTILS/Fetch";
 import { Mainscreen, Overlay } from "../../UI";
 import Section, { Heading } from "../../UI/section";
-import { Link } from "react-router-dom";
-import background from "./parties-background.jpg";
-import Card from "./Card";
-import truncate from "lodash.truncate";
 import Loader from "../../UI/Loader";
+import Card from "./Card";
+
+import background from "./background.jpg";
 
 class index extends Component {
   state = {
     parties: ""
   };
 
+  updateState = data => {
+    this.setState({
+      parties: data
+    });
+  };
+
   componentDidMount = () => {
     window.scrollTo(0, 0);
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/parties/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          parties: data
-        });
-      })
-      .catch(err => console.log("Looks like there was an error", err));
+    fetchData("/api/v1/parties/", this.updateState);
   };
 
   render() {

@@ -1,19 +1,19 @@
-import styled from "styled-components";
 import React from "react";
-import { ButtonRightPr } from "../../UI/buttons";
-import { colorPr } from "../../UI";
+import styled from "styled-components";
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
+import { colorPr } from "../../UI";
+import { ButtonRightPr } from "../../UI/buttons";
 
 const Card = styled.div`
   width: 100%;
   height: 100%;
+  margin-bottom: 1rem;
   padding: 1em;
-  transition: all 0.2s ease-out;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  margin-bottom: 1rem;
+  transition: all 0.2s ease-out;
 
   &:hover {
     box-shadow: 0 0 60px #000;
@@ -21,36 +21,38 @@ const Card = styled.div`
 `;
 
 const Heading = styled.h3`
-  font-family: Intro, Arial, sans-serif;
   margin: 1em auto;
+  font-family: Intro, Arial, sans-serif;
 `;
 
 const PartyDate = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   font-family: Intro, Arial, sans-serif;
 `;
 
 const DayMonth = styled.h4`
-  color: #fff;
-  background-color: ${colorPr};
-  padding: 0.75em;
   margin: 0;
+  padding: 0.75em;
+  background-color: ${colorPr};
+  color: #fff;
 `;
+
 const DayWeek = styled.h4``;
 
 const Image = styled.img`
   max-width: 100%;
   flex-shrink: 0;
 `;
+
 const Description = styled.p``;
 
 const Button = styled.div`
   display: flex;
   flex-grow: 1;
-  justify-content: center;
   align-items: flex-end;
+  justify-content: center;
 `;
 
 const index = ({ heading, image, imageAlt, date, description }) => {
