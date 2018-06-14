@@ -87,10 +87,6 @@ class index extends Component {
                 )}
               </div>
             </div>
-          </div>
-        </Section>
-        <Section>
-          <div className="container">
             <div className="row">
               <div className="col-xs-12">
                 <Heading>Бургеры по 100 рублей</Heading>
@@ -121,16 +117,15 @@ class index extends Component {
                 <Feature image={cheeseburger} imageAlt="Мини-Чизбургер" />
               </div>
             </div>
-          </div>
-        </Section>
-        <Section>
-          <div className="container">
             <div className="row">
-              <div className="col-xs-12 col-lg-6 first-lg">
+              <div className="col-xs-12">
+                <Heading>Более 40 сортов пива</Heading>
+              </div>
+              <div className="col-xs-12 col-lg-6 last-xs">
                 <Image src={beer} alt="более 40 сортов пива" />
               </div>
-              <div className="col-xs-12 col-lg-6 first-xs">
-                <Card heading="Более 40 сортов пива">
+              <div className="col-xs-12 col-lg-6 last-lg">
+                <Card>
                   <Description>
                     Новый ассортимент разливного и бутылочного пива придется по
                     душе как любителям насыщенного эля, так и ценителям легкого
