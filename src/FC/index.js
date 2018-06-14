@@ -1,17 +1,19 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 import { Description } from "../UI";
 import Section, { Heading } from "../UI/section";
-import { Helmet } from "react-helmet";
+
 class index extends Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
   };
+
   render() {
     return (
       <Section>
         <Helmet>
           <title>Пионер - фейс-контроль и дресс-код</title>
-          <link rel="canonical" href="https://pioner-club.com/club" />
+          <link rel="canonical" href="https://pioner-club.com/facecontrol" />
           <meta
             name="description"
             content="Дискотека для взрослых с десятилетней историей. Неповторимый интерьер, обширное меню, скидки и акции каждую неделю."

@@ -12,10 +12,10 @@ import {
   StyledLink,
   Social
 } from "./Styled";
-import Vk from "./Vk";
-import Insta from "./Insta";
-import Map from "./Map";
-import Mail from "./Mail";
+import Vk from "./vk";
+import Insta from "./insta";
+import Map from "./map";
+import Mail from "./mail";
 
 const index = () => {
   return (
