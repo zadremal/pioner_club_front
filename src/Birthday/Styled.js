@@ -7,24 +7,24 @@ export const Content = styled.div`
 `;
 
 export const Detail = styled.p`
-  color: #fff;
   margin: 2rem 0;
+  color: #fff;
 `;
 
 export const DealImg = styled.img`
-  height: 90px;
   margin-top: 1.5rem;
+  height: 90px;
 `;
 
 export const DealDescription = styled.h3`
-  color: ${colorDark};
+  padding: 0 2rem;
   font-family: Intro, sans-serif;
   font-size: 0.9rem;
-  padding: 0 2rem;
+  color: ${colorDark};
 
   ${media.md`
-    font-size: 1rem;
     padding: 0 1rem;
+    font-size: 1rem;
     `};
 
   ${media.lg`
@@ -35,6 +35,7 @@ export const DealDescription = styled.h3`
 export const Highlighted = styled.span`
   color: ${colorPr};
 `;
+
 export const CardWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -46,20 +47,22 @@ export const Form = styled.form`
   margin: 0 auto;
   max-width: 600px;
 `;
+
 export const Input = styled.input`
   width: 100%;
   display: block;
+  margin: 1rem 0;
   padding: 1rem 2rem;
   background: none;
   border: 1px solid ${colorDark};
-  margin: 1rem 0;
 `;
+
 export const Submit = Input.extend`
+  text-transform: uppercase;
+  text-align: center;
   background: ${colorPr};
   border: 1px solid ${colorPr};
-  text-transform: uppercase;
   color: #fff;
-  text-align: center;
 `;
 
 export const Special = styled.div`

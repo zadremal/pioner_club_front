@@ -1,22 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Helmet from "react-helmet";
 import {
-  Detail,
-  DealImg,
-  DealDescription,
-  Highlighted,
-  CardWrap,
-  Special
-} from "./Styled";
-import Card from "./Card";
-import bitrhdayBackground from "./background.jpg";
-import karaoke from "./karaoke.jpg";
-import dance from "./dance.jpg";
-import party from "./party.jpg";
-import pioner from "./pioner.jpg";
-import prisyaga from "./prisyaga.jpg";
-
-import {
   LandingMainHeading,
   HeadingHighlighted,
   LandingMainscreen,
@@ -26,11 +10,27 @@ import {
 } from "../UI";
 import { ButtonUpWhite } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
-import fencing from "./fencing.svg";
-import trumpet from "./trumpet.svg";
-import percentage from "./percentage.svg";
-import Form from "../UI/Form/Birthday";
 import Modal from "../UI/Modal";
+import Form from "../UI/Form/Birthday";
+import {
+  Detail,
+  DealImg,
+  DealDescription,
+  Highlighted,
+  CardWrap,
+  Special
+} from "./Styled";
+import Card from "./Card";
+
+import background from "./img/background.jpg";
+import karaoke from "./img/karaoke.jpg";
+import dance from "./img/dance.jpg";
+import party from "./img/party.jpg";
+import pioner from "./img/pioner.jpg";
+import prisyaga from "./img/prisyaga.jpg";
+import fencing from "./img/fencing.svg";
+import trumpet from "./img/trumpet.svg";
+import percentage from "./img/percentage.svg";
 
 class index extends Component {
   state = {
@@ -67,7 +67,7 @@ class index extends Component {
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
           <Form />
         </Modal>
-        <LandingMainscreen background={bitrhdayBackground}>
+        <LandingMainscreen background={background}>
           <MainscreenWrap>
             <LandingMainHeading>
               У вас скоро день рождения? Подарим Вам <br />
