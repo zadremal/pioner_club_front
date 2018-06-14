@@ -1,4 +1,4 @@
-const FetchData = (url, callback) => {
+const fetchData = (url, callback) => {
   const apiServer = process.env.REACT_APP_API_SERVER;
   const fetchUrl = `${apiServer}${url}`;
   fetch(fetchUrl)
@@ -9,4 +9,4 @@ const FetchData = (url, callback) => {
     });
 };
 
-export default FetchData;
+export default fetchData;

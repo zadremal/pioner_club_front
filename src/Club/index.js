@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import MarkdownRenderer from "react-markdown-renderer";
 import Lightbox from "react-images";
-import FetchData from "../UTILS/Fetch";
+import fetchData from "../UTILS/Fetch";
 import { Mainscreen, Overlay, Description } from "../UI";
 import Card from "../UI/PlaceInfo";
 import Section, { Heading } from "../UI/section";
@@ -66,7 +66,7 @@ class index extends Component {
 
   componentDidMount = () => {
     window.scrollTo(0, 0);
-    FetchData("/api/v1/places/", this.updateState);
+    fetchData("/api/v1/places/", this.updateState);
   };
 
   render() {
