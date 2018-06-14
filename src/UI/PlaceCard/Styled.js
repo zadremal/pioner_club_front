@@ -12,6 +12,7 @@ export const Card = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 `;
 
 export const Overlay = styled.div`

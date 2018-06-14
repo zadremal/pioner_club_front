@@ -1,21 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Card from "../UI/PlaceCard";
-import { MainWrap } from "./Styled";
 
-import mainBackground from "./club.jpg";
-import craftBackgruond from "./craft.jpg";
-import karaokeBackgruond from "./karaoke.jpg";
+import club from "./img/club.jpg";
+import craft from "./img/craft.jpg";
+import karaoke from "./img/karaoke.jpg";
 
-import { Link } from "react-router-dom";
-
-export default class extends Component {
+class index extends Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
   };
+
   render() {
     return (
-      <MainWrap>
+      <Fragment>
         <Helmet>
           <title>ПИОНЕР - дискотека для взрослых, караоке, крафт-бар</title>
           <link rel="canonical" href="https://pioner-club.com/" />
@@ -34,7 +33,7 @@ export default class extends Component {
               <Link to="/club">
                 <Card
                   heading="ночной клуб"
-                  image={mainBackground}
+                  image={club}
                   text="Любимые хиты от Диско до 00-х, танцы до утра, непередаваемая атмосфера и развлекательная программа каждые выходные"
                 />
               </Link>
@@ -43,7 +42,7 @@ export default class extends Component {
               <Link to="karaoke">
                 <Card
                   heading="караоке"
-                  image={karaokeBackgruond}
+                  image={karaoke}
                   text="Караоке-бар с профессиональным оборудованием, библиотекой из 45000 фонограмм, и разнообразными напитками "
                 />
               </Link>
@@ -51,7 +50,7 @@ export default class extends Component {
             <div className="col-xs-12 col-md-4">
               <Link to="/craft">
                 <Card
-                  image={craftBackgruond}
+                  image={craft}
                   heading="крафт-бар"
                   text="Бар с крафтовым пивом на любой вкус - 8 сортов разливного и более 40 сортов бутылочного пива с разных частей света"
                 />
@@ -59,7 +58,9 @@ export default class extends Component {
             </div>
           </div>
         </div>
-      </MainWrap>
+      </Fragment>
     );
   }
 }
+
+export default index;
