@@ -8,22 +8,22 @@ export const CardWrap = styled.div`
 `;
 
 export const Card = styled.div`
-  padding-bottom: 300px;
   position: relative;
+  flex-basis: 32%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-bottom: 300px;
   background: url(${props => props.background});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  flex-basis: 32%;
-  flex-grow: 0;
-  flex-shrink: 0;
 `;
 
 export const CardText = styled.h3`
   position: absolute;
   top: 50%;
   left: 50%;
+  text-align: center;
   transform: translateX(-50%) translateY(-50%);
   color: #fff;
-  text-align: center;
 `;

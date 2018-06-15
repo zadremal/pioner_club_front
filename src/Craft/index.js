@@ -1,18 +1,19 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
+import MarkdownRenderer from "react-markdown-renderer";
+import fetchData from "../UTILS/Fetch";
 import { Mainscreen, Overlay, Description } from "../UI";
 import Section, { Heading } from "../UI/section";
-import { Image } from "./Styled";
 import Card from "../UI/PlaceInfo";
 import Feature from "../UI/PlaceFeature";
-import MarkdownRenderer from "react-markdown-renderer";
 import Loader from "../UI/Loader";
+import { Image } from "./Styled";
 
-import background from "./craft_background.jpg";
-import fishburger from "./fishburger.jpg";
-import hamburger from "./hamburger.jpg";
-import cheeseburger from "./cheeseburger.jpg";
-import beer from "./beer.jpg";
+import background from "./img/background.jpg";
+import fishburger from "./img/fishburger.jpg";
+import hamburger from "./img/hamburger.jpg";
+import cheeseburger from "./img/cheeseburger.jpg";
+import beer from "./img/beer.jpg";
 
 class index extends Component {
   state = {
@@ -20,19 +21,16 @@ class index extends Component {
     openHours: ""
   };
 
+  updateState = data => {
+    this.setState({
+      price: data[2].price,
+      openHours: data[2].open_hours
+    });
+  };
+
   componentDidMount = () => {
     window.scrollTo(0, 0);
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/places/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          price: data[2].price,
-          openHours: data[2].open_hours
-        })
-      )
-      .catch(err => console.log("Looks like there was an error", err));
+    fetchData("/api/v1/places", this.updateState);
   };
 
   render() {
@@ -67,7 +65,6 @@ class index extends Component {
                   каждый день, а не только на выходных, и существенно обновили
                   меню.
                 </Description>
-
                 <Description>
                   Самое важное изменение - многократное расширение ассортимента
                   пива - как на кране, так и бутылочного. Теперь мы сотрудничаем
@@ -108,13 +105,13 @@ class index extends Component {
                 </Description>
               </div>
               <div className="col-xs-12 col-md-4">
-                <Feature image={fishburger} imageAlt="Мини-фишбургер" />
+                <Feature image={fishburger} imageAlt="Черная мамба" />
               </div>
               <div className="col-xs-12 col-md-4">
-                <Feature image={hamburger} imageAlt="Мини-Гамбургер" />
+                <Feature image={hamburger} imageAlt="Фишбургер" />
               </div>
               <div className="col-xs-12 col-md-4">
-                <Feature image={cheeseburger} imageAlt="Мини-Чизбургер" />
+                <Feature image={cheeseburger} imageAlt="Гамбургер" />
               </div>
             </div>
             <div className="row">
@@ -122,7 +119,11 @@ class index extends Component {
                 <Heading>Более 40 сортов пива</Heading>
               </div>
               <div className="col-xs-12 col-lg-6 last-xs">
-                <Image src={beer} alt="более 40 сортов пива" />
+                <Image
+                  src={beer}
+                  alt="более 40 сортов пива"
+                  title="более 40 сортов пива"
+                />
               </div>
               <div className="col-xs-12 col-lg-6 last-lg">
                 <Card>

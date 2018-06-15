@@ -1,30 +1,29 @@
 import React, { Component, Fragment } from "react";
 import { Route } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import fetchData from "../UTILS/Fetch";
 import DealsList from "./List";
 import DealsDetail from "./Detail";
-import { Helmet } from "react-helmet";
+
 class index extends Component {
   state = {
     deals: []
   };
 
+  updateState = data => {
+    this.setState({
+      deals: data
+    });
+  };
+
   componentDidMount = () => {
     window.scrollTo(0, 0);
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/deals/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .catch(err => console.log("Looks like there was an error", err))
-      .then(data => {
-        this.setState({
-          deals: data
-        });
-      })
-      .catch(err => console.log("Looks like there was an error", err));
+    fetchData("/api/v1/deals/", this.updateState);
   };
 
   render() {
     const { path } = this.props.match;
+    const { deals } = this.state;
     return (
       <Fragment>
         <Helmet>
@@ -43,17 +42,13 @@ class index extends Component {
           exact
           path={`${path}`}
           render={() => {
-            return <DealsList deals={this.state.deals} />;
+            return <DealsList deals={deals} />;
           }}
         />
         <Route
           path="/deals/:id"
           render={props => {
-            return (
-              <Fragment>
-                <DealsDetail deals={this.state.deals} {...props} />
-              </Fragment>
-            );
+            return <DealsDetail deals={deals} {...props} />;
           }}
         />
       </Fragment>

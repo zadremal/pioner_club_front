@@ -1,6 +1,15 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
+import MarkdownRenderer from "react-markdown-renderer";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
+import truncate from "lodash.truncate";
+import fetchData from "../../UTILS/Fetch";
 import { Heading } from "../../UI/section";
+import Modal from "../../UI/Modal";
+import Form from "../../UI/Form";
+import { ButtonUpPr } from "../../UI/buttons";
+import Loader from "../../UI/Loader";
 import {
   Image,
   TextBlock,
@@ -12,15 +21,6 @@ import {
   Enterance,
   Button
 } from "./Styled";
-import Modal from "../../UI/Modal";
-import Form from "../../UI/Form";
-
-import MarkdownRenderer from "react-markdown-renderer";
-import { ButtonUpPr } from "../../UI/buttons";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
-import truncate from "lodash.truncate";
-import Loader from "../../UI/Loader";
 
 class index extends Component {
   state = {
@@ -36,20 +36,18 @@ class index extends Component {
     });
   };
 
+  updateState = data => {
+    this.setState({
+      party: data
+    });
+  };
+
   componentDidMount = () => {
     window.scrollTo(0, 0);
     const partyId = this.props.match.params.id;
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/parties/${partyId}`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          party: data
-        });
-      })
-      .catch(err => console.log("Looks like there was an error", err));
+    fetchData(`/api/v1/parties/${partyId}`, this.updateState);
   };
+
   render() {
     const {
       name,

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { LandingMainscreen, Overlay } from "../UI";
 import { Heading } from "../UI/section";
-import { Link } from "react-router-dom";
+
 import background from "./back.jpg";
 
 class index extends Component {

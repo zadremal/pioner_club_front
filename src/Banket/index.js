@@ -7,9 +7,10 @@ import {
   MainscreenWrap,
   Description
 } from "../UI/";
-import background from "./banket_background.jpg";
 import { ButtonUpWhite, ButtonRightPr } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
+import Slider from "../UI/Carousel";
+import BanketMenu from "../Menu/Banket/Menu";
 import {
   BanketHeading,
   Deal,
@@ -21,13 +22,10 @@ import {
   PhoneLink,
   Button
 } from "./Styled";
-
-import BanketMenu from "../Menu/Banket/Menu";
-
 import Form from "../UI/Form/Banket";
 import Modal from "../UI/Modal";
 import Dish from "./Dish";
-import Slider from "../UI/Carousel";
+
 import comp585 from "./org/585.jpg";
 import adidas from "./org/adidas.jpg";
 import bm from "./org/bm.jpg";
@@ -36,13 +34,17 @@ import ikea from "./org/ikea.jpg";
 import lsssmu from "./org/lsssmu.jpg";
 import sber from "./org/sber.jpg";
 import sport from "./org/sport.jpg";
-
-import dorada from "./dorada2x.jpg";
-import greech from "./greech2x.jpg";
-import venig from "./venig2x.jpg";
-import pangassius from "./pangassius2x.jpg";
-import banketAbout from "./banket_about.jpg";
-import banketContact from "./banket_contact.jpg";
+import dorada from "./img/dorada.jpg";
+import greech from "./img/greech.jpg";
+import venig from "./img/venig.jpg";
+import pangassius from "./img/pangassius.jpg";
+import dorada2x from "./img/dorada2x.jpg";
+import greech2x from "./img/greech2x.jpg";
+import venig2x from "./img/venig2x.jpg";
+import pangassius2x from "./img/pangassius2x.jpg";
+import banketAbout from "./img/about.jpg";
+import banketContact from "./img/contact.jpg";
+import background from "./img/background.jpg";
 
 class index extends Component {
   state = {
@@ -75,7 +77,9 @@ class index extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Банкеты в ночном клубе Пионер</title>
+          <title>
+            Банкеты в ночном клубе Пионер - от 1000 рублей на человека
+          </title>
           <link rel="canonical" href="https://pioner-club.com/banket" />
           <meta
             name="description"
@@ -85,8 +89,18 @@ class index extends Component {
             name="keywords"
             content="банкеты, банкет, корпоратив, аренда зала, аренда, свадебный банкет, банкет на свадьбу, проведение банкетов, банкет фуршет, организация банкетов, банкетный зал СПб, банкетный зал Санкт-Петербург, банкет в ночном клубе, банкет в ресторане, банкет недорого, заказ банкета, провести банкет"
           />
+          <meta
+            property="og:title"
+            content="Банкеты и корпоративы в ночном клубе Пионер"
+          />
+          <meta
+            property="og:description"
+            content="Конкурентная ставка - от 1000 рублей на человека, обширное банкетное меню и уникальная атмосфера ночного клуба"
+          />
+          <meta property="og:url" content="https://pioner-club.com/banket" />
         </Helmet>
-        <Modal overflow
+        <Modal
+          overflow
           modalIsOpen={this.state.menuModalOpen}
           closeModal={this.toggleMenuModal}
         >
@@ -175,24 +189,28 @@ class index extends Component {
                 >
                   <Dish
                     image={dorada}
+                    image2x={dorada2x}
                     imageAlt="дорада запеченная"
                     heading="Дорада, запеченная с апельсином"
                     consist="дорада, апельсин, масло чесночное, лимон"
                   />
                   <Dish
                     image={pangassius}
+                    image2x={pangassius2x}
                     imageAlt="Пангасиус, запеченный в конверте"
                     heading="Пангасиус, запеченный в конверте"
                     consist="пангасиус, кабачки, сливки, лук порей, томаты черри, сыр Гауда"
                   />
                   <Dish
                     image={venig}
+                    image2x={venig2x}
                     imageAlt="винегрет"
                     heading="Винегрет"
                     consist="картофель, свекла, морковь, капуста квашеная, лук красный, горошек консервированный"
                   />
                   <Dish
                     image={greech}
+                    image2x={greech2x}
                     imageAlt="греческий салат"
                     heading="Греческий салат"
                     consist="свежие овощи, маслины, сыр Фета, пряные травы, мятная заправка"
@@ -255,28 +273,28 @@ class index extends Component {
                 <Heading>с нами отмечают</Heading>
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={ikea} alt="ikea" />
+                <Company src={ikea} alt="ikea" title="ikea" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={lsssmu} alt="ЛенСпецСму" />
+                <Company src={lsssmu} alt="ЛенСпецСму" title="ЛенСпецСму" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={sber} alt="Сбербанк" />
+                <Company src={sber} alt="Сбербанк" title="Сбербанк" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={sport} alt="Спортмастер" />
+                <Company src={sport} alt="Спортмастер" title="Сбербанк" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={comp585} alt="585" />
+                <Company src={comp585} alt="585" title="585" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={adidas} alt="Адидас" />
+                <Company src={adidas} alt="Адидас" title="Адидас" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={bm} alt="Банк Москвы" />
+                <Company src={bm} alt="Банк Москвы" title="Банк Москвы" />
               </div>
               <div className="col-xs-6 col-md-3 center-xs">
-                <Company src={hyndai} alt="Hyundai" />
+                <Company src={hyndai} alt="Hyundai" title="Hyundai" />
               </div>
             </div>
           </div>

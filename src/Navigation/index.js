@@ -1,10 +1,9 @@
 import React, { Fragment } from "react";
-
+import ScrollLock from "react-scrolllock";
+import Links from "./links";
 import { Nav, List, Item, Link, Menu, Overlay, CloseButton } from "./Styled";
 
-import Links from "./links";
 import closeIcon from "./close-button.svg";
-import ScrollLock from "react-scrolllock";
 
 const index = ({ onMenuToggle, menuIsOpen }) => {
   return (

@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { colorDark, colorPr, colorAcc, media } from "../UI/";
 import { Link } from "react-router-dom";
+import { colorDark, colorPr, colorAcc, media } from "../UI/";
 
 export const Footer = styled.footer`
-  background-color: ${colorDark};
-  padding: 2rem;
   width: 100%;
+  padding: 2rem;
   flex-shrink: 0;
+  background-color: ${colorDark};
 `;
 
 export const Nav = styled.ul`
@@ -17,6 +17,7 @@ export const Nav = styled.ul`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: #8d8d93;
+
   &:hover {
     text-decoration: underline;
   }
@@ -24,10 +25,11 @@ export const StyledLink = styled(Link)`
 
 export const NavItem = styled.li`
   display: block;
-  color: #8d8d93;
+  margin: 1rem 0;
   text-transform: uppercase;
   font-size: 0.8rem;
-  margin: 1rem 0;
+  color: #8d8d93;
+
   &:hover {
     color: #fff;
   }
@@ -38,20 +40,19 @@ export const Social = styled.div`
 `;
 
 export const SocialSvg = styled.svg`
-  display: none;
+  display: inline
   height: 30px;
-  fill: #fff;
   margin-right: 1rem;
   transition: all 0.1s ease-in;
+  fill: #fff;
+  
   &:hover {
     fill: ${colorPr};
   }
+  
   &:active {
     fill: ${colorAcc};
   }
-  ${media.md`
-    display: inline
-  `};
 `;
 
 export const ContactsSvg = SocialSvg.extend`
@@ -59,9 +60,9 @@ export const ContactsSvg = SocialSvg.extend`
 `;
 
 export const Contacts = styled.div`
+  margin: 0.5rem 0;
   display: flex;
   align-items: center;
-  margin: 0.5rem 0;
 `;
 
 export const ContactsLink = styled.a`
@@ -71,13 +72,14 @@ export const ContactsLink = styled.a`
 export const BasementText = styled.p`
   display: block;
   margin-right: 0.5rem;
+
   ${media.md`
     display: inline
   `};
 `;
 
 export const Basement = styled.div`
-  color: #8d8d93;
   margin-top: 2rem;
   font-size: 0.9rem;
+  color: #8d8d93;
 `;

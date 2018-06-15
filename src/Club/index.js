@@ -1,21 +1,22 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import Section, { Heading } from "../UI/section";
-import { Mainscreen, Overlay, Description } from "../UI";
-import Youtube from "../UI/Youtube";
-import { Plan } from "./Styled";
-import Card from "../UI/PlaceInfo";
-import background from "./main_background.jpg";
 import MarkdownRenderer from "react-markdown-renderer";
-import Feature from "../UI/PlaceFeature";
 import Lightbox from "react-images";
+import fetchData from "../UTILS/Fetch";
+import { Mainscreen, Overlay, Description } from "../UI";
+import Card from "../UI/PlaceInfo";
+import Section, { Heading } from "../UI/section";
+import Youtube from "../UI/Youtube";
+import Feature from "../UI/PlaceFeature";
 import Loader from "../UI/Loader";
-import plan from "./plan.jpg";
-import planBig from "./plan_big.jpg";
+import { Plan } from "./Styled";
 
-import bar from "./bar.jpg";
-import pioner from "./pioner.jpg";
-import show from "./show.jpg";
+import plan from "./img/plan.jpg";
+import planBig from "./img/plan_big.jpg";
+import background from "./img/background.jpg";
+import bar from "./img/bar.jpg";
+import pioner from "./img/pioner.jpg";
+import show from "./img/show.jpg";
 
 class index extends Component {
   constructor() {
@@ -56,21 +57,16 @@ class index extends Component {
     });
   }
 
+  updateState = data => {
+    this.setState({
+      price: data[0].price,
+      openHours: data[0].open_hours
+    });
+  };
+
   componentDidMount = () => {
     window.scrollTo(0, 0);
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/places/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          price: data[0].price,
-          openHours: data[0].open_hours
-        })
-      )
-      .catch(err => {
-        console.log("При запросе данных возникла ошибка:", err);
-      });
+    fetchData("/api/v1/places/", this.updateState);
   };
 
   render() {

@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import MarkdownRenderer from "react-markdown-renderer";
+import fetchData from "../UTILS/Fetch";
 import { Mainscreen, Overlay, Description } from "../UI";
 import Section, { Heading } from "../UI/section";
 import Card from "../UI/PlaceInfo";
 import Feature from "../UI/PlaceFeature";
-import MarkdownRenderer from "react-markdown-renderer";
-import { Link } from "react-router-dom";
-import updates from "./updates.jpg";
-import mic from "./mic.jpg";
-import songs from "./songs.jpg";
 import Loader from "../UI/Loader";
-import background from "./karaoke_background.jpg";
+
+import background from "./img/background.jpg";
+import updates from "./img/updates.jpg";
+import mic from "./img/mic.jpg";
+import songs from "./img/songs.jpg";
 
 class index extends Component {
   state = {
@@ -18,19 +20,15 @@ class index extends Component {
     openHours: ""
   };
 
+  updateState = data =>
+    this.setState({
+      price: data[1].price,
+      openHours: data[1].open_hours
+    });
+
   componentDidMount = () => {
     window.scrollTo(0, 0);
-    const apiServer = process.env.REACT_APP_API_SERVER;
-    const fetchUrl = `${apiServer}/api/v1/places/`;
-    fetch(fetchUrl)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          price: data[1].price,
-          openHours: data[1].open_hours
-        })
-      )
-      .catch(err => console.log("Looks like there was an error", err));
+    fetchData("/api/v1/places/", this.updateState);
   };
 
   render() {
@@ -82,7 +80,7 @@ class index extends Component {
 
               <div className="col-xs-12 col-lg-5 center-xs first-xs">
                 {openHours && price ? (
-                  <div>
+                  <Fragment>
                     <Card heading="мы открыты">
                       <MarkdownRenderer markdown={openHours} />
                     </Card>
@@ -90,7 +88,7 @@ class index extends Component {
                     <Card heading="стоимость песни">
                       <MarkdownRenderer markdown={price} />
                     </Card>
-                  </div>
+                  </Fragment>
                 ) : (
                   <Loader />
                 )}
