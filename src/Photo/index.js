@@ -1,19 +1,15 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import jsonp from "jsonp";
 import Section from "../UI/section";
 import Photos from "./Photos";
 import Albums from "./Albums";
-import { Route } from "react-router-dom";
-import jsonp from "jsonp";
-import { Helmet } from "react-helmet";
 
 class index extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      albums: []
-    };
-  }
+  state = {
+    albums: []
+  };
 
   componentDidMount() {
     window.scrollTo(0, 0);
