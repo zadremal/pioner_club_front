@@ -3,38 +3,43 @@ import styled from "styled-components";
 
 const Youtube = styled.div`
   position: relative;
+  z-index: 1;
   width: 100%;
   padding-top: 56.25%;
   background-image: url(${props => props.background});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  z-index: 1;
 `;
+
 const Play = styled.button`
-  width: 100px;
-  height: 80px;
   position: absolute;
   top: 50%;
-  outline: none;
   left: 50%;
-  cursor: pointer;
-  background: none;
+  width: 100px;
+  height: 80px;
   padding: 0;
+  background: none;
   border: none;
   transform: translateX(-50%) translateY(-50%);
+  cursor: pointer;
+  outline: none;
+
   &:hover .svg-icon {
     fill: #ff0000;
   }
+
   &:active .svg-icon {
     fill: #d7143a;
   }
+
   &:focus .svg-icon {
     outline: none;
   }
+
   &:focus {
-    outline: none;
     box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
+    outline: none;
   }
 `;
 

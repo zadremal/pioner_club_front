@@ -7,10 +7,10 @@ export const Card = styled.div`
 
 export const Heading = styled.h4`
   margin: 0.7em;
-  font-family: "Clear Sans", Arial, sans-serif;
+  margin-bottom: 2em;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 2em;
+  font-family: "Clear Sans", Arial, sans-serif;
 `;
 
 export const Image = styled.img`

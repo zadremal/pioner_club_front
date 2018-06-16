@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-
 import { Card, Heading, Image } from "./Styled";
 
 const index = ({ heading, image, imageAlt }) => {

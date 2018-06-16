@@ -1,7 +1,6 @@
 import React from "react";
-
-import { Card, Heading, Overlay, TextBox, Description, Text } from "./Styled";
 import { ButtonRightPr } from "../buttons";
+import { Card, Heading, Overlay, TextBox, Description, Text } from "./Styled";
 
 export const index = ({
   image,

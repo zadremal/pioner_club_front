@@ -2,29 +2,29 @@ import styled, { keyframes } from "styled-components";
 
 export const Card = styled.div`
   position: relative;
-  padding-left: 40px;
-  overflow: hidden;
-  transition: all 0.2s ease-out;
-  height: 70vh;
-  cursor: pointer;
   z-index: 1;
+  height: 70vh;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 40px;
   background-image: url(${props => props.background});
   background-size: cover;
   background-position: center;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  overflow: hidden;
 `;
 
 export const Overlay = styled.div`
-  background-color: #fff;
   position: absolute;
-  z-index: 3;
-  opacity: 2;
   top: 0;
   bottom: 0;
   left: 0;
+  z-index: 3;
   width: 10%;
+  background-color: #fff;
   transition: all 0.2s ease-out;
+
   ${Card}:hover & {
     width: 100%;
   }
@@ -32,37 +32,39 @@ export const Overlay = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  z-index: 2;
   top: 0;
   right: 0;
   bottom: 0;
+  z-index: 2;
   width: 90%;
   transition: all 0.3s ease-out;
 `;
 
 export const TextBox = styled.div`
   position: absolute;
-  left: 0;
   top: 50%;
+  left: 0;
+  z-index: 10;
   margin: 0;
   transform: translateY(-25%);
   transition: all 0.2s ease-out;
-  z-index: 10;
+
   ${Card}:hover & {
     top: 40%;
   }
 `;
 
 export const Heading = styled.h1`
-  color: #fff;
-  text-shadow: 0 0 16px #000;
-  font-size: 2rem;
   margin-bottom: 0;
-  transition: all 0.8s ease-out;
   font-family: Intro, Arial, sans-serif;
+  font-size: 2rem;
+  text-shadow: 0 0 16px #000;
+  transition: all 0.8s ease-out;
+  color: #fff;
+
   ${Card}:hover & {
-    color: #000;
     text-shadow: none;
+    color: #000;
   }
 `;
 
@@ -78,10 +80,11 @@ const textFadeIn = keyframes`
 `;
 
 export const Description = styled.div`
+  max-width: 300px;
   margin-top: 1rem;
   margin-left: 2.5rem;
-  max-width: 300px;
   opacity: 0;
+  
   ${Card}:hover & {
     animation-name: ${textFadeIn};
     animation-duration: .3s
@@ -91,9 +94,9 @@ export const Description = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 1rem;
-  font-family: "Clear Sans", Arial;
-  font-weight: 700;
   margin-bottom: 1.5rem;
+  font-family: "Clear Sans", Arial;
+  font-size: 1rem;
+  font-weight: 700;
   color: #000;
 `;
