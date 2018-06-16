@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ScrollLock from "react-scrolllock";
-import Links from "./links";
 import { Nav, List, Item, Link, Menu, Overlay, CloseButton } from "./Styled";
+import Links from "./links";
 
 import closeIcon from "./close-button.svg";
 
@@ -11,7 +11,12 @@ const index = ({ onMenuToggle, menuIsOpen }) => {
       <Overlay onClick={onMenuToggle} menuIsOpen={menuIsOpen} />
       {menuIsOpen && <ScrollLock />}
       <Menu menuIsOpen={menuIsOpen} id="navigation">
-        <CloseButton src={closeIcon} alt="закрыть" onClick={onMenuToggle} />
+        <CloseButton
+          src={closeIcon}
+          alt="закрыть"
+          title="закрыть меню"
+          onClick={onMenuToggle}
+        />
         <Nav>
           <List>
             {Links.map(linkItem => {
