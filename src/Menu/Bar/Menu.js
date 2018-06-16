@@ -30,8 +30,8 @@ class Menu extends Component {
           <title>Пионер - меню бара</title>
           <link rel="canonical" href="https://pioner-club.com/menu/bar" />
         </Helmet>
-        <Image src={bar1} />
-        <Image src={bar2} />
+        <Image src={bar1} alt="Меню бара клуба Пионер" />
+        <Image src={bar2} alt="Меню бара клуба Пионер" />
       </div>
     );
   }

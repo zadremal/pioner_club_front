@@ -5,24 +5,28 @@ import { colorPr, colorAcc, media } from "../UI";
 export const Menu = styled.div`
   display: flex;
   justify-content: space-between;
+
   ${media.lg`
     display: block;
   `};
 `;
 
 export const StyledNavLink = styled(NavLink)`
+  margin: 1em 0;
+  color: #000;
+  display: block;
   text-decoration: none;
   font-family: Intro, Arial, sans-serif;
   font-size: 1em;
-  display: block;
-  margin: 1em 0;
-  color: #000;
+
   ${media.sm`
     font-size: 1.5em;
   `};
+
   ${media.lg`
     font-size: 2em;
   `};
+
   &:hover {
     color: ${colorAcc};
   }
