@@ -90,6 +90,7 @@ export const Item = styled.li`
   width: 100%;
   margin: 0 auto;
   padding: 0.8rem;
+  width: 100%;
   color: #fff;
   cursor: pointer;
 `;
