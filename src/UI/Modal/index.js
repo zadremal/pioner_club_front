@@ -20,7 +20,7 @@ const ModalWindow = ({ modalIsOpen, closeModal, overflow, children }) => {
       overlayClassName="react-modal__overlay"
     >
       <Button onClick={closeModal}>
-        <Icon src={close} alt="" />
+        <Icon src={close} alt="закрыть окно" title="звурыть окно" />
       </Button>
       {children}
     </Modal>

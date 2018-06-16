@@ -32,11 +32,11 @@ class Menu extends Component {
           <title>Пионер - банкетное меню</title>
           <link rel="canonical" href="https://pioner-club.com/menu/banket" />
         </Helmet>
-        <Image src={banket1} />
-        <Image src={banket2} />
-        <Image src={banket3} />
-        <Image src={banket4} />
-        <Image src={banket5} />
+        <Image src={banket1} alt = "банкетное меню клуба Пионер"/>
+        <Image src={banket2} alt = "банкетное меню клуба Пионер"/>
+        <Image src={banket3} alt = "банкетное меню клуба Пионер"/>
+        <Image src={banket4} alt = "банкетное меню клуба Пионер"/>
+        <Image src={banket5} alt = "банкетное меню клуба Пионер"/>
       </div>
     );
   }

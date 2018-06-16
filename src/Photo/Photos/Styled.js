@@ -3,15 +3,16 @@ import { colorPr, colorAcc } from "../../UI";
 
 export const Button = styled.div`
   padding: 0.8em 1em;
-  text-transform: uppercase;
-  border: none;
-  background-color: ${colorPr};
-  transition: all 0.2s ease-out;
   display: inline-block;
-  text-decoration: none;
-  color: #fff;
   margin-bottom: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: ${colorPr};
+  border: none;
+  transition: all 0.2s ease-out;
+  color: #fff;
   cursor: pointer;
+
   &:hover {
     background-color: ${colorAcc};
   }
@@ -24,7 +25,7 @@ export const Icon = styled.img`
 
 export const Breadcrump = styled.h4`
   display: inline-block;
-  line-height: 56px;
   margin-left: 1em;
+  line-height: 56px;
   font-family: Intro, Arial, sans-serif;
 `;

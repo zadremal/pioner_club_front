@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { BottleList, BeerList } from "./BeerList";
+import { BottleList, BeerList } from "./List";
 import { Helmet } from "react-helmet";
 import Loader from "../../UI/Loader";
 

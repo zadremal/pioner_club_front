@@ -19,9 +19,9 @@ export const Menu = styled.div`
     props.menuIsOpen ? "translateX(0)" : "translateX(250px)"};
 
   ${media.md`
-  width: 350px;
-  transform: ${props =>
-    props.menuIsOpen ? "translateX(0)" : "translateX(350px)"};
+    width: 350px;
+    transform: ${props =>
+      props.menuIsOpen ? "translateX(0)" : "translateX(350px)"};
   `};
 `;
 
@@ -64,39 +64,19 @@ export const Link = styled(NavLink)`
 `;
 
 export const Nav = styled.nav`
-  overflow: auto;
   position: relative;
-  z-index: 200;
-  height: 100%;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
-  background: #fff;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  height: 100%;
   padding-top: 2rem;
-
-  &.nav-enter {
-    opacity: 0.01;
-    transform: translateY(-100%);
-  }
-  &.nav-enter.nav-enter-active {
-    opacity: 1;
-    transition: all 200ms ease-out;
-    transform: translateY(0%);
-  }
-  &.nav-leave {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-
-  &.nav-leave.nav-leave-active {
-    opacity: 0.01;
-    transition: all 200ms ease-out;
-    transform: translateY(-100%);
-  }
+  background: #fff;
+  overflow: auto;
 `;
 
 export const List = styled.ul`
@@ -107,6 +87,7 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   display: block;
+  width: 100%;
   margin: 0 auto;
   padding: 0.8rem;
   width: 100%;
@@ -117,9 +98,9 @@ export const Item = styled.li`
 export const Overlay = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 190;
   opacity: ${props => (props.menuIsOpen ? 1 : 0)}
   visibility: ${props => (props.menuIsOpen ? "visible" : "hidden")};

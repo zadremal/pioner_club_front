@@ -1,8 +1,8 @@
 import React from "react";
-import { Heading } from "../../UI/section";
 import { Link } from "react-router-dom";
-import Card from "./Card";
+import { Heading } from "../../UI/section";
 import Loader from "../../UI/Loader";
+import Card from "./Card";
 
 const index = ({ albums }) => {
   return (

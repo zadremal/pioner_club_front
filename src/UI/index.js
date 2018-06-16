@@ -23,28 +23,29 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 }, {});
 
 export const Main = styled.main`
-  flex: 1 1 auto;
   position: relative;
   z-index: 1;
+  flex: 1 1 auto;
 `;
 
 export const Mainscreen = styled.section`
+  position: relative;
   width: 100%;
   height: 60vh;
-  position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: url(${props => props.background});
   background-position: center;
   background-size: cover;
   backgorund-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-attachment: fixed;
-  padding: 0 5%;
 
   ${media.lg`
     padding: 0 10%;
   `};
+
   ${media.xl`
     padding: 0 20%;
   `};
@@ -56,12 +57,12 @@ export const LandingMainscreen = Mainscreen.extend`
 
 export const Overlay = styled.div`
   position: absolute;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const Content = styled.div`
@@ -76,34 +77,33 @@ export const Content = styled.div`
   overflow: ${props => (props.menuIsOpen ? "hidden" : "auto")};
   transform: ${props =>
     props.menuIsOpen ? "translateX(-250px)" : "translateX(0)"};
-  ${media.md`
 
-  transform: ${props =>
-    props.menuIsOpen ? "translateX(-350px)" : "translateX(0)"};
-  
+  ${media.md`
+    transform: ${props =>
+      props.menuIsOpen ? "translateX(-350px)" : "translateX(0)"};
   `};
 `;
 
 export const MainscreenWrap = styled.div`
   position: relative;
   z-index: 3
-  text-align: center;
   padding: 2rem 0;
+  text-align: center;
 `;
 
 export const MainHeading = styled.h1`
-  color: #fff;
+  margin: 1rem;
+  text-align: center;
+  line-height: 3.5em;
   font-family: Intro, Arial, sans-serif;
   font-size: 2em;
-  text-align: center;
-  margin: 1rem;
-  line-height: 3.5em;
+  color: #fff;
 `;
 
 export const LandingMainHeading = MainHeading.extend`
-  line-height: 1.5em;
   margin: 0;
   font-size: 2em;
+  line-height: 1.5em;
 
   ${media.lg`
     font-size: 3em;
@@ -111,17 +111,17 @@ export const LandingMainHeading = MainHeading.extend`
 `;
 
 export const HeadingHighlighted = styled.span`
-  background-color: #ffc01f;
-  color: #d12f19;
   padding: 1rem 1rem 0.75rem;
   font-size: 0.8rem;
+  background-color: #ffc01f;
+  color: #d12f19;
 
   ${media.sm`
-  font-size: 1rem;
+    font-size: 1rem;
   `};
 
   ${media.md`
-  font-size: 2rem;
+    font-size: 2rem;
   `};
 `;
 
@@ -130,10 +130,10 @@ export const Description = styled.p`
   font-size: 1em;
   line-height: 1.5em;
   color: ${props => (props.contrast ? "#fff" : "#000")};
+
   ${media.md`
-  
-  font-size: 1.2em;
-  line-height: 1.75em;
+    font-size: 1.2em;
+    line-height: 1.75em;
   `};
 `;
 

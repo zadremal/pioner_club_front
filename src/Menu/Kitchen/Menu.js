@@ -29,8 +29,8 @@ class Menu extends Component {
           <title>Пионер - меню кухни</title>
           <link rel="canonical" href="https://pioner-club.com/menu/kitchen" />
         </Helmet>
-        <Image src={kitchen1} />
-        <Image src={kitchen2} />
+        <Image src={kitchen1} alt="Меню кухни клуба Пионер" />
+        <Image src={kitchen2} alt="Меню кухни клуба Пионер" />
       </div>
     );
   }

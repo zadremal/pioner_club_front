@@ -2,33 +2,34 @@ import styled from "styled-components";
 import { media, colorPr, colorAcc } from "./index";
 
 const Button = styled.button`
-  color: #fff;
-  border: 3px solid #fff;
-  background-color: transparent;
+  position: relative
+  z-index: 1;
+  padding: .5em .5em;
   text-transform uppercase;
   letter-spacing: .15em;
-  padding: .5em .5em;
   font-size: .8em;
-  cursor: pointer;
-  position: relative
   font-weight: 700;
-  overflow: hidden;
+  background-color: transparent;
   transition: all .2s ease;
-  z-index: 1;
+  border: 3px solid #fff;
+  cursor: pointer;
+  overflow: hidden;
   outline: none;
+  color: #fff;
+
   &:hover{
     text-shadow: none;
     color: #fff;
   }
+
   &:focus{
     box-shadow: 0 0 0 2px rgba(235, 31, 6, 0.7);
   }
 
-
   ${media.sm`
-  padding: .65em 1.75em;
-  font-size: .9em;
-  `}
+    padding: .65em 1.75em;
+    font-size: .9em;
+  `}; 
 `;
 
 const ButtonUp = Button.extend`
@@ -42,10 +43,11 @@ const ButtonUp = Button.extend`
     transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
     z-index: -1;
   }
+
   &:hover:before {
     top: auto;
-    height: 100%;
     bottom: 0;
+    height: 100%;
   }
 `;
 
@@ -57,23 +59,26 @@ const ButtonRight = Button.extend`
     bottom: 0;
     right: 0;
     width: 0;
+    z-index: -1;
     height: 100%;
     transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-    z-index: -1;
   }
+
   &:hover:before {
     right: auto;
-    width: 100%;
     left: 0;
+    width: 100%;
   }
 `;
 
 export const ButtonUpWhite = ButtonUp.extend`
   color: #fff;
   border-color: #fff;
+
   &:hover {
     color: ${colorPr};
   }
+
   &:before {
     background-color: #fff;
   }
@@ -82,9 +87,11 @@ export const ButtonUpWhite = ButtonUp.extend`
 export const ButtonUpPr = ButtonUp.extend`
   color: ${props => (props.contrast ? colorPr : "#fff")};
   border-color: ${colorPr};
+
   &:hover {
     color: #fff;
   }
+
   &:before {
     background-color: ${colorPr};
   }
@@ -93,9 +100,11 @@ export const ButtonUpPr = ButtonUp.extend`
 export const ButtonUpAcc = ButtonUp.extend`
   color: ${props => (props.contrast ? colorAcc : "#fff")};
   border-color: ${colorAcc};
+
   &:hover {
     color: #fff;
   }
+
   &:before {
     background-color: ${colorAcc};
   }
@@ -104,9 +113,11 @@ export const ButtonUpAcc = ButtonUp.extend`
 export const ButtonRightPr = ButtonRight.extend`
   color: ${props => (props.contrast ? colorPr : "#fff")};
   border-color: ${colorPr};
+
   &:hover {
     color: #fff;
   }
+
   &:before {
     background-color: ${colorPr};
   }
@@ -115,9 +126,11 @@ export const ButtonRightPr = ButtonRight.extend`
 export const ButtonRightAcc = ButtonRight.extend`
   color: ${props => (props.contrast ? colorAcc : "#fff")};
   border-color: ${colorAcc};
+
   &:hover {
     color: #fff;
   }
+
   &:before {
     background-color: ${colorAcc};
   }
