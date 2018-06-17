@@ -7,7 +7,6 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-
 import asyncComponent from "./UTILS/AsyncComponent";
 import { Main } from "./UI";
 import Header from "./Header";
@@ -55,6 +54,7 @@ class App extends Component {
             menuIsOpen={this.state.menuOpen}
             onMenuToggle={this.toggleMenu}
           />
+
           <Content menuIsOpen={this.state.menuOpen}>
             <Main id="main">
               <Switch>

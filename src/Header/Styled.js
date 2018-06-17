@@ -6,7 +6,7 @@ export const Logo = styled.img`
 `;
 
 export const Header = styled.header`
-  position: fixed;
+  position: relative;
   z-index: 101;
   height: 60px;
   width: 100%;

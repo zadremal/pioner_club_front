@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Hamburger from "react-hamburgers";
+import Headroom from "react-headroom";
 import { colorPr } from "../UI/";
 import { ButtonUpPr } from "../UI/buttons";
 import Modal from "../UI/Modal";
@@ -36,7 +37,7 @@ class index extends Component {
   render() {
     const { menuIsOpen, onMenuToggle } = this.props;
     return (
-      <Fragment>
+      <Headroom>
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
           <Form />
         </Modal>
@@ -86,7 +87,7 @@ class index extends Component {
             </div>
           </div>
         </Header>
-      </Fragment>
+      </Headroom>
     );
   }
 }
