@@ -5,7 +5,7 @@ import { colorDark, colorPr, colorAcc, media } from "../UI/";
 export const Footer = styled.footer`
   width: 100%;
   padding: 2rem;
-  ${"" /* flex-shrink: 0; */} flex: 1 1 auto;
+  flex-shrink: 0
   background-color: ${colorDark};
 `;
 
