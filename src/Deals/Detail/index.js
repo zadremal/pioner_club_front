@@ -31,7 +31,6 @@ class index extends Component {
   };
 
   componentDidUpdate = () => {
-    window.scrollTo(0, 0);
     const newDealId = this.props.match.params.id;
     this.state.dealId !== newDealId && this.retrieveCurrentDeal(newDealId);
   };
@@ -45,6 +44,8 @@ class index extends Component {
     this.setState({
       dealId: dealId
     });
+    const deal = document.getElementById("currentDeal");
+    deal && deal.scrollIntoView({ block: "start", behavior: "smooth" });
   };
 
   updateDealList = data => {
@@ -73,7 +74,7 @@ class index extends Component {
     return (
       <Section>
         {deal && dealList ? (
-          <div className="container">
+          <div className="container" id="currentDeal">
             <div className="row">
               <div className="col-xs-12">
                 <Wrap>
