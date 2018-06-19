@@ -25,6 +25,7 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 export const Main = styled.main`
   position: relative;
   z-index: 1;
+  padding: 0;
   flex: 1 1 auto;
 `;
 
@@ -66,7 +67,7 @@ export const Overlay = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 100%;
+  height: calc(100% - 60px);
   display: flex;
   flex-direction: column;
   flex-grow: 1;

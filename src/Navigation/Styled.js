@@ -19,9 +19,9 @@ export const Menu = styled.div`
     props.menuIsOpen ? "translateX(0)" : "translateX(250px)"};
 
   ${media.md`
-    width: 350px;
+    width: 380px;
     transform: ${props =>
-      props.menuIsOpen ? "translateX(0)" : "translateX(350px)"};
+      props.menuIsOpen ? "translateX(0)" : "translateX(380px)"};
   `};
 `;
 
