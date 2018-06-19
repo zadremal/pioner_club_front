@@ -5,15 +5,15 @@ import { colorPr } from "../index";
 
 const index = ({ background, heading }) => {
   return (
-    <Card background={background}>
-      <Wrap>
+    <Wrap>
+      <Card background={background}>
         <Text>
           <Heading children={heading} />
           <Button color={colorPr} children="подробнее" />
         </Text>
-      </Wrap>
-      <Overlay />
-    </Card>
+        <Overlay />
+      </Card>
+    </Wrap>
   );
 };
 

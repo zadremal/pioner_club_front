@@ -12,13 +12,13 @@ export const Cards = styled.div`
 `;
 
 export const CardWrap = styled.div`
+  flex-grow: 0;
+  flex-shrink: 0;
   flex-basis: 100%;
-  flex-shrink: auto;
   height: 200px;
-  padding: 1%;
 
   ${media.md`
-   flex-basis: 50%;
+    flex-basis: 50%;
   `};
 
   ${media.lg`
