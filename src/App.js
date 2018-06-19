@@ -46,15 +46,14 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <Navigation
-            onMenuToggle={this.toggleMenu}
-            menuIsOpen={this.state.menuOpen}
-          />
           <Header
             menuIsOpen={this.state.menuOpen}
             onMenuToggle={this.toggleMenu}
           />
-
+          <Navigation
+            onMenuToggle={this.toggleMenu}
+            menuIsOpen={this.state.menuOpen}
+          />
           <Content menuIsOpen={this.state.menuOpen}>
             <Main id="main">
               <Switch>

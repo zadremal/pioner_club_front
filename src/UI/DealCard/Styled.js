@@ -4,6 +4,7 @@ import { colorPr, media } from "../index";
 
 export const Card = styled.div`
   position: relative;
+  padding: 1rem;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -98,5 +99,7 @@ export const Text = styled.div`
 `;
 
 export const Wrap = styled.div`
-  padding: 0 1rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
 `;

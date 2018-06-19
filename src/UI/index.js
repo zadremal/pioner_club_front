@@ -25,7 +25,10 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 export const Main = styled.main`
   position: relative;
   z-index: 1;
-  flex: 1 1 auto;
+  padding: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
 `;
 
 export const Mainscreen = styled.section`
@@ -66,11 +69,11 @@ export const Overlay = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 100%;
+  height: calc(100% - 60px);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  flex-shrink: 1;
+  flex-shrink: 0;
   flex-basis: auto;
   transition: transform 0.4s cubic-bezier(0.67, 0.1, 0.32, 0.98);
   overflow: ${props => (props.menuIsOpen ? "hidden" : "auto")};
