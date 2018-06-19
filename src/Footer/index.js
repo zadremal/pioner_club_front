@@ -10,7 +10,8 @@ import {
   Basement,
   BasementText,
   StyledLink,
-  Social
+  Social,
+  SocialLink
 } from "./Styled";
 import Vk from "./vk";
 import Insta from "./insta";
@@ -73,16 +74,17 @@ const index = () => {
 
           <div className="col-xs-6 col-md-3">
             <Social>
-              <a href="https://vk.com/pioner_club">
+              <SocialLink href="https://vk.com/pioner_club">
                 <SocialSvg viewBox="0 0 512 512">
                   <Vk />
                 </SocialSvg>
-              </a>
-              <a href="https://www.instagram.com/clubpioner/">
+              </SocialLink>
+
+              <SocialLink href="https://www.instagram.com/clubpioner/">
                 <SocialSvg viewBox="0 0 169.063 169.063">
                   <Insta />
                 </SocialSvg>
-              </a>
+              </SocialLink>
             </Social>
             <Contacts>
               <ContactsLink href="mailto: retro@pioner-club.com ">

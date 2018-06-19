@@ -37,22 +37,29 @@ export const NavItem = styled.li`
 
 export const Social = styled.div`
   margin-top: 1em;
+  display: inline-block;
+  text-align: left;
 `;
 
 export const SocialSvg = styled.svg`
-  display: inline
+  display: inline;
   height: 30px;
+  max-width: 30px;
   margin-right: 1rem;
   transition: all 0.1s ease-in;
   fill: #fff;
-  
+
   &:hover {
     fill: ${colorPr};
   }
-  
+
   &:active {
     fill: ${colorAcc};
   }
+`;
+
+export const SocialLink = styled.a`
+  display: inline-block;
 `;
 
 export const ContactsSvg = SocialSvg.extend`
