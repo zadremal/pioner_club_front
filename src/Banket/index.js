@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
+import ym from "react-yandex-metrika";
 import {
   LandingMainscreen,
   LandingMainHeading,
@@ -57,6 +58,7 @@ class index extends Component {
   };
 
   toggleModal = () => {
+    ym("reachGoal", "banket__form--open");
     this.setState(prevState => {
       return {
         modalOpen: !prevState.modalOpen

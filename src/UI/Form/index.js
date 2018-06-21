@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-
+import ym from "react-yandex-metrika";
 import { Form, Input, Label, Heading, Submit, Error, Response } from "./Styled";
 import { colorPr } from "../index";
 import { ButtonUpPr } from "../buttons";
@@ -45,6 +45,7 @@ class index extends Component {
   };
 
   submitForm = () => {
+    ym("reachGoal", "party__form--conversion");
     this.setState({
       submitted: true
     });

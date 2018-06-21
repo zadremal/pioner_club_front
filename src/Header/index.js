@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ym from "react-yandex-metrika";
 import Hamburger from "react-hamburgers";
 import Headroom from "react-headroom";
 import { colorPr } from "../UI/";
@@ -27,6 +28,7 @@ class index extends Component {
   };
 
   toggleModal = () => {
+    ym("reachGoal", "party__form--open");
     this.setState(prevState => {
       return {
         modalOpen: !prevState.modalOpen

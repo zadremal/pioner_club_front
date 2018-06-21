@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-
+import ym from "react-yandex-metrika";
 import {
   Form,
   Input,
@@ -56,6 +56,7 @@ class index extends Component {
   };
 
   submitForm = () => {
+    ym("reachGoal", "contact__form--conversion");
     this.setState({
       submitted: true
     });

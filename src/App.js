@@ -47,7 +47,27 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <YMInitializer accounts={[33155843]} />
+          <YMInitializer
+            accounts={[33155843]}
+            version="2"
+            options={
+              ({
+                clickmap: true
+              },
+              {
+                defer: true
+              },
+              {
+                trackLinks: true
+              },
+              {
+                accurateTrackBounce: true
+              },
+              {
+                webvisor: true
+              })
+            }
+          />
           <Header
             menuIsOpen={this.state.menuOpen}
             onMenuToggle={this.toggleMenu}
