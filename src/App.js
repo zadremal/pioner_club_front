@@ -7,6 +7,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import { YMInitializer } from "react-yandex-metrika";
 import asyncComponent from "./UTILS/AsyncComponent";
 import { Main } from "./UI";
 import Header from "./Header";
@@ -46,6 +47,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
+          <YMInitializer accounts={[33155843]} />
           <Header
             menuIsOpen={this.state.menuOpen}
             onMenuToggle={this.toggleMenu}
