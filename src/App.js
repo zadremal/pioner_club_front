@@ -62,17 +62,6 @@ class App extends Component {
                   path="/deals/1"
                   render={() => <Redirect to="/birthday" />}
                 />
-                <Route
-                  exact
-                  path="/birthday/birthday.html"
-                  render={() => <Redirect to="/birthday" />}
-                />
-                <Route
-                  exact
-                  path="/event/event.html"
-                  render={() => <Redirect to="/banket" />}
-                />
-
                 <Route exact path="/" component={AsyncHome} />
                 <Route path="/birthday" component={AsyncBirthday} />
                 <Route path="/club" component={AsyncClub} />
@@ -87,6 +76,36 @@ class App extends Component {
                 <Route path="/contacts" component={AsyncContacts} />
                 <Route path="/facecontrol" component={AsyncFacecontrol} />
                 <Route path="/policy" component={AsyncPrivatePolicy} />
+                <Route
+                  exact
+                  path="/birthday/birthday.html"
+                  render={() => <Redirect to="/birthday" />}
+                />
+                <Route
+                  exact
+                  path="/event/event.html"
+                  render={() => <Redirect to="/banket" />}
+                />
+                <Route
+                  exact
+                  path="/afisha1.html"
+                  render={() => <Redirect to="/parties" />}
+                />
+                <Route
+                  exact
+                  path="/karaoke.html"
+                  render={() => <Redirect to="/karaoke" />}
+                />
+                <Route
+                  exact
+                  path="/grazhdanskiy.html"
+                  render={() => <Redirect to="/club" />}
+                />
+                <Route
+                  exact
+                  path="/ispitateley.html"
+                  render={() => <Redirect to="/club" />}
+                />
 
                 <Route component={AsyncNotFound} />
               </Switch>
