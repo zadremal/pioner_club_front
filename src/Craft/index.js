@@ -62,7 +62,7 @@ class index extends Component {
                   расположенного на первом этаже, и решили немного расширить его
                   функционал. Уверены что в этом формате он понравится Вам ещё
                   больше - мы сохранили Караоке, стали открывать свои двери
-                  каждый день, а не только на выходных, и существенно обновили
+                  помимо выходных в четверг и воскресенье, и существенно обновили
                   меню.
                 </Description>
                 <Description>
@@ -84,7 +84,7 @@ class index extends Component {
                 )}
               </div>
             </div>
-            <div className="row">
+            {/* <div className="row">
               <div className="col-xs-12">
                 <Heading>Бургеры по 100 рублей</Heading>
                 <Description>
@@ -113,7 +113,7 @@ class index extends Component {
               <div className="col-xs-12 col-md-4">
                 <Feature image={cheeseburger} imageAlt="Гамбургер" />
               </div>
-            </div>
+            </div> */}
             <div className="row">
               <div className="col-xs-12">
                 <Heading>Более 40 сортов пива</Heading>
