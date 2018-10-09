@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 export const Card = styled.div`
   position: relative;
   z-index: 1;
-  height: 70vh;
+  height: ${props => (props.narrow ? "30vh" : "70vh")};
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-left: 40px;

@@ -28,6 +28,28 @@ class index extends Component {
           />
         </Helmet>
         <div className="container-fluid">
+          {/* <div className="row">
+            <div className="col-xs-12 col-md-6">
+              <Link to="/club">
+                <Card
+                  heading="Новогодняя ночь"
+                  image={club}
+                  text="Любимые хиты от Диско до 00-х, танцы до утра, непередаваемая атмосфера и развлекательная программа каждые выходные"
+                  narrow
+                />
+              </Link>
+            </div>
+            <div className="col-xs-12 col-md-6">
+              <Link to="/club">
+                <Card
+                  heading="Новогодние корпоративы"
+                  image={club}
+                  text="Любимые хиты от Диско до 00-х, танцы до утра, непередаваемая атмосфера и развлекательная программа каждые выходные"
+                  narrow
+                />
+              </Link>
+            </div>
+          </div> */}
           <div className="row">
             <div className="col-xs-12 col-md-4">
               <Link to="/club">

@@ -1,12 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
 import "whatwg-fetch";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { YMInitializer } from "react-yandex-metrika";
 import asyncComponent from "./UTILS/AsyncComponent";
 import { Main } from "./UI";
@@ -28,6 +23,7 @@ const AsyncDeals = asyncComponent(() => import("./Deals"));
 const AsyncContacts = asyncComponent(() => import("./Contacts"));
 const AsyncFacecontrol = asyncComponent(() => import("./FC"));
 const AsyncPrivatePolicy = asyncComponent(() => import("./Policy"));
+const AsyncNewYearPersonal = asyncComponent(() => import("./NewYear/personal"));
 const AsyncNotFound = asyncComponent(() => import("./NotFound"));
 
 class App extends Component {
@@ -68,22 +64,12 @@ class App extends Component {
               })
             }
           />
-          <Header
-            menuIsOpen={this.state.menuOpen}
-            onMenuToggle={this.toggleMenu}
-          />
-          <Navigation
-            onMenuToggle={this.toggleMenu}
-            menuIsOpen={this.state.menuOpen}
-          />
+          <Header menuIsOpen={this.state.menuOpen} onMenuToggle={this.toggleMenu} />
+          <Navigation onMenuToggle={this.toggleMenu} menuIsOpen={this.state.menuOpen} />
           <Content menuIsOpen={this.state.menuOpen}>
             <Main id="main">
               <Switch>
-                <Route
-                  exact
-                  path="/deals/1"
-                  render={() => <Redirect to="/birthday" />}
-                />
+                <Route exact path="/deals/1" render={() => <Redirect to="/birthday" />} />
                 <Route exact path="/" component={AsyncHome} />
                 <Route path="/birthday" component={AsyncBirthday} />
                 <Route path="/club" component={AsyncClub} />
@@ -98,36 +84,13 @@ class App extends Component {
                 <Route path="/contacts" component={AsyncContacts} />
                 <Route path="/facecontrol" component={AsyncFacecontrol} />
                 <Route path="/policy" component={AsyncPrivatePolicy} />
-                <Route
-                  exact
-                  path="/birthday/birthday.html"
-                  render={() => <Redirect to="/birthday" />}
-                />
-                <Route
-                  exact
-                  path="/event/event.html"
-                  render={() => <Redirect to="/banket" />}
-                />
-                <Route
-                  exact
-                  path="/afisha1.html"
-                  render={() => <Redirect to="/parties" />}
-                />
-                <Route
-                  exact
-                  path="/karaoke.html"
-                  render={() => <Redirect to="/karaoke" />}
-                />
-                <Route
-                  exact
-                  path="/grazhdanskiy.html"
-                  render={() => <Redirect to="/club" />}
-                />
-                <Route
-                  exact
-                  path="/ispitateley.html"
-                  render={() => <Redirect to="/club" />}
-                />
+                <Route exact path="/newyear" component={AsyncNewYearPersonal} />
+                <Route exact path="/birthday/birthday.html" render={() => <Redirect to="/birthday" />} />
+                <Route exact path="/event/event.html" render={() => <Redirect to="/banket" />} />
+                <Route exact path="/afisha1.html" render={() => <Redirect to="/parties" />} />
+                <Route exact path="/karaoke.html" render={() => <Redirect to="/karaoke" />} />
+                <Route exact path="/grazhdanskiy.html" render={() => <Redirect to="/club" />} />
+                <Route exact path="/ispitateley.html" render={() => <Redirect to="/club" />} />
 
                 <Route component={AsyncNotFound} />
               </Switch>
