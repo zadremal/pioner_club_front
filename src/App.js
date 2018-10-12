@@ -24,6 +24,7 @@ const AsyncContacts = asyncComponent(() => import("./Contacts"));
 const AsyncFacecontrol = asyncComponent(() => import("./FC"));
 const AsyncPrivatePolicy = asyncComponent(() => import("./Policy"));
 const AsyncNewYearPersonal = asyncComponent(() => import("./NewYear/personal"));
+const AsyncNewYearCorporate = asyncComponent(() => import("./NewYear/corporate"));
 const AsyncNotFound = asyncComponent(() => import("./NotFound"));
 
 class App extends Component {
@@ -85,6 +86,7 @@ class App extends Component {
                 <Route path="/facecontrol" component={AsyncFacecontrol} />
                 <Route path="/policy" component={AsyncPrivatePolicy} />
                 <Route exact path="/newyear" component={AsyncNewYearPersonal} />
+                <Route exact path="/newyear/corporate" component={AsyncNewYearCorporate} />
                 <Route exact path="/birthday/birthday.html" render={() => <Redirect to="/birthday" />} />
                 <Route exact path="/event/event.html" render={() => <Redirect to="/banket" />} />
                 <Route exact path="/afisha1.html" render={() => <Redirect to="/parties" />} />

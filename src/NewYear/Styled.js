@@ -100,3 +100,29 @@ export const Button = styled.div`
       text-align: left;
   `};
 `;
+
+export const Price = styled.h3`
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(50%);
+  margin: 0.2rem auto;
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+  font-size: 3rem;
+  font-family: Intro, Arial, sans-serif;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9);
+
+  ${media.lg`
+    bottom: 20px;
+    right: 25%;
+    top: inherit;
+    left: inherit;
+    transform: translateY(0%);
+    margin: 0.2rem;
+    text-align: left;
+  `};
+`;

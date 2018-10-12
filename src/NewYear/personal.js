@@ -4,14 +4,13 @@ import { Heading } from "../UI/section";
 import Modal from "../UI/Modal";
 import Form from "../UI/Form/NewYear";
 import { ButtonUpPr } from "../UI/buttons";
-import { Image, TextBlock, Wrap, Description, PartyDate, PartyStart, Button } from "./Styled";
+import { Image, TextBlock, Wrap, Description, PartyDate, PartyStart, Price } from "./Styled";
 
 import bar from "./tickets/bar.jpg";
 import children from "./tickets/children.jpg";
 import standart from "./tickets/standart.jpg";
 import vip from "./tickets/vip.jpg";
 
-import Measure from "react-measure";
 import Lightbox from "react-images-zoom";
 import Gallery from "react-photo-gallery";
 
@@ -24,17 +23,17 @@ const PHOTO_SET = [
     height: 3
   },
   {
-    src: children,
-    width: 2,
-    height: 3
-  },
-  {
     src: standart,
     width: 2,
     height: 3
   },
   {
     src: vip,
+    width: 2,
+    height: 3
+  },
+  {
+    src: children,
     width: 2,
     height: 3
   }
@@ -91,11 +90,10 @@ class index extends Component {
   };
 
   render() {
-    const { photos, width } = this.state;
     return (
       <Fragment>
         <Helmet>
-          <title>Пионер - афиша мероприятий</title>
+          <title>Пионер - новый год в клубе Пионер</title>
           <link rel="canonical" href="https://pioner-club.com/newyear" />
         </Helmet>
         <Modal modalIsOpen={this.state.modalOpen} closeModal={this.toggleModal}>
@@ -105,11 +103,14 @@ class index extends Component {
           <div className="row">
             <div className="col-xs-12">
               <Wrap>
-                <PartyDate>31.12.18</PartyDate>
+                <PartyDate>31 декабря 2018</PartyDate>
                 <TextBlock>
                   <Heading>Новый год</Heading>
                 </TextBlock>
                 <Image src={newYear} alt={"Новый год в ночном клубе Пионер"} />
+                <Price>
+                  От 1.000 &#8381; <br /> с человека
+                </Price>
               </Wrap>
               <Description>
                 <div className="container">
@@ -137,41 +138,22 @@ class index extends Component {
                       </p>
                     </div>
                     <div className="col-xs-12 col-md-12">
-                      <Measure bounds onResize={contentRect => this.setState({ width: contentRect.bounds.width })}>
-                        {({ measureRef }) => {
-                          if (width < 1) {
-                            return <div ref={measureRef} />;
-                          }
-                          let columns = 2;
+                      <Gallery photos={PHOTO_SET} onClick={this.openLightbox} margin={20} columns={1} />
 
-                          if (width >= 576) {
-                            columns = 3;
-                          }
-                          if (width >= 992) {
-                            columns = 4;
-                          }
-                          return (
-                            <div ref={measureRef}>
-                              <Gallery photos={PHOTO_SET} onClick={this.openLightbox} margin={10} columns={columns} />
-
-                              <Lightbox
-                                images={PHOTO_SET}
-                                backdropClosesModal={true}
-                                onClose={this.closeLightbox}
-                                onClickPrev={this.gotoPrevious}
-                                onClickNext={this.gotoNext}
-                                currentImage={this.state.currentImage}
-                                zoomable={true}
-                                isOpen={this.state.lightboxIsOpen}
-                              />
-                            </div>
-                          );
-                        }}
-                      </Measure>
+                      <Lightbox
+                        images={PHOTO_SET}
+                        backdropClosesModal={true}
+                        onClose={this.closeLightbox}
+                        onClickPrev={this.gotoPrevious}
+                        onClickNext={this.gotoNext}
+                        currentImage={this.state.currentImage}
+                        zoomable={true}
+                        isOpen={this.state.lightboxIsOpen}
+                      />
                     </div>
                     <div className="col-xs-12 center-xs">
                       <ButtonUpPr onClick={this.toggleModal} contrast centered>
-                        забронировать столик
+                        забронировать столик на новый год
                       </ButtonUpPr>
                     </div>
                   </div>

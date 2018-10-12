@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import ym from "react-yandex-metrika";
 import { Form, Input, Label, Heading, Submit, Error, Response } from "./Styled";
-import { colorPr } from "../index";
+import { colorPr } from "..";
 import { ButtonUpPr } from "../buttons";
 import axios from "axios";
 import ReactLoading from "react-loading";
@@ -56,7 +56,7 @@ class index extends Component {
 
     axios({
       method: "POST",
-      url: `${apiServer}/api/v1/submit/newyear/`,
+      url: `${apiServer}/api/v1/submit/newyearcorporate/`,
       data: data,
       headers: {
         Authorization: apiServerToken,
@@ -92,7 +92,7 @@ class index extends Component {
     const { name, phone, error, message, submitted } = this.state;
     return (
       <Fragment>
-        <Heading>Оставьте свои контакты, и мы забронируем билет на Новый Год для Вас</Heading>
+        <Heading>Оставьте свои контакты, и мы организуем Ваш корпоратив</Heading>
         {submitted ? (
           <Response>{message || <ReactLoading type={"spin"} color={colorPr} />}</Response>
         ) : (
