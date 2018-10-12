@@ -112,11 +112,12 @@ export const Price = styled.h3`
   max-width: 400px;
   color: #fff;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: Intro, Arial, sans-serif;
   text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9);
 
   ${media.lg`
+    font-size: 3rem;
     bottom: 20px;
     right: 25%;
     top: inherit;

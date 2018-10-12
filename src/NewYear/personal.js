@@ -137,6 +137,11 @@ class index extends Component {
                         Новогодняя ночь в ночном клубе «ПИОНЕР» - Лучший Новый Год в Лучших семейных традициях!!!
                       </p>
                     </div>
+                    <div className="col-xs-12 center-xs">
+                      <ButtonUpPr onClick={this.toggleModal} contrast centered>
+                        забронировать столик на новый год
+                      </ButtonUpPr>
+                    </div>
                     <div className="col-xs-12 col-md-12">
                       <Gallery photos={PHOTO_SET} onClick={this.openLightbox} margin={20} columns={1} />
 

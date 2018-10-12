@@ -6,6 +6,8 @@ import Card from "../UI/PlaceCard";
 import club from "./img/club.jpg";
 import craft from "./img/craft.jpg";
 import karaoke from "./img/karaoke.jpg";
+import corporate from "./img/corporate.jpg";
+import newYear from "./img/newyear.jpg";
 
 class index extends Component {
   componentDidMount = () => {
@@ -28,28 +30,28 @@ class index extends Component {
           />
         </Helmet>
         <div className="container-fluid">
-          {/* <div className="row">
+          <div className="row">
             <div className="col-xs-12 col-md-6">
-              <Link to="/club">
+              <Link to="/newyear">
                 <Card
                   heading="Новогодняя ночь"
-                  image={club}
-                  text="Любимые хиты от Диско до 00-х, танцы до утра, непередаваемая атмосфера и развлекательная программа каждые выходные"
+                  image={newYear}
+                  text="От 1.000 рублей на человека. Обширное меню. Можно с детьми!"
                   narrow
                 />
               </Link>
             </div>
             <div className="col-xs-12 col-md-6">
-              <Link to="/club">
+              <Link to="/newyear/corporate">
                 <Card
                   heading="Новогодние корпоративы"
-                  image={club}
-                  text="Любимые хиты от Диско до 00-х, танцы до утра, непередаваемая атмосфера и развлекательная программа каждые выходные"
+                  image={corporate}
+                  text="От 750 рублей на человека. Специальные условия на алкоголь и напитки. Бесплатный вход! "
                   narrow
                 />
               </Link>
             </div>
-          </div> */}
+          </div>
           <div className="row">
             <div className="col-xs-12 col-md-4">
               <Link to="/club">
