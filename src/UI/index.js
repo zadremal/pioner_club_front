@@ -104,8 +104,12 @@ export const MainHeading = styled.h1`
 
 export const LandingMainHeading = MainHeading.extend`
   margin: 0;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1.5em;
+
+  ${media.md`
+    font-size: 2em;
+  `};
 
   ${media.lg`
     font-size: 3em;

@@ -1,12 +1,27 @@
 import React, { Component, Fragment } from "react";
 import Helmet from "react-helmet";
 import ym from "react-yandex-metrika";
-import { LandingMainHeading, HeadingHighlighted, LandingMainscreen, Overlay, MainscreenWrap, Description } from "../UI";
+import {
+  LandingMainHeading,
+  HeadingHighlighted,
+  LandingMainscreen,
+  Overlay,
+  MainscreenWrap,
+  Description
+} from "../UI";
 import { ButtonUpWhite } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
 import Modal from "../UI/Modal";
 import Form from "../UI/Form/Birthday";
-import { Detail, DealImg, DealDescription, Highlighted, CardWrap, Special } from "./Styled";
+import {
+  Detail,
+  DealImg,
+  DealDescription,
+  Highlighted,
+  CardWrap,
+  Special,
+  AllInclusiveCard
+} from "./Styled";
 import Card from "./Card";
 
 import background from "./img/background.jpg";
@@ -59,13 +74,25 @@ class index extends Component {
           <MainscreenWrap>
             <LandingMainHeading>
               У вас скоро день рождения? Подарим Вам <br />
-              <HeadingHighlighted>скидку 50% на любой депозит*</HeadingHighlighted>
+              <HeadingHighlighted>
+                скидку 50% на любой депозит*
+              </HeadingHighlighted>
             </LandingMainHeading>
             <Detail>
-              *выбирайте любой столик, приходите до 00-00, и платите за него в 2 раза меньше! (не включает стоимость
-              обслуживания)
+              *выбирайте любой столик, приходите до 00-00, и платите за него в 2
+              раза меньше! (не включает стоимость обслуживания)
             </Detail>
-            <ButtonUpWhite onClick={this.toggleModal}>Получить скидку</ButtonUpWhite>
+            <ButtonUpWhite onClick={this.toggleModal}>
+              Получить скидку
+            </ButtonUpWhite>
+            <AllInclusiveCard>
+              <h1>Всё включено</h1>
+              <span>ВХОД</span> | <span>СТОЛ</span> | <span>АЛКОГОЛЬ</span> |{" "}
+              <span>ЗАКУСКИ</span>
+              <h3>
+                от <span>450</span> рублей на человека
+              </h3>
+            </AllInclusiveCard>
           </MainscreenWrap>
           <Overlay />
         </LandingMainscreen>
@@ -92,7 +119,8 @@ class index extends Component {
               <div className="col-xs-12 col-md-4  center-xs">
                 <DealImg src={trumpet} />
                 <DealDescription>
-                  <Highlighted>Торжественное посвящение </Highlighted>в ряды Пионеров!
+                  <Highlighted>Торжественное посвящение </Highlighted>в ряды
+                  Пионеров!
                 </DealDescription>
               </div>
             </div>
@@ -106,16 +134,30 @@ class index extends Component {
               </div>
               <div className="col-xs-12">
                 <Description>
-                  Ночной клуб "ПИОНЕР" знает толк в проведении праздников. Особенно, если это День Рождения! Мы рады
-                  предложить для именинников и их друзей отпраздновать свой День Рождения в уникальной атмосфере XX
-                  века, в которой Вы совершите увлекательное путешествие в дни своей молодости и получите незабываемые
-                  эмоции! Вот что Вас ожидает у нас в клубе:
+                  Ночной клуб "ПИОНЕР" знает толк в проведении праздников.
+                  Особенно, если это День Рождения! Мы рады предложить для
+                  именинников и их друзей отпраздновать свой День Рождения в
+                  уникальной атмосфере XX века, в которой Вы совершите
+                  увлекательное путешествие в дни своей молодости и получите
+                  незабываемые эмоции! Вот что Вас ожидает у нас в клубе:
                 </Description>
                 <CardWrap>
-                  <Card background={party} heading="Только Хиты: лучшая музыка от 70-х до современной" />
-                  <Card background={dance} heading="Культовые выступления персонала" />
-                  <Card background={karaoke} heading="Караоке-бар с фонотекой на 45 000 песен" />
-                  <Card background={pioner} heading="Настоящая пионерская линейка и вынос знамени под гимн СССР" />
+                  <Card
+                    background={party}
+                    heading="Только Хиты: лучшая музыка от 70-х до современной"
+                  />
+                  <Card
+                    background={dance}
+                    heading="Культовые выступления персонала"
+                  />
+                  <Card
+                    background={karaoke}
+                    heading="Караоке-бар с фонотекой на 45 000 песен"
+                  />
+                  <Card
+                    background={pioner}
+                    heading="Настоящая пионерская линейка и вынос знамени под гимн СССР"
+                  />
                 </CardWrap>
               </div>
             </div>
@@ -128,12 +170,15 @@ class index extends Component {
                 <Special>
                   <Heading contrast children="спецпрограмма для именинников" />
                   <Description contrast>
-                    Каждые выходные для именинников мы устраиваем специальную церемонию - посвящение Пионеры! Для тех
-                    кто успел в свое время побыть в рядах пионеров - это шанс пережить заново этот момент. Для остальных
-                    - уникальный шанс вступить в самое масштабное в мире объединение молодежи!
+                    Каждые выходные для именинников мы устраиваем специальную
+                    церемонию - посвящение Пионеры! Для тех кто успел в свое
+                    время побыть в рядах пионеров - это шанс пережить заново
+                    этот момент. Для остальных - уникальный шанс вступить в
+                    самое масштабное в мире объединение молодежи!
                   </Description>
                   <Description contrast>
-                    Пионерские галстуки, торжественная музыка и присяга на верность Советскому Союзу прилагаются!
+                    Пионерские галстуки, торжественная музыка и присяга на
+                    верность Советскому Союзу прилагаются!
                   </Description>
                 </Special>
               </div>
@@ -148,12 +193,14 @@ class index extends Component {
               </div>
               <div className="col-xs-12 col-md-6">
                 <Description>
-                  Приходите к нам в ближайшие выходные! Наше предложение действует для всех именинников неделю до, и
-                  неделю после дня рождения! Заполните форму обратной связи, и наш менеджер свяжется с вами и ответит на
-                  все интересущие вопросы
+                  Приходите к нам в ближайшие выходные! Наше предложение
+                  действует для всех именинников неделю до, и неделю после дня
+                  рождения! Заполните форму обратной связи, и наш менеджер
+                  свяжется с вами и ответит на все интересущие вопросы
                   <br />
                   <br />
-                  Действует при бронировании стола. Предложение по данной акции может быть ограничено.
+                  Действует при бронировании стола. Предложение по данной акции
+                  может быть ограничено.
                 </Description>
               </div>
               <div className="col-xs-12 col-md-6">

@@ -122,7 +122,7 @@ class index extends Component {
         ) : (
           <Form>
             {error && <Error>{message}</Error>}
-            <Label for="name">Ваше имя:*</Label>
+            <Label htmlFor="name">Ваше имя:*</Label>
             <Input
               required
               transform="capitalize"
@@ -137,13 +137,13 @@ class index extends Component {
               name="name"
               value={name}
             />
-            <Label for="phone">Когда у Вас день рождения?</Label>
+            <Label htmlFor="phone">Когда у Вас день рождения?</Label>
             <DateInput
               className="date-picker"
               onChange={this.onDateInput}
               value={this.state.date}
             />
-            <Label for="phone">Номер телефона:*</Label>
+            <Label htmlFor="phone">Номер телефона:*</Label>
             <Input
               required
               mask="\+7 999 999 99 99"
