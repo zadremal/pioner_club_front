@@ -7,6 +7,9 @@ import club from "./img/club.jpg";
 import craft from "./img/craft.jpg";
 import karaoke from "./img/karaoke.jpg";
 
+import corporate from "./img/corporate.jpg";
+import newYear from "./img/newyear.jpg";
+
 class index extends Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
@@ -37,6 +40,28 @@ class index extends Component {
           />
         </Helmet>
         <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-12 col-md-6">
+              <Link to="/newyear">
+                <Card
+                  heading="Новогодняя ночь"
+                  image={newYear}
+                  text="От 1.000 рублей на человека. Обширное меню. Можно с детьми!"
+                  narrow
+                />
+              </Link>
+            </div>
+            <div className="col-xs-12 col-md-6">
+              <Link to="/newyear/corporate">
+                <Card
+                  heading="Новогодние корпоративы"
+                  image={corporate}
+                  text="От 750 рублей на человека. Специальные условия на алкоголь и напитки. Бесплатный вход! "
+                  narrow
+                />
+              </Link>
+            </div>
+          </div>
           <div className="row">
             <div className="col-xs-12 col-md-4">
               <Link to="/club">

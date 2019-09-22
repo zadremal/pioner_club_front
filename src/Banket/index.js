@@ -7,7 +7,7 @@ import {
   Overlay,
   MainscreenWrap,
   Description
-} from "../UI/";
+} from "../UI";
 import { ButtonUpWhite, ButtonRightPr } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
 import Slider from "../UI/Carousel";

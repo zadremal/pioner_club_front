@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colorPr, colorAcc, media } from "../UI/";
+import { colorPr, colorAcc, media } from "../UI";
 
 export const BanketHeading = styled.h3`
   color: #fff;
