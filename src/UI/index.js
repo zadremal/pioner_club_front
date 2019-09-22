@@ -90,7 +90,7 @@ export const MainscreenWrap = styled.div`
   position: relative;
   z-index: 3
   padding: 2rem 0;
-  text-align: center;
+ text-align: center;
 `;
 
 export const MainHeading = styled.h1`
