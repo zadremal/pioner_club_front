@@ -69,3 +69,34 @@ export const Special = styled.div`
   padding: 10%;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
 `;
+
+export const AllInclusiveCard = styled.div`
+  color: #fff;
+  border: 2px solid ${colorPr};
+  font-size: 0.5em;
+  padding: 0.25em 0.5em;
+  max-width: 400px;
+  margin: 20px auto;
+
+  ${media.md`
+    font-size: 0.5em;
+    padding: 0.5em .75em;
+    `};
+
+  ${media.lg`
+    font-size: 0.75em;
+    padding: 0.5em 1.5em;
+  `};
+
+  h3 {
+    margin: 0.5em 0;
+    font-size: 2em;
+    span {
+      color: ${colorPr};
+    }
+  }
+
+  span {
+    font-size: 1.5em;
+  }
+`;

@@ -11,7 +11,7 @@ import {
   BasementText,
   StyledLink,
   Social,
-  SocialLink
+  SocialLink,
 } from "./Styled";
 import Vk from "./vk";
 import Insta from "./insta";
@@ -113,7 +113,7 @@ const index = () => {
         <div className="row">
           <div className="col-xs-12 center-xs">
             <Basement>
-              <BasementText>2007-2018г. Санкт-Петербург.</BasementText>
+              <BasementText>2007-2020. Санкт-Петербург.</BasementText>
               <StyledLink to="/policy" children="Политика конфиденциальности" />
             </Basement>
           </div>

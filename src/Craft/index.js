@@ -5,14 +5,10 @@ import fetchData from "../UTILS/Fetch";
 import { Mainscreen, Overlay, Description } from "../UI";
 import Section, { Heading } from "../UI/section";
 import Card from "../UI/PlaceInfo";
-import Feature from "../UI/PlaceFeature";
 import Loader from "../UI/Loader";
 import { Image } from "./Styled";
 
 import background from "./img/background.jpg";
-import fishburger from "./img/fishburger.jpg";
-import hamburger from "./img/hamburger.jpg";
-import cheeseburger from "./img/cheeseburger.jpg";
 import beer from "./img/beer.jpg";
 
 class index extends Component {
@@ -51,7 +47,7 @@ class index extends Component {
         </Helmet>
         <Mainscreen background={background}>
           <Overlay />
-          <Heading contrast>Крафт бургер бар</Heading>
+          <Heading contrast>Крафт бар</Heading>
         </Mainscreen>
         <Section>
           <div className="container">
@@ -62,8 +58,8 @@ class index extends Component {
                   расположенного на первом этаже, и решили немного расширить его
                   функционал. Уверены что в этом формате он понравится Вам ещё
                   больше - мы сохранили Караоке, стали открывать свои двери
-                  каждый день, а не только на выходных, и существенно обновили
-                  меню.
+                  помимо выходных в четверг и воскресенье, и существенно
+                  обновили меню.
                 </Description>
                 <Description>
                   Самое важное изменение - многократное расширение ассортимента
@@ -84,7 +80,7 @@ class index extends Component {
                 )}
               </div>
             </div>
-            <div className="row">
+            {/* <div className="row">
               <div className="col-xs-12">
                 <Heading>Бургеры по 100 рублей</Heading>
                 <Description>
@@ -113,7 +109,7 @@ class index extends Component {
               <div className="col-xs-12 col-md-4">
                 <Feature image={cheeseburger} imageAlt="Гамбургер" />
               </div>
-            </div>
+            </div> */}
             <div className="row">
               <div className="col-xs-12">
                 <Heading>Более 40 сортов пива</Heading>

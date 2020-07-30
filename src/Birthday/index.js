@@ -19,7 +19,8 @@ import {
   DealDescription,
   Highlighted,
   CardWrap,
-  Special
+  Special,
+  AllInclusiveCard
 } from "./Styled";
 import Card from "./Card";
 
@@ -59,7 +60,7 @@ class index extends Component {
           <link rel="canonical" href="https://pioner-club.com/birthday" />
           <meta
             name="description"
-            content="День рождения в ночном клубе Пионер - скидки именинникам 50%! Возможность принести свой алкоголь. Бксплатный вход на компанию."
+            content="День рождения в ночном клубе Пионер - скидки именинникам 50%! Возможность принести свой алкоголь. Бесплатный вход на компанию."
           />
           <meta
             name="keywords"
@@ -79,11 +80,19 @@ class index extends Component {
             </LandingMainHeading>
             <Detail>
               *выбирайте любой столик, приходите до 00-00, и платите за него в 2
-              раза меньше! (не включает стоимость обслуживания)
+              раза меньше!
             </Detail>
             <ButtonUpWhite onClick={this.toggleModal}>
               Получить скидку
             </ButtonUpWhite>
+            <AllInclusiveCard>
+              <h1>Всё включено</h1>
+              <span>ВХОД</span> | <span>СТОЛ</span> | <span>АЛКОГОЛЬ</span> |{" "}
+              <span>ЗАКУСКИ</span>
+              <h3>
+                от <span>375</span> рублей на человека
+              </h3>
+            </AllInclusiveCard>
           </MainscreenWrap>
           <Overlay />
         </LandingMainscreen>
@@ -96,15 +105,15 @@ class index extends Component {
               <div className="col-xs-12 col-md-4 center-xs">
                 <DealImg src={percentage} />
                 <DealDescription>
-                  <Highlighted>Скидка 50 % </Highlighted>на все меню бара и
-                  кухни , при оплате депозита за стол.
+                  <Highlighted>Скидка 50 % </Highlighted>
+                  на все меню бара и кухни , при оплате депозита за стол.
                 </DealDescription>
               </div>
               <div className="col-xs-12 col-md-4  center-xs">
                 <DealImg src={fencing} />
                 <DealDescription>
-                  <Highlighted>Бесплатный вход </Highlighted>для именинника и
-                  5-и гостей
+                  <Highlighted>Бесплатный вход </Highlighted>
+                  для именинника и 5-и гостей
                 </DealDescription>
               </div>
               <div className="col-xs-12 col-md-4  center-xs">
@@ -187,7 +196,11 @@ class index extends Component {
                   Приходите к нам в ближайшие выходные! Наше предложение
                   действует для всех именинников неделю до, и неделю после дня
                   рождения! Заполните форму обратной связи, и наш менеджер
-                  свяжется с вами и ответит на все интересущие вопросы
+                  свяжется с вами и ответит на все интересующие вопросы
+                  <br />
+                  <br />
+                  Действует при бронировании стола. Предложение по данной акции
+                  может быть ограничено.
                 </Description>
               </div>
               <div className="col-xs-12 col-md-6">

@@ -7,10 +7,11 @@ export const index = ({
   heading,
   text,
   buttonText,
-  overlayBackground
+  overlayBackground,
+  narrow
 }) => {
   return (
-    <Card background={image}>
+    <Card background={image} narrow={narrow}>
       <Overlay overlayBackground={overlayBackground} />
       <TextBox>
         <Heading>{heading}</Heading>
