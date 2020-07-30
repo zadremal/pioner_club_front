@@ -6,7 +6,7 @@ import {
   LandingMainHeading,
   Overlay,
   MainscreenWrap,
-  Description
+  Description,
 } from "../UI";
 import { ButtonUpWhite, ButtonRightPr } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
@@ -21,7 +21,7 @@ import {
   Company,
   ContactLink,
   PhoneLink,
-  Button
+  Button,
 } from "./Styled";
 import Form from "../UI/Form/Banket";
 import Modal from "../UI/Modal";
@@ -50,7 +50,7 @@ import background from "./img/background.jpg";
 class index extends Component {
   state = {
     modalOpen: false,
-    menuModalOpen: false
+    menuModalOpen: false,
   };
 
   componentDidMount = () => {
@@ -59,18 +59,18 @@ class index extends Component {
 
   toggleModal = () => {
     ym("reachGoal", "banket__form--open");
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
-        modalOpen: !prevState.modalOpen
+        modalOpen: !prevState.modalOpen,
       };
     });
   };
 
   toggleMenuModal = () => {
     console.log("works");
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
-        menuModalOpen: !prevState.menuModalOpen
+        menuModalOpen: !prevState.menuModalOpen,
       };
     });
   };
@@ -79,9 +79,7 @@ class index extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>
-            Банкеты в ночном клубе Пионер - от 1000 рублей на человека
-          </title>
+          <title>Банкеты в ресторане Пионер - от 1000 рублей на человека</title>
           <link rel="canonical" href="https://pioner-club.com/banket" />
           <meta
             name="description"
@@ -114,7 +112,7 @@ class index extends Component {
         <LandingMainscreen background={background}>
           <MainscreenWrap>
             <LandingMainHeading>Корпоратив или банкет? </LandingMainHeading>
-            <BanketHeading children="поможем провести любое мероприятие в одном из самых атмосферных ночных клубов Санкт-Петербурга от 1000 рублей на человека" />
+            <BanketHeading children="поможем провести любое мероприятие в одном из самых атмосферных ресторанов Санкт-Петербурга от 1000 рублей на человека" />
             <ButtonUpWhite
               onClick={this.toggleModal}
               children="забронировать мероприятие"
@@ -176,17 +174,17 @@ class index extends Component {
                       {
                         breakpoint: 992,
                         settings: {
-                          slidesToShow: 2
-                        }
+                          slidesToShow: 2,
+                        },
                       },
                       {
                         breakpoint: 576,
                         settings: {
                           slidesToShow: 1,
-                          slidesToScroll: 1
-                        }
-                      }
-                    ]
+                          slidesToScroll: 1,
+                        },
+                      },
+                    ],
                   }}
                 >
                   <Dish
@@ -237,9 +235,9 @@ class index extends Component {
               </div>
               <div className="col-xs-12">
                 <Description contrast>
-                  Ночной клуб "ПИОНЕР" - первая и главная ретродискотека в
-                  Санкт-Петербурге. Со времени своего появления в 2007-м году
-                  клуб сразу обрел собственную публику и постоянных посетителей
+                  Ресторан "ПИОНЕР" - первая и главная ретродискотека в
+                  Санкт-Петербурге. Со времени своего появления в 2007-м году он
+                  сразу обрел собственную публику и постоянных посетителей
                   благодаря своей неповторимой атмосфере. В наших стенах
                   проходило немало интересных мероприятий, и мы предлагаем Вам
                   стать частью нашей истории и провести вместе Ваш праздник. Для

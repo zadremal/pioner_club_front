@@ -7,7 +7,7 @@ import {
   LandingMainscreen,
   Overlay,
   MainscreenWrap,
-  Description
+  Description,
 } from "../UI";
 import { ButtonUpWhite } from "../UI/buttons";
 import Section, { Heading } from "../UI/section";
@@ -20,7 +20,7 @@ import {
   Highlighted,
   CardWrap,
   Special,
-  AllInclusiveCard
+  AllInclusiveCard,
 } from "./Styled";
 import Card from "./Card";
 
@@ -36,14 +36,14 @@ import percentage from "./img/percentage.svg";
 
 class index extends Component {
   state = {
-    modalIsOpen: false
+    modalIsOpen: false,
   };
 
   toggleModal = () => {
     ym("reachGoal", "birthday__form--open");
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
-        modalOpen: !prevState.modalOpen
+        modalOpen: !prevState.modalOpen,
       };
     });
   };
@@ -56,7 +56,7 @@ class index extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>День рождения в ночном клубе Пионер</title>
+          <title>День рождения в ресторане Пионер</title>
           <link rel="canonical" href="https://pioner-club.com/birthday" />
           <meta
             name="description"
@@ -134,7 +134,7 @@ class index extends Component {
               </div>
               <div className="col-xs-12">
                 <Description>
-                  Ночной клуб "ПИОНЕР" знает толк в проведении праздников.
+                  Ресторан "ПИОНЕР" знает толк в проведении праздников.
                   Особенно, если это День Рождения! Мы рады предложить для
                   именинников и их друзей отпраздновать свой День Рождения в
                   уникальной атмосфере XX века, в которой Вы совершите

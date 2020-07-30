@@ -17,13 +17,13 @@ import songs from "./img/songs.jpg";
 class index extends Component {
   state = {
     price: "",
-    openHours: ""
+    openHours: "",
   };
 
-  updateState = data =>
+  updateState = (data) =>
     this.setState({
       price: data[1].price,
-      openHours: data[1].open_hours
+      openHours: data[1].open_hours,
     });
 
   componentDidMount = () => {
@@ -56,7 +56,7 @@ class index extends Component {
             <div className="row">
               <div className="col-xs-12 col-lg-7 first-lg">
                 <Description>
-                  Караоке-бар в ночном клубе Пионер - место где можно сполна
+                  Караоке-бар в ресторане Пионер - место где можно сполна
                   насладиться любимыми песнями. Для гостей есть посадочные места
                   от 2 до 8 человек, обширное меню кухни и напитков.
                   Караоке-система бара оснащена качественными фонограммами
@@ -71,10 +71,6 @@ class index extends Component {
                   готовы помочь с бэк-вокалом в любой песне. Так же в баре можно
                   отведать много разнообразного крафтового{" "}
                   <Link to="/craft">пива. </Link>
-                </Description>
-                <Description>
-                  И самое главное - каджый четверг и воскресенье у нас все поют
-                  абсолютно бесплатно!
                 </Description>
               </div>
 

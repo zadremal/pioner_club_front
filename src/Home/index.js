@@ -66,7 +66,7 @@ class index extends Component {
             <div className="col-xs-12 col-md-4">
               <Link to="/club">
                 <Card
-                  heading="ночной клуб"
+                  heading="ресторан"
                   image={club}
                   text="Любимые хиты от Диско до 00-х, танцы до утра, 
                   непередаваемая атмосфера и развлекательная программа каждые выходные"

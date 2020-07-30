@@ -25,7 +25,7 @@ class index extends Component {
       price: "",
       openHours: "",
       currentImage: 0,
-      lightboxIsOpen: false
+      lightboxIsOpen: false,
     };
 
     this.closeLightbox = this.closeLightbox.bind(this);
@@ -37,30 +37,30 @@ class index extends Component {
   openLightbox = (event, obj) => {
     this.setState({
       currentImage: 0,
-      lightboxIsOpen: true
+      lightboxIsOpen: true,
     });
   };
   closeLightbox = () => {
     this.setState({
-      lightboxIsOpen: false
+      lightboxIsOpen: false,
     });
   };
 
   gotoPrevious() {
     this.setState({
-      currentImage: this.state.currentImage - 1
+      currentImage: this.state.currentImage - 1,
     });
   }
   gotoNext() {
     this.setState({
-      currentImage: this.state.currentImage + 1
+      currentImage: this.state.currentImage + 1,
     });
   }
 
-  updateState = data => {
+  updateState = (data) => {
     this.setState({
       price: data[0].price,
-      openHours: data[0].open_hours
+      openHours: data[0].open_hours,
     });
   };
 
@@ -88,18 +88,18 @@ class index extends Component {
 
         <Mainscreen background={background}>
           <Overlay />
-          <Heading contrast>Ночной клуб Пионер</Heading>
+          <Heading contrast>Ресторан Пионер</Heading>
         </Mainscreen>
         <Section>
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-lg-7 first-lg">
                 <Description>
-                  «ПИОНЕР» - дискотека для взрослых с более чем десятилетней
-                  историей, пронизанная духом эпохи 70-80х годов. Все
-                  необходимые детали ретро-диско-клуба - в наличии:
-                  вместительный танцпол, сцена для live-выступлений, световое и
-                  музыкальное оборудование, зал на 350 мест, VIP-зона.
+                  «ПИОНЕР» - ресторан с более чем десятилетней историей,
+                  пронизанный духом эпохи 70-80х годов. Все необходимые детали -
+                  в наличии: вместительный танцпол, сцена для live-выступлений,
+                  световое и музыкальное оборудование, зал на 350 мест,
+                  VIP-зона.
                 </Description>
                 <Description>
                   Атмосферу задают красно-серые тона интерьера и узнаваемые
@@ -109,25 +109,24 @@ class index extends Component {
                   блюд, кальянов, и изысканных закусок.
                 </Description>
                 <Description>
-                  Специальными гостями вечеринок диско-зала выступают
+                  Специальными гостями вечеринок ресторана выступают
                   вокально-инструментальные ансамбли и известные ди-джеи.
                   Полуночным апогеем является торжественный вынос знамени и
                   исполнение гимна СССР. Восторг и энергетику этого действа
                   невозможно передать словами – лучше увидеть. И, вопреки
-                  известной фразе, не один раз увидеть. Диско-зал «ПИОНЕР» - это
+                  известной фразе, не один раз увидеть. Ресторан «ПИОНЕР» - это
                   лучшее место для настроения пионерской молодости и
                   комсомольской юности. Мы говорим: «нет» – ностальгии и «да» –
                   приятным воспоминаниям и новым впечатлениям!
                 </Description>
                 <Description>
-                  Ретро-клуб "ПИОНЕР"- единственное место в Петербурге, где
-                  ощущения ушедшей молодости вновь оживают. Приглашаем Вас
-                  окунуться в атмосферу безудержного веселья, поверьте, мы
-                  делаем всё, чтобы Вы хотели возвращаться к нам снова и снова!
-                  Вас ждут яркие огни ретро-диско-клуба и зажигательные мелодии
-                  пионерской молодости. Вдохните воздух нового СССР, воплощенный
-                  в музыку свободы и перемен, и получите новые эмоции от любимых
-                  мотивов!
+                  "ПИОНЕР"- единственное место в Петербурге, где ощущения
+                  ушедшей молодости вновь оживают. Приглашаем Вас окунуться в
+                  атмосферу безудержного веселья, поверьте, мы делаем всё, чтобы
+                  Вы хотели возвращаться к нам снова и снова! Вас ждут яркие
+                  огни ресторана и зажигательные мелодии пионерской молодости.
+                  Вдохните воздух нового СССР, воплощенный в музыку свободы и
+                  перемен, и получите новые эмоции от любимых мотивов!
                 </Description>
               </div>
 
@@ -145,7 +144,7 @@ class index extends Component {
                       <Plan
                         onClick={this.openLightbox}
                         src={plan}
-                        alt="план зала ночной клуб Пионер"
+                        alt="план зала ресторан Пионер"
                       />
                     </Card>
                   </div>
