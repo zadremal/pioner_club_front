@@ -80,7 +80,7 @@ class index extends Component {
             </LandingMainHeading>
             <Detail>
               *выбирайте любой столик, приходите до 00-00, и платите за него в 2
-              раза меньше! (не включает стоимость обслуживания)
+              раза меньше!
             </Detail>
             <ButtonUpWhite onClick={this.toggleModal}>
               Получить скидку

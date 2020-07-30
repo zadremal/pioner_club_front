@@ -40,7 +40,7 @@ class index extends Component {
           />
         </Helmet>
         <div className="container-fluid">
-          <div className="row">
+          {/* <div className="row">
             <div className="col-xs-12 col-md-6">
               <Link to="/newyear">
                 <Card
@@ -61,7 +61,7 @@ class index extends Component {
                 />
               </Link>
             </div>
-          </div>
+          </div> */}
           <div className="row">
             <div className="col-xs-12 col-md-4">
               <Link to="/club">
